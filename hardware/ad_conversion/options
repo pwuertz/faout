@@ -1,3 +1,16 @@
+DAC
 AD5061 - nanoDAC, single supply, 4 LSB INL, 4us settling time
-AD5542A - unbuffered, 1 LSB INL, 1us settling time
+AD5063 - 1 LSB INL, 1us settling, needs driver
+AD5542A - 1 LSB INL, 1us settling time, needs driver
 AD5683R - 2 LSB INL, 5V out, 20 mA
+AD5686R
+
+AD5543 - current out, build own vout output driver
+DAC8811 - current out, build own vout output driver (3V)
+
+ADC
+LTC1407A - 14bit differential dual port, LTC1566-1 input filter
+LTC2355-14 - 14bit differential 3.5 MSps
+
+Power
+LT3757 - Boost inverter for +-15V ?
