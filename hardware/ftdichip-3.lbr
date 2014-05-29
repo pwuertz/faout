@@ -388,12 +388,6 @@
 </package>
 <package name="TQFP64-12X12">
 <description>TQFP64 12x12mm 0.5mm pitch 0.25mm pad width</description>
-<wire x1="-7.895" y1="7.895" x2="7.895" y2="7.895" width="0.1524" layer="21"/>
-<wire x1="7.895" y1="7.895" x2="7.895" y2="-7.895" width="0.1524" layer="21"/>
-<wire x1="7.895" y1="-7.895" x2="-5.835" y2="-7.9" width="0.1524" layer="21"/>
-<wire x1="-5.835" y1="-7.9" x2="-7.885" y2="-5.85" width="0.1524" layer="21"/>
-<wire x1="-7.885" y1="-5.85" x2="-7.895" y2="7.895" width="0.1524" layer="21"/>
-<circle x="-5.905" y="-5.875" radius="0.635" width="0.1524" layer="21"/>
 <smd name="1" x="-3.75" y="-6.0001" dx="0.25" dy="1.7" layer="1"/>
 <smd name="2" x="-3.2501" y="-6.0001" dx="0.25" dy="1.7" layer="1"/>
 <smd name="3" x="-2.75" y="-6.0001" dx="0.25" dy="1.7" layer="1"/>
@@ -458,8 +452,29 @@
 <smd name="64" x="-6.0001" y="-3.7501" dx="1.7" dy="0.25" layer="1"/>
 <smd name="49" x="-6.0001" y="3.75" dx="1.7" dy="0.25" layer="1"/>
 <smd name="50" x="-6.0001" y="3.2499" dx="1.7" dy="0.25" layer="1"/>
-<text x="8.59" y="-4.615" size="0.6096" layer="25" font="vector" ratio="14" rot="R90" align="center-left">&gt;NAME</text>
-<text x="9.225" y="-4.615" size="0.4064" layer="27" font="vector" ratio="14" rot="R90" align="center-left">&gt;VALUE</text>
+<text x="-6.41" y="-7.615" size="0.6096" layer="25" font="vector" ratio="14" rot="R90" align="center-left">&gt;NAME</text>
+<text x="6.225" y="4.885" size="0.4064" layer="27" font="vector" ratio="14" rot="R90" align="center-left">&gt;VALUE</text>
+<wire x1="-5" y1="4.5" x2="-4.5" y2="5" width="0.1524" layer="51"/>
+<wire x1="-4.5" y1="5" x2="4.5" y2="5" width="0.1524" layer="51"/>
+<wire x1="-5" y1="-4.5" x2="-4.5" y2="-5" width="0.1524" layer="51"/>
+<wire x1="-4.5" y1="-5" x2="4.5" y2="-5" width="0.1524" layer="51"/>
+<wire x1="-5" y1="-4.5" x2="-5" y2="4.5" width="0.1524" layer="51"/>
+<wire x1="4.5" y1="-5" x2="5" y2="-4.5" width="0.1524" layer="51"/>
+<wire x1="5" y1="-4.5" x2="5" y2="4.5" width="0.1524" layer="51"/>
+<wire x1="5" y1="4.5" x2="4.5" y2="5" width="0.1524" layer="51"/>
+<circle x="-3.405" y="-3.375" radius="0.635" width="0.1524" layer="51"/>
+<wire x1="-5.4" y1="4.2" x2="-5.4" y2="4.6" width="0.25" layer="21"/>
+<wire x1="-5.4" y1="4.6" x2="-4.6" y2="5.4" width="0.25" layer="21"/>
+<wire x1="-4.6" y1="5.4" x2="-4.2" y2="5.4" width="0.25" layer="21"/>
+<wire x1="4.2" y1="5.4" x2="4.6" y2="5.4" width="0.25" layer="21"/>
+<wire x1="4.6" y1="5.4" x2="5.4" y2="4.6" width="0.25" layer="21"/>
+<wire x1="5.4" y1="4.6" x2="5.4" y2="4.2" width="0.25" layer="21"/>
+<wire x1="-4.2" y1="-5.4" x2="-4.6" y2="-5.4" width="0.25" layer="21"/>
+<wire x1="-4.6" y1="-5.4" x2="-5.4" y2="-4.6" width="0.25" layer="21"/>
+<wire x1="-5.4" y1="-4.6" x2="-5.4" y2="-4.2" width="0.25" layer="21"/>
+<wire x1="5.4" y1="-4.2" x2="5.4" y2="-4.6" width="0.25" layer="21"/>
+<wire x1="5.4" y1="-4.6" x2="4.6" y2="-5.4" width="0.25" layer="21"/>
+<wire x1="4.6" y1="-5.4" x2="4.2" y2="-5.4" width="0.25" layer="21"/>
 </package>
 <package name="QFN64">
 <description>64 pin Quad Flat No Lead Package</description>
