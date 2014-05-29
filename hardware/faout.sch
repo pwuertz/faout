@@ -1114,21 +1114,6 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 <text x="-4.5974" y="1.905" size="2.0828" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
 <text x="-5.6388" y="-4.0894" size="2.0828" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
 </package>
-<package name="TO254P470X1016X2222-3P">
-<pad name="1" x="-5.08" y="-1.016" drill="1.3716" shape="square"/>
-<pad name="2" x="-2.54" y="-1.016" drill="1.3716"/>
-<pad name="3" x="0" y="-1.016" drill="1.3716"/>
-<wire x1="-7.8232" y1="-2.8448" x2="2.7432" y2="-2.8448" width="0.1524" layer="21"/>
-<wire x1="2.7432" y1="-2.8448" x2="2.7432" y2="1.8288" width="0.1524" layer="21"/>
-<wire x1="2.7432" y1="1.8288" x2="-7.8232" y2="1.8288" width="0.1524" layer="21"/>
-<wire x1="-7.8232" y1="1.8288" x2="-7.8232" y2="-2.8448" width="0.1524" layer="21"/>
-<wire x1="-7.8232" y1="-2.8448" x2="2.7432" y2="-2.8448" width="0.1524" layer="51"/>
-<wire x1="2.7432" y1="-2.8448" x2="2.7432" y2="1.8288" width="0.1524" layer="51"/>
-<wire x1="2.7432" y1="1.8288" x2="-7.8232" y2="1.8288" width="0.1524" layer="51"/>
-<wire x1="-7.8232" y1="1.8288" x2="-7.8232" y2="-2.8448" width="0.1524" layer="51"/>
-<text x="-7.4422" y="2.54" size="2.0828" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
-<text x="-8.1534" y="-5.5372" size="2.0828" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
-</package>
 <package name="TO254P450X1020X1935-3P">
 <pad name="1" x="-5.08" y="-1.0922" drill="1.27" shape="square"/>
 <pad name="2" x="-2.54" y="-1.0922" drill="1.27"/>
@@ -1143,8 +1128,8 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 <wire x1="2.667" y1="1.7526" x2="2.667" y2="-1.7018" width="0.1524" layer="51"/>
 <wire x1="2.667" y1="-1.7018" x2="1.4986" y2="-2.8448" width="0.1524" layer="51"/>
 <wire x1="1.4986" y1="-2.8448" x2="-7.747" y2="-2.8448" width="0.1524" layer="51"/>
-<text x="-7.1882" y="2.7686" size="2.0828" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
-<text x="-8.1788" y="-6.0198" size="2.0828" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
+<text x="-7.155" y="2.84" size="0.6096" layer="25" font="vector" ratio="14" align="center-left">&gt;NAME</text>
+<text x="-7.155" y="-4.145" size="0.4064" layer="27" font="vector" ratio="14" align="center-left">&gt;VALUE</text>
 </package>
 <package name="SOT95P251X112-3N">
 <smd name="1" x="-0.9398" y="-1.0922" dx="0.5588" dy="1.143" layer="1"/>
@@ -1763,16 +1748,16 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 <text x="-4.8768" y="6.4262" size="2.0828" layer="95" ratio="10" rot="SR0">&gt;NAME</text>
 <text x="-4.9784" y="-12.827" size="2.0828" layer="96" ratio="10" rot="SR0">&gt;VALUE</text>
 </symbol>
-<symbol name="LM2940T-12.0">
-<pin name="IN" x="-17.78" y="-2.54" length="middle" direction="in"/>
+<symbol name="L7812ACV">
+<pin name="IN" x="-17.78" y="0" length="middle" direction="in"/>
 <pin name="GND" x="-17.78" y="-5.08" length="middle" direction="pas"/>
-<pin name="OUT" x="17.78" y="-5.08" length="middle" direction="out" rot="R180"/>
-<wire x1="-12.7" y1="2.54" x2="-12.7" y2="-10.16" width="0.4064" layer="94"/>
+<pin name="OUT" x="17.78" y="0" length="middle" direction="out" rot="R180"/>
+<wire x1="-12.7" y1="5.08" x2="-12.7" y2="-10.16" width="0.4064" layer="94"/>
 <wire x1="-12.7" y1="-10.16" x2="12.7" y2="-10.16" width="0.4064" layer="94"/>
-<wire x1="12.7" y1="-10.16" x2="12.7" y2="2.54" width="0.4064" layer="94"/>
-<wire x1="12.7" y1="2.54" x2="-12.7" y2="2.54" width="0.4064" layer="94"/>
-<text x="-5.4864" y="4.5466" size="2.0828" layer="95" ratio="10" rot="SR0">&gt;NAME</text>
-<text x="-4.572" y="-12.9032" size="2.0828" layer="96" ratio="10" rot="SR0">&gt;VALUE</text>
+<wire x1="12.7" y1="-10.16" x2="12.7" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="12.7" y1="5.08" x2="-12.7" y2="5.08" width="0.4064" layer="94"/>
+<text x="-4.7244" y="9.1186" size="2.0828" layer="95" ratio="10" rot="SR0">&gt;NAME</text>
+<text x="-4.6228" y="-14.8336" size="2.0828" layer="96" ratio="10" rot="SR0">&gt;VALUE</text>
 </symbol>
 <symbol name="L7912ACV">
 <pin name="IN" x="-17.78" y="0" length="middle" direction="in"/>
@@ -2526,13 +2511,13 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 </device>
 </devices>
 </deviceset>
-<deviceset name="LM2940T-12.0" prefix="U">
-<description>IC, LDO VOLT REG, 12V, 1A</description>
+<deviceset name="L7812ACV" prefix="Q">
+<description>Positive voltage regulator ICs</description>
 <gates>
-<gate name="A" symbol="LM2940T-12.0" x="0" y="0"/>
+<gate name="A" symbol="L7812ACV" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="TO254P470X1016X2222-3P">
+<device name="" package="TO254P450X1020X1935-3P">
 <connects>
 <connect gate="A" pin="GND" pad="2"/>
 <connect gate="A" pin="IN" pad="1"/>
@@ -2540,11 +2525,11 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 </connects>
 <technologies>
 <technology name="">
-<attribute name="MPN" value="LM2940T-12.0" constant="no"/>
-<attribute name="OC_FARNELL" value="9485872" constant="no"/>
-<attribute name="OC_NEWARK" value="41K4614" constant="no"/>
+<attribute name="MPN" value="L7812ACV" constant="no"/>
+<attribute name="OC_FARNELL" value="1087091" constant="no"/>
+<attribute name="OC_NEWARK" value="89K0786" constant="no"/>
 <attribute name="PACKAGE" value="TO-220" constant="no"/>
-<attribute name="SUPPLIER" value="NATIONAL SEMICONDUCTOR" constant="no"/>
+<attribute name="SUPPLIER" value="STMicroelectronics" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -18667,8 +18652,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <attribute name="OC_FARNELL" value="1833803"/>
 </part>
 <part name="JP1" library="pinhead" deviceset="PINHD-1X3" device=""/>
-<part name="U3" library="faout" deviceset="LM2940T-12.0" device=""/>
-<part name="Q1" library="faout" deviceset="L7912ACV" device=""/>
+<part name="U3" library="faout" deviceset="L7812ACV" device=""/>
+<part name="U99" library="faout" deviceset="L7912ACV" device=""/>
 <part name="A+12V_PWR7" library="faout" deviceset="A+12V" device=""/>
 <part name="U$1" library="faout" deviceset="A-12V" device=""/>
 <part name="GND_PWR13" library="Bogdan_Commons" deviceset="GND" device=""/>
@@ -18677,13 +18662,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="C12" library="faout" deviceset="C_EU" device="0805" value="10uF">
 <attribute name="OC_FARNELL" value="1867958"/>
 </part>
-<part name="C8" library="faout" deviceset="C_EU" device="0805" value="10uF">
-<attribute name="OC_FARNELL" value="1867958"/>
-</part>
 <part name="C14" library="faout" deviceset="C_EU" device="0805" value="10uF">
-<attribute name="OC_FARNELL" value="1867958"/>
-</part>
-<part name="C9" library="faout" deviceset="C_EU" device="0805" value="10uF">
 <attribute name="OC_FARNELL" value="1867958"/>
 </part>
 <part name="C13" library="faout" deviceset="C_EU" device="0805" value="10uF">
@@ -18708,6 +18687,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </part>
 <part name="GND_PWR80" library="Bogdan_Commons" deviceset="GND" device=""/>
 <part name="U1" library="faout" deviceset="93LC46BT-I/OT" device=""/>
+<part name="C87" library="faout" deviceset="C_EU" device="0603" value="100nF">
+<attribute name="OC_FARNELL" value="1740621"/>
+</part>
+<part name="C88" library="faout" deviceset="C_EU" device="0603" value="100nF">
+<attribute name="OC_FARNELL" value="1740621"/>
+</part>
 </parts>
 <sheets>
 <sheet>
@@ -19217,24 +19202,18 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <attribute name="OC_FARNELL" x="63.5" y="5.08" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="JP1" gate="A" x="-20.32" y="2.54" rot="MR0"/>
-<instance part="U3" gate="A" x="10.16" y="20.32"/>
-<instance part="Q1" gate="A" x="10.16" y="-10.16"/>
-<instance part="A+12V_PWR7" gate="G$1" x="43.18" y="17.78"/>
+<instance part="U3" gate="A" x="10.16" y="17.78"/>
+<instance part="U99" gate="A" x="10.16" y="-10.16"/>
+<instance part="A+12V_PWR7" gate="G$1" x="43.18" y="20.32"/>
 <instance part="U$1" gate="G$1" x="43.18" y="-12.7"/>
 <instance part="GND_PWR13" gate="A" x="-17.78" y="-2.54"/>
 <instance part="GND_PWR75" gate="A" x="-10.16" y="-17.78"/>
 <instance part="GND_PWR76" gate="A" x="-10.16" y="10.16"/>
-<instance part="C12" gate="G$1" x="35.56" y="12.7">
-<attribute name="OC_FARNELL" x="35.56" y="12.7" size="1.778" layer="96" display="off"/>
+<instance part="C12" gate="G$1" x="35.56" y="15.24">
+<attribute name="OC_FARNELL" x="35.56" y="15.24" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="C8" gate="G$1" x="30.48" y="12.7">
-<attribute name="OC_FARNELL" x="30.48" y="12.7" size="1.778" layer="96" display="off"/>
-</instance>
-<instance part="C14" gate="G$1" x="40.64" y="12.7">
-<attribute name="OC_FARNELL" x="40.64" y="12.7" size="1.778" layer="96" display="off"/>
-</instance>
-<instance part="C9" gate="G$1" x="30.48" y="-5.08">
-<attribute name="OC_FARNELL" x="30.48" y="-5.08" size="1.778" layer="96" display="off"/>
+<instance part="C14" gate="G$1" x="40.64" y="15.24">
+<attribute name="OC_FARNELL" x="40.64" y="15.24" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="C13" gate="G$1" x="35.56" y="-5.08">
 <attribute name="OC_FARNELL" x="35.56" y="-5.08" size="1.778" layer="96" display="off"/>
@@ -19248,7 +19227,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="C2" gate="G$1" x="-10.16" y="-10.16">
 <attribute name="OC_FARNELL" x="-10.16" y="-10.16" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="GND_PWR77" gate="A" x="43.18" y="5.08"/>
+<instance part="GND_PWR77" gate="A" x="43.18" y="7.62"/>
 <instance part="GND_PWR78" gate="A" x="43.18" y="0" rot="R180"/>
 <instance part="U2" gate="A" x="10.16" y="48.26"/>
 <instance part="GND_PWR79" gate="A" x="-10.16" y="40.64"/>
@@ -19258,6 +19237,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </instance>
 <instance part="GND_PWR80" gate="A" x="35.56" y="38.1"/>
 <instance part="U1" gate="A" x="-2.54" y="-170.18"/>
+<instance part="C87" gate="G$1" x="27.94" y="15.24">
+<attribute name="OC_FARNELL" x="27.94" y="15.24" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C88" gate="G$1" x="27.94" y="-5.08">
+<attribute name="OC_FARNELL" x="27.94" y="-5.08" size="1.778" layer="96" display="off"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -20639,7 +20624,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="GND_PWR13" gate="A" pin="GND"/>
 </segment>
 <segment>
-<pinref part="Q1" gate="A" pin="GND"/>
+<pinref part="U99" gate="A" pin="GND"/>
 <pinref part="GND_PWR75" gate="A" pin="GND"/>
 <wire x1="-10.16" y1="-15.24" x2="-7.62" y2="-15.24" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="P$2"/>
@@ -20649,31 +20634,30 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="U3" gate="A" pin="GND"/>
 <pinref part="GND_PWR76" gate="A" pin="GND"/>
 <wire x1="-10.16" y1="12.7" x2="-7.62" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="-7.62" y1="12.7" x2="-7.62" y2="15.24" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="P$2"/>
 <junction x="-10.16" y="12.7"/>
 </segment>
 <segment>
 <pinref part="GND_PWR78" gate="A" pin="GND"/>
-<pinref part="C9" gate="G$1" pin="P$1"/>
 <wire x1="43.18" y1="-2.54" x2="40.64" y2="-2.54" width="0.1524" layer="91"/>
 <pinref part="C13" gate="G$1" pin="P$1"/>
 <junction x="35.56" y="-2.54"/>
 <wire x1="40.64" y1="-2.54" x2="35.56" y2="-2.54" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="-2.54" x2="30.48" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="-2.54" x2="27.94" y2="-2.54" width="0.1524" layer="91"/>
 <pinref part="C15" gate="G$1" pin="P$1"/>
 <junction x="40.64" y="-2.54"/>
+<pinref part="C88" gate="G$1" pin="P$1"/>
 </segment>
 <segment>
-<pinref part="C8" gate="G$1" pin="P$2"/>
 <pinref part="GND_PWR77" gate="A" pin="GND"/>
-<wire x1="30.48" y1="7.62" x2="35.56" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="10.16" x2="35.56" y2="10.16" width="0.1524" layer="91"/>
 <pinref part="C14" gate="G$1" pin="P$2"/>
-<junction x="40.64" y="7.62"/>
-<wire x1="35.56" y1="7.62" x2="40.64" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="7.62" x2="43.18" y2="7.62" width="0.1524" layer="91"/>
+<junction x="40.64" y="10.16"/>
+<wire x1="35.56" y1="10.16" x2="40.64" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="10.16" x2="43.18" y2="10.16" width="0.1524" layer="91"/>
 <pinref part="C12" gate="G$1" pin="P$2"/>
-<junction x="35.56" y="7.62"/>
+<junction x="35.56" y="10.16"/>
+<pinref part="C87" gate="G$1" pin="P$2"/>
 </segment>
 <segment>
 <pinref part="U2" gate="A" pin="GND"/>
@@ -21553,16 +21537,15 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <segment>
 <pinref part="U3" gate="A" pin="OUT"/>
 <pinref part="A+12V_PWR7" gate="G$1" pin="A+12V"/>
-<wire x1="27.94" y1="15.24" x2="30.48" y2="15.24" width="0.1524" layer="91"/>
 <pinref part="C12" gate="G$1" pin="P$1"/>
-<wire x1="30.48" y1="15.24" x2="35.56" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="15.24" x2="40.64" y2="15.24" width="0.1524" layer="91"/>
-<junction x="35.56" y="15.24"/>
-<pinref part="C8" gate="G$1" pin="P$1"/>
-<junction x="30.48" y="15.24"/>
+<wire x1="27.94" y1="17.78" x2="35.56" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="17.78" x2="40.64" y2="17.78" width="0.1524" layer="91"/>
+<junction x="35.56" y="17.78"/>
 <pinref part="C14" gate="G$1" pin="P$1"/>
-<wire x1="40.64" y1="15.24" x2="43.18" y2="15.24" width="0.1524" layer="91"/>
-<junction x="40.64" y="15.24"/>
+<wire x1="40.64" y1="17.78" x2="43.18" y2="17.78" width="0.1524" layer="91"/>
+<junction x="40.64" y="17.78"/>
+<pinref part="C87" gate="G$1" pin="P$1"/>
+<junction x="27.94" y="17.78"/>
 </segment>
 </net>
 <net name="A+3V3" class="0">
@@ -21652,18 +21635,17 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="U14" gate="A" pin="V-"/>
 </segment>
 <segment>
-<pinref part="Q1" gate="A" pin="OUTPUT"/>
 <pinref part="U$1" gate="G$1" pin="A-12V"/>
-<wire x1="27.94" y1="-10.16" x2="30.48" y2="-10.16" width="0.1524" layer="91"/>
-<pinref part="C9" gate="G$1" pin="P$2"/>
-<wire x1="30.48" y1="-10.16" x2="35.56" y2="-10.16" width="0.1524" layer="91"/>
-<junction x="30.48" y="-10.16"/>
 <pinref part="C13" gate="G$1" pin="P$2"/>
 <wire x1="35.56" y1="-10.16" x2="40.64" y2="-10.16" width="0.1524" layer="91"/>
-<junction x="35.56" y="-10.16"/>
 <pinref part="C15" gate="G$1" pin="P$2"/>
 <wire x1="40.64" y1="-10.16" x2="43.18" y2="-10.16" width="0.1524" layer="91"/>
 <junction x="40.64" y="-10.16"/>
+<pinref part="U99" gate="A" pin="OUTPUT"/>
+<pinref part="C88" gate="G$1" pin="P$2"/>
+<junction x="27.94" y="-10.16"/>
+<wire x1="27.94" y1="-10.16" x2="35.56" y2="-10.16" width="0.1524" layer="91"/>
+<junction x="35.56" y="-10.16"/>
 </segment>
 </net>
 <net name="N$12" class="0">
@@ -22143,7 +22125,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="JP1" gate="A" pin="2"/>
 <wire x1="-17.78" y1="2.54" x2="-15.24" y2="2.54" width="0.1524" layer="91"/>
 <wire x1="-15.24" y1="2.54" x2="-15.24" y2="-7.62" width="0.1524" layer="91"/>
-<pinref part="Q1" gate="A" pin="IN"/>
+<pinref part="U99" gate="A" pin="IN"/>
 <wire x1="-15.24" y1="-7.62" x2="-10.16" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="-10.16" y1="-7.62" x2="-7.62" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="-7.62" y1="-7.62" x2="-7.62" y2="-10.16" width="0.1524" layer="91"/>
