@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 import time
 import numpy as np
-import ctypes
 import ftdi
 
 class FT2232H:
+    
+    READ_CHUNKSIZE = 1024
+    WRITE_CHUNKSIZE = 1024
     
     def __init__(self):
         # open channel A
@@ -37,7 +39,8 @@ class FT2232H:
         try:            
             self.ft_ctx.usb_read_timeout = 5000000;
             self.ft_ctx.usb_write_timeout = 5000000;
-            ftdi.ftdi_read_data_set_chunksize(self.ft_ctx, 1<<15)
+            ftdi.ftdi_read_data_set_chunksize(self.ft_ctx, self.READ_CHUNKSIZE)
+            ftdi.ftdi_write_data_set_chunksize(self.ft_ctx, self.WRITE_CHUNKSIZE)
             
             if ftdi.ftdi_usb_reset(self.ft_ctx) != 0:
                 raise RuntimeError("Reset failed")
@@ -52,17 +55,24 @@ class FT2232H:
             self.close()
             raise
 
-    def write(self, array):
-        #array = np.ascontiguousarray(array)
-        #pa = array.ctypes.data_as(ctypes.POINTER(ctypes.c_ubyte))
-        #size = ctypes.c_uint32(array.nbytes)
-        data = str(array.data)
-        return ftdi.ftdi_write_data(self.ft_ctx, data, len(data))
+    def write(self, data):
+        r = ftdi.ftdi_write_data(self.ft_ctx, data, len(data))
+        if r >= 0:
+            return r
+        else:
+            raise RuntimeError("Error writing (%d)" % r)
+
+    def read(self, n):
+        buf = "\x00"*n
+        r = ftdi.ftdi_read_data(self.ft_ctx, buf, n)
+        if r >= 0:
+            return buf[:r]
+        else:
+            raise RuntimeError("Error reading (%d)" % r)
 
     def __del__(self):
         print "closing"
         self.close()
-
 
     def close(self):
         # close channel A
