@@ -13,7 +13,6 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity ft2232fifo is
-    generic (write_before_read: boolean := true);
     port (
         -- ftdi interface
         usb_clk: in std_logic;
@@ -31,7 +30,8 @@ entity ft2232fifo is
         fifo_in_data: out std_logic_vector(7 downto 0);
         fifo_out_rd_en: out std_logic;
         fifo_out_empty: in std_logic;
-        fifo_out_data: in std_logic_vector(7 downto 0)
+        fifo_out_data: in std_logic_vector(7 downto 0);
+        write_before_read: in std_logic
     );
 end ft2232fifo;
 
@@ -112,12 +112,12 @@ begin
     end if;
 end process;
 
-comb_state: process(state, could_write, could_read)
+comb_state: process(state, could_write, could_read, write_before_read)
 begin
     next_state <= state;
     
     -- switch read/write modes if desired
-    if write_before_read then
+    if write_before_read = '1' then
         if state = s_read_mode and could_write = '1' then
             next_state <= s_switch_to_write1;
         elsif state = s_write_mode and could_write = '0' and could_read = '1' then
