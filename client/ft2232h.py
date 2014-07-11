@@ -70,6 +70,17 @@ class FT2232H:
         else:
             raise RuntimeError("Error reading (%d)" % r)
 
+    def read_wait(self, n):
+        recv = self.read(n)
+        i = 0
+        while len(recv) != n and i < 20:
+            time.sleep(.1)
+            recv += self.read(n-len(recv))
+            i += 1
+        if len(recv) != n:
+            raise RuntimeError("Read timeout")
+        return recv
+
     def __del__(self):
         print "closing"
         self.close()
