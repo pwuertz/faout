@@ -47,7 +47,7 @@ seg_out <= "0111111" when mux_in="0000" else
            "1111101" when mux_in="0110" else
            "0000111" when mux_in="0111" else
            "1111111" when mux_in="1000" else
-           "1100111" when mux_in="1001" else
+           "1101111" when mux_in="1001" else
            "1110111" when mux_in="1010" else
            "1111100" when mux_in="1011" else
            "0111001" when mux_in="1100" else
