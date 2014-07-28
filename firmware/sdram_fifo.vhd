@@ -19,17 +19,14 @@ entity sdram_fifo is
         reset: in std_logic;
         clear: in std_logic;
         rewind: in std_logic;
-
         rd_en: in std_logic;
         rd_ack: out std_logic;
         wr_en: in std_logic;
         wr_ack: out std_logic;
         data_wr: in std_logic_vector(15 downto 0);
         data_rd: out std_logic_vector(15 downto 0);
-        
         empty: out std_logic;
         full: out std_logic;
-
         -- sdram interface
         SDRAM_CLK: out std_logic;
         SDRAM_CKE: out std_logic;
@@ -38,7 +35,7 @@ entity sdram_fifo is
         SDRAM_CAS: out std_logic;
         SDRAM_WE: out std_logic;
         SDRAM_DQM: out std_logic_vector(1 downto 0);
-        SDRAM_ADDR: out std_logic_vector(12 downto 0);
+        SDRAM_ADDR: out std_logic_vector(11 downto 0);
         SDRAM_BA: out std_logic_vector(1 downto 0);
         SDRAM_DQ: inout std_logic_vector(15 downto 0)
     );
@@ -58,15 +55,15 @@ architecture sdram_fifo_arch of sdram_fifo is
     constant CMD_REFRESH       : std_logic_vector(3 downto 0) := "0001";
     constant CMD_LOAD_MODE_REG : std_logic_vector(3 downto 0) := "0000";
 
-    constant MODE_REG          : std_logic_vector(12 downto 0) := 
+    constant MODE_REG          : std_logic_vector(11 downto 0) := 
     -- Reserved, wr bust, OpMode, CAS Latency (2), Burst Type, Burst Length (page)
-         "000" &   "0"  &  "00"  &    "010"      &     "0"    &   "111";
+       "00"    & "0"    & "00"  & "010"          & "0"       & "111";
 
     -- registered signals from/to ram
     signal iob_command     : std_logic_vector( 3 downto 0) := CMD_NOP;
     signal next_command    : std_logic_vector( 3 downto 0);
-    signal iob_address     : std_logic_vector(12 downto 0) := (others => '0');
-    signal next_address    : std_logic_vector(12 downto 0);
+    signal iob_address     : std_logic_vector(11 downto 0) := (others => '0');
+    signal next_address    : std_logic_vector(11 downto 0);
     signal iob_bank        : std_logic_vector( 1 downto 0) := (others => '0');
     signal next_bank       : std_logic_vector( 1 downto 0);
     signal iob_dout        : std_logic_vector(15 downto 0) := (others => '0');
