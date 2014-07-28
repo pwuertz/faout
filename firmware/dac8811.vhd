@@ -1,3 +1,7 @@
+-------------------------------------------------------------------------------
+-- DAC8811 Module (output clock = internal clock)
+-------------------------------------------------------------------------------
+
 library unisim;
 use unisim.vcomponents.all;
 
@@ -6,12 +10,14 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity dac8811 is
-    Port (clk: in std_logic;
-          rst: in std_logic;
-          data: in std_logic_vector(15 downto 0);
-          s_clk: out std_logic;
-          s_cs: out std_logic;
-          s_dout: out std_logic);
+    port (
+        clk: in std_logic;
+        start: in std_logic;
+        data: in std_logic_vector(15 downto 0);
+        s_clk: out std_logic;
+        s_cs: out std_logic;
+        s_dout: out std_logic
+    );
 end dac8811;
 
 architecture dac8811_arch of dac8811 is
@@ -45,10 +51,10 @@ ODDR2_inst : ODDR2
         S => '0');
 
 -- synchronous process for state reset and update
-sync_proc: process(clk, rst)
+sync_proc: process(clk, start)
 begin
     if rising_edge(clk) then
-        if (rst = '1') then
+        if (start = '1') then
             state.bit_count <= 0;
             state.fsm_state <= s_preparing;
             state.shift_reg <= data;
