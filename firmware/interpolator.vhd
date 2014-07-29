@@ -1,119 +1,166 @@
+-------------------------------------------------------------------------------
+-- 16bit Linear Interpolation Module
+--
+-- Successively read samples from a FIFO and calculate linear interpolated
+-- values between the last and the next sample.
+-------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all; 
 use ieee.numeric_std.all; 
 
 entity interpolator is
-    generic (NUM_CYC: integer := 25); -- must be >= 21
+    generic (NUM_CYC: integer := 30);
     port (
         clk: in std_logic;
         rst: in std_logic;
-        y_next: in std_logic_vector(15 downto 0);
-        n_next: in std_logic_vector(15 downto 0);
-        rd_next: out std_logic;
-        y_out: out std_logic_vector(15 downto 0)
+        -- FIFO interface
+        data_in: in std_logic_vector(15 downto 0);
+        data_empty: in std_logic;
+        data_rd: out std_logic;
+        -- output
+        running: out std_logic;
+        y_out: out std_logic_vector(15 downto 0);
+        y_valid: out std_logic
     );
 end interpolator;
 
 architecture interpolator_arch of interpolator is
 
     component fraction
-    port(clk: in std_logic;
-         start: in std_logic;
-         n: in std_logic_vector(15 downto 0);
-         i: in std_logic_vector(15 downto 0);
-         frac: out std_logic_vector(16 downto 0);
-         done: out std_logic);
+    port(
+        clk: in std_logic;
+        start: in std_logic;
+        n: in std_logic_vector(15 downto 0);
+        i: in std_logic_vector(15 downto 0);
+        frac: out std_logic_vector(16 downto 0);
+        done: out std_logic
+    );
     end component;
 
+    signal frac_start: std_logic;
     signal frac_done: std_logic;
-    signal frac: std_logic_vector(16 downto 0);
+    signal frac_data: std_logic_vector(16 downto 0);
     signal y_interp: unsigned(15 downto 0);
 
     type state_t is record
         y_last: unsigned(15 downto 0);
         y_next: unsigned(15 downto 0);
-        y_out: unsigned(15 downto 0);
         i_cyc: integer range 0 to NUM_CYC-1;
         i_point: unsigned(15 downto 0);
         n_points: unsigned(15 downto 0);
-        frac_start: std_logic;
+        i_n_frac: std_logic_vector(16 downto 0);
+        i_n_frac_valid: std_logic;
+        y_out: std_logic_vector(15 downto 0);
+        y_out_valid: std_logic;
+        running: std_logic;
     end record;
 
     constant default_state : state_t := (
         y_last => (others => '0'),
         y_next => (others => '0'),
-        y_out => (others => '0'),
         i_cyc => 0,
         i_point => to_unsigned(1, 16),
         n_points => to_unsigned(1, 16),
-        frac_start => '0');
+        i_n_frac => (others => '0'),
+        i_n_frac_valid => '0',
+        y_out => (others => '0'),
+        y_out_valid => '0',
+        running => '0'
+    );
 
-    signal state, state_next: state_t;
+    signal state: state_t := default_state;
+    signal state_next: state_t;
 
 begin
 
-ufraction: fraction port map (
+fraction_inst: fraction
+port map (
     clk => clk,
-    start => state.frac_start,
+    start => frac_start,
     i => std_logic_vector(state.i_point),
     n => std_logic_vector(state.n_points),
-    frac => frac,
-    done => frac_done);
+    frac => frac_data,
+    done => frac_done
+);
 
 sync_process: process(clk, rst)
 begin
     if rising_edge(clk) then
         if rst = '1' then
             state <= default_state;
+            state.running <= '1';
         else
             state <= state_next;
         end if;
     end if;
 end process;
 
-next_state_proc: process(state, y_next, n_next, y_interp, frac_done, rst)
+next_state_proc: process(state, data_in, data_empty, frac_data, frac_done, y_interp)
 begin
     state_next <= state;
-    state_next.frac_start <= '0';
-    rd_next <= '0';
+    state_next.i_n_frac_valid <= '0';
+    state_next.y_out_valid <= '0';
+    frac_start <= '0';
+    data_rd <= '0';
 
-    -- at cycle 0: check if a new sample is required
-    -- TODO: do not request samples when in reset mode, look for cleaner approach
-    if state.i_cyc = 0 and state.i_point = 1 and rst = '0' then
-        rd_next <= '1';
-    end if;
+    if state.running = '1' then
 
-    -- at cycle 1: start calculation and read new sample if necessary
-    if state.i_cyc = 1 then
-        if state.i_point = 1 then
-            -- interpolate to next end-point
-            state_next.n_points <= unsigned(n_next);
-            state_next.y_last <= state.y_next;
-            state_next.y_next <= unsigned(y_next);
-        end if;
-        state_next.frac_start <= '1';
-    end if;
-
-    -- increment or reset cycle and point counter
-    if state.i_cyc /= (NUM_CYC-1) then
-        state_next.i_cyc <= state.i_cyc + 1;
-    else
-        state_next.i_cyc <= 0;
-        if state.i_point = state.n_points then
-            state_next.i_point <= to_unsigned(1, 16);
+        -- increment or reset cycle counter
+        if state.i_cyc /= (NUM_CYC-1) then
+            state_next.i_cyc <= state.i_cyc + 1;
         else
-            state_next.i_point <= state.i_point + 1;
+            state_next.i_cyc <= 0;
+            -- increment or reset point counter on cycle reset
+            if state.i_point /= state.n_points then
+                state_next.i_point <= state.i_point + 1;
+            else
+                state_next.i_point <= to_unsigned(1, 16);
+            end if;
         end if;
-    end if;
-    
-    -- if fraction calculation is complete/valid, forward result
-    if frac_done = '1' then
-        state_next.y_out <= y_interp;
+
+        -- cycle=1, point=1: register new sample value or stop
+        if state.i_cyc=1 and state.i_point=1 then
+            if data_empty = '0' then
+                state_next.y_last <= state.y_next;
+                state_next.y_next <= unsigned(data_in);
+                data_rd <= '1';
+            else
+                state_next.running <= '0';
+            end if;
+        end if;
+        
+        -- cycle=2, point=1: register new number of points or stop
+        if state.i_cyc=2 and state.i_point=1 then
+            if data_empty = '0' then
+                state_next.n_points <= unsigned(data_in);
+                data_rd <= '1';
+            else
+                state_next.running <= '0';
+            end if;
+        end if;
+
+        -- cycle=3: start calculation of i_point/n_points
+        if state.i_cyc=3 then
+            frac_start <= '1';
+        end if;
+
+        -- register i_point/n_points when valid
+        if frac_done = '1' then
+            state_next.i_n_frac <= frac_data;
+            state_next.i_n_frac_valid <= '1';
+        end if;
+
+        -- register interpolation result one cycle after registering frac_data
+        if state_next.i_n_frac_valid = '1' then
+            state_next.y_out <= std_logic_vector(y_interp);
+            state_next.y_out_valid <= '1';
+        end if;
     end if;
 
 end process;
 
-interpolation_proc: process(frac, state.y_last, state.y_next)
+interpolation_comb: process(state.i_n_frac, state.y_last, state.y_next)
     variable y2, y1: signed(16 downto 0);
     variable diff, result: signed(16 downto 0);
     variable tmp: signed(34 downto 0);
@@ -123,13 +170,15 @@ begin
     y2 := signed('0' & state.y_next(15 downto 0));
     diff := y2 - y1;
     -- add a fraction of the difference to the last y
-    tmp := diff * signed('0' & frac);
+    tmp := diff * signed('0' & state.i_n_frac);
     result := y1 + signed(tmp(34) & tmp(31 downto 16));
     --
     y_interp <= unsigned(result(15 downto 0));
 end process;
 
-y_out <= std_logic_vector(state.y_out);
+y_out <= state.y_out;
+y_valid <= state.y_out_valid;
+running <= state.running;
 
 end interpolator_arch;
 
