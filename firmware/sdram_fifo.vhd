@@ -191,10 +191,10 @@ rd_col_zero <= '1' when rd_addr(end_of_col downto start_of_col) = (sdram_column_
 wr_col_zero <= '1' when wr_addr(end_of_col downto start_of_col) = (sdram_column_bits-1 downto 0 => '0') else '0';
 
 -- emtpy, full and could read/write signals
-is_empty <= '1' when rd_addr = wr_addr else '0';
-is_full <= '1' when wr_addr = (sdram_address_width-1 downto 0 => '1') or state = s_startup else '0';
-could_read <= '1' when is_empty = '0' and rd_en = '1' and clear_flag = '0' and rewind_flag = '0' else '0';
-could_write <= '1' when is_full = '0' and wr_en = '1' and clear_flag = '0' and rewind_flag = '0' else '0';
+is_empty <= '1' when rd_addr = wr_addr or clear_flag = '1' or rewind_flag = '1' else '0';
+is_full <= '1' when wr_addr = (sdram_address_width-1 downto 0 => '1') or state = s_startup or clear_flag = '1' or rewind_flag = '1' else '0';
+could_read <= '1' when is_empty = '0' and rd_en = '1' else '0';
+could_write <= '1' when is_full = '0' and wr_en = '1' else '0';
 empty <= '1' when is_empty = '1' and data_rd_pending_empty = '1';
 full <= is_full;
 
@@ -345,10 +345,12 @@ begin
                 next_clear_flag <= '0';
                 next_rd_addr <= (others=>'0');
                 next_wr_addr <= (others=>'0');
+                next_data_rd_pending <= (others=>'0');
             elsif rewind_flag = '1' then
                 -- rewind-request resets read pointer
                 next_rewind_flag <= '0';
                 next_rd_addr <= (others=>'0');
+                next_data_rd_pending <= (others=>'0');
             elsif could_read = '1' and data_rd_pending_empty = '1' then
                 -- activate row for reading
                 next_state <= s_read_in_2;
