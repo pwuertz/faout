@@ -3,6 +3,8 @@
 --
 -- Successively read samples from a FIFO and calculate linear interpolated
 -- values between the last and the next sample.
+--
+-- data_in: next y value (31 to 16) and next number of points (15 to 0)
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -14,12 +16,13 @@ entity interpolator is
     port (
         clk: in std_logic;
         rst: in std_logic;
+        start: in std_logic;
+        running: out std_logic;
         -- FIFO interface
-        data_in: in std_logic_vector(15 downto 0);
+        data_in: in std_logic_vector(31 downto 0);
         data_empty: in std_logic;
         data_rd: out std_logic;
         -- output
-        running: out std_logic;
         y_out: out std_logic_vector(15 downto 0);
         y_valid: out std_logic
     );
@@ -56,7 +59,7 @@ architecture interpolator_arch of interpolator is
         running: std_logic;
     end record;
 
-    constant default_state : state_t := (
+    constant reset_state : state_t := (
         y_last => (others => '0'),
         y_next => (others => '0'),
         i_cyc => 0,
@@ -69,8 +72,8 @@ architecture interpolator_arch of interpolator is
         running => '0'
     );
 
-    signal state: state_t := default_state;
-    signal state_next: state_t;
+    signal state: state_t := reset_state;
+    signal next_state: state_t;
 
 begin
 
@@ -88,75 +91,72 @@ sync_process: process(clk, rst)
 begin
     if rising_edge(clk) then
         if rst = '1' then
-            state <= default_state;
-            state.running <= '1';
+            state <= reset_state;
         else
-            state <= state_next;
+            state <= next_state;
         end if;
     end if;
 end process;
 
-next_state_proc: process(state, data_in, data_empty, frac_data, frac_done, y_interp)
+next_state_proc: process(state, data_in, data_empty,
+                         frac_data, frac_done, y_interp, start)
 begin
-    state_next <= state;
-    state_next.i_n_frac_valid <= '0';
-    state_next.y_out_valid <= '0';
+    next_state <= state;
+    next_state.i_n_frac_valid <= '0';
+    next_state.y_out_valid <= '0';
     frac_start <= '0';
     data_rd <= '0';
 
-    if state.running = '1' then
-
-        -- increment or reset cycle counter
-        if state.i_cyc /= (NUM_CYC-1) then
-            state_next.i_cyc <= state.i_cyc + 1;
-        else
-            state_next.i_cyc <= 0;
-            -- increment or reset point counter on cycle reset
-            if state.i_point /= state.n_points then
-                state_next.i_point <= state.i_point + 1;
-            else
-                state_next.i_point <= to_unsigned(1, 16);
+    case state.running is
+        when '0' =>
+            if start = '1' then
+                next_state.running <= '1';
             end if;
-        end if;
-
-        -- cycle=1, point=1: register new sample value or stop
-        if state.i_cyc=1 and state.i_point=1 then
-            if data_empty = '0' then
-                state_next.y_last <= state.y_next;
-                state_next.y_next <= unsigned(data_in);
-                data_rd <= '1';
+        when '1' =>
+            -- increment or reset cycle counter
+            if state.i_cyc /= (NUM_CYC-1) then
+                next_state.i_cyc <= state.i_cyc + 1;
             else
-                state_next.running <= '0';
+                next_state.i_cyc <= 0;
+                -- increment or reset point counter on cycle reset
+                if state.i_point /= state.n_points then
+                    next_state.i_point <= state.i_point + 1;
+                else
+                    next_state.i_point <= to_unsigned(1, 16);
+                end if;
             end if;
-        end if;
-        
-        -- cycle=2, point=1: register new number of points or stop
-        if state.i_cyc=2 and state.i_point=1 then
-            if data_empty = '0' then
-                state_next.n_points <= unsigned(data_in);
-                data_rd <= '1';
-            else
-                state_next.running <= '0';
+
+            -- cycle=1, point=1: register new sample and npoints or stop
+            if state.i_cyc=1 and state.i_point=1 then
+                if data_empty = '0' then
+                    next_state.y_last <= state.y_next;
+                    next_state.y_next <= unsigned(data_in(31 downto 16));
+                    next_state.n_points <= unsigned(data_in(15 downto  0));
+                    data_rd <= '1';
+                else
+                    next_state <= reset_state;
+                end if;
             end if;
-        end if;
 
-        -- cycle=3: start calculation of i_point/n_points
-        if state.i_cyc=3 then
-            frac_start <= '1';
-        end if;
+            -- cycle=2: start calculation of i_point/n_points
+            if state.i_cyc=2 then
+                frac_start <= '1';
+            end if;
 
-        -- register i_point/n_points when valid
-        if frac_done = '1' then
-            state_next.i_n_frac <= frac_data;
-            state_next.i_n_frac_valid <= '1';
-        end if;
+            -- register i_point/n_points when valid
+            if frac_done = '1' then
+                next_state.i_n_frac <= frac_data;
+                next_state.i_n_frac_valid <= '1';
+            end if;
 
-        -- register interpolation result one cycle after registering frac_data
-        if state_next.i_n_frac_valid = '1' then
-            state_next.y_out <= std_logic_vector(y_interp);
-            state_next.y_out_valid <= '1';
-        end if;
-    end if;
+            -- register interpolation result one cycle after registering frac_data
+            if state.i_n_frac_valid = '1' then
+                next_state.y_out <= std_logic_vector(y_interp);
+                next_state.y_out_valid <= '1';
+            end if;
+        when others =>
+            null;
+    end case;
 
 end process;
 
