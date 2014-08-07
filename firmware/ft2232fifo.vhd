@@ -1,8 +1,10 @@
 -------------------------------------------------------------------------------
 -- FT2232H Sync FIFO Interface
 --
--- This component is designed to interface two dual-port FIFOs in first-word-
--- fall-through mode (zero read latency) with an FT2232H USB chip.
+-- This component is designed to interface an FT2232H USB chip with two
+-- dual-port FIFOs in first-word-fall-through (zero read latency) mode. The
+-- FIFOs are used for buffering and (de)serializing data words and for
+-- crossing the USB and FPGA clock domains.
 -------------------------------------------------------------------------------
 
 library unisim;
