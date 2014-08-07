@@ -25,6 +25,8 @@ entity sdram_fifo is
         wr_ack: out std_logic;
         data_wr: in std_logic_vector(15 downto 0);
         data_rd: out std_logic_vector(15 downto 0);
+        rd_ptr: out std_logic_vector(sdram_address_width-1 downto 0);
+        wr_ptr: out std_logic_vector(sdram_address_width-1 downto 0);
         empty: out std_logic;
         full: out std_logic;
         -- sdram interface
@@ -144,6 +146,10 @@ architecture sdram_fifo_arch of sdram_fifo is
     signal next_rewind_flag: std_logic;
 begin
 
+-- export wr/rd addresses
+rd_ptr <= std_logic_vector(rd_addr);
+wr_ptr <= std_logic_vector(wr_addr);
+
 -- counter at 2048: refresh period elapsed - refresh if idle
 -- counter at 4096: refresh period exceeded by >20us - force refresh
 pending_refresh <= counter(11);
@@ -195,7 +201,7 @@ is_empty <= '1' when rd_addr = wr_addr or clear_flag = '1' or rewind_flag = '1' 
 is_full <= '1' when wr_addr = (sdram_address_width-1 downto 0 => '1') or state = s_startup or clear_flag = '1' or rewind_flag = '1' else '0';
 could_read <= '1' when is_empty = '0' and rd_en = '1' else '0';
 could_write <= '1' when is_full = '0' and wr_en = '1' else '0';
-empty <= '1' when is_empty = '1' and data_rd_pending_empty = '1';
+empty <= '1' when is_empty = '1' and data_rd_pending_empty = '1' else '0';
 full <= is_full;
 
 
