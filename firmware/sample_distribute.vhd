@@ -86,28 +86,30 @@ begin
     fifo_rd <= '0';
     error <= '0';
 
+    -- register buffer reads
+    for I in 0 to NUM_PORTS-1 loop
+        if port_rd(I) = '1' then
+            next_port_empty_reg(I) <= '1';
+        end if;
+    end loop;
+
     -- buffer reloading
     case state.working is
         when '0' =>
-            -- register buffer reads
-            for I in 0 to NUM_PORTS-1 loop
-                if port_rd(I) = '1' then
-                    next_port_empty_reg(I) <= '1';
-                end if;
-            end loop;
-            
             -- start reloading if there are empty buffers
             if port_empty_reg /= (NUM_PORTS-1 downto 0 => '0') then
                 next_state.index <= 0;
                 next_state.word <= 0;
                 next_state.working <= '1';
+                -- additional reads are not allowed
                 error <= port_rd_any;
             end if;
 
         when '1' =>
-            error <= port_rd_any;
             -- when reloading buffers the FIFO must not be empty
             if fifo_empty = '0' then
+                -- additional reads during data distributions are not allowed
+                error <= port_rd_any;
                 -- increment indices or end buffer loop
                 if state.word = 1 then
                     next_state.word <= 0;
