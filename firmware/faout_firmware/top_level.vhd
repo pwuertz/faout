@@ -53,7 +53,7 @@ architecture top_level_arch of top_level is
     
     signal led_data: std_logic_vector(4 downto 0);
     
-    constant VERSION: integer := 44;
+    constant VERSION: integer := 45;
     
     component clock_core
     port (
@@ -307,8 +307,6 @@ begin
                     comm_reg_data_rd(6 downto 0) <= sdram_wr_ptr(22 downto 16);
                 when 10 =>
                     comm_reg_data_rd <= std_logic_vector(to_unsigned(VERSION, 16));
-                when 11 =>
-                    comm_reg_data_rd(3 downto 0) <= P1;
                 when others =>
                     comm_reg_data_rd <= (others => '1');
             end case;
@@ -359,8 +357,8 @@ begin
     end if;
 end process;
 
-sequence_start_source <= '1' when (comm_command_bits(1) = '1') or (btn(1) = '0') or (P1(0) = '1') else '0';
-sequence_stop_source <= '1' when (comm_command_bits(2) = '1') or (btn(2) = '0') or (P1(1) = '1') else '0';
+sequence_start_source <= '1' when (comm_command_bits(1) = '1') or (btn(1) = '0') or (P1(1) = '1') else '0';
+sequence_stop_source <= '1' when (comm_command_bits(2) = '1') or (btn(2) = '0') or (P1(2) = '1') else '0';
 
 process(state, sequence_prepared, sequence_running, sequence_start_source, sequence_stop_source)
 begin
