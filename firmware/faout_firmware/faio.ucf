@@ -1,6 +1,6 @@
 ## main oscillator
-NET "clk_osc"     LOC="P95" | IOSTANDARD="LVCMOS33" | TNM_NET="clk_osc";
-TIMESPEC TS_clk_osc = PERIOD clk_osc 50 MHz;
+#NET "clk_osc"     LOC="P95" | IOSTANDARD="LVCMOS33" | TNM_NET="clk_osc";
+#TIMESPEC TS_clk_osc = PERIOD clk_osc 50 MHz;
 
 ## buttons
 NET "btn<0>"     LOC="P61"  | IOSTANDARD="LVCMOS33";
@@ -28,10 +28,11 @@ NET "disp_en<0>"    LOC="P58"  | IOSTANDARD="LVCMOS33";
 NET "disp_en<1>"    LOC="P59"  | IOSTANDARD="LVCMOS33";
 
 ## port1
-NET "P1<0>"         LOC="P84"  | IOSTANDARD="LVCMOS33";
-NET "P1<1>"         LOC="P83"  | IOSTANDARD="LVCMOS33";
-NET "P1<2>"         LOC="P82"  | IOSTANDARD="LVCMOS33";
-NET "P1<3>"         LOC="P81"  | IOSTANDARD="LVCMOS33";
+NET "clk_ext"        LOC="P84"  | IOSTANDARD="LVCMOS33" | TNM_NET="clk_ext";
+TIMESPEC TS_clk_ext = PERIOD clk_ext 10 MHz;
+NET "P1_1"           LOC="P83"  | IOSTANDARD="LVCMOS33";
+NET "P1_2"           LOC="P82"  | IOSTANDARD="LVCMOS33";
+#NET "P1<3>"         LOC="P81"  | IOSTANDARD="LVCMOS33";
 
 ## sdram
 NET "SDRAM_CKE"       LOC="P33"  | IOSTANDARD="LVCMOS33";
