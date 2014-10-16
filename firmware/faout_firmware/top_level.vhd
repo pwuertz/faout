@@ -7,13 +7,14 @@ use ieee.numeric_std.all;
 
 entity top_level is
     port (
-        clk_osc: in std_logic;
+        clk_ext: in std_logic;
 
         btn: in std_logic_vector(2 downto 0);
         led: out std_logic_vector(4 downto 0);
         disp_seg: out std_logic_vector(6 downto 0);
         disp_en: out std_logic_vector(1 downto 0);
-        P1: inout std_logic_vector(3 downto 0);
+        P1_1: in std_logic;
+        P1_2: in std_logic;
 
         -- usb interface
         usb_clk: in std_logic;
@@ -53,16 +54,15 @@ architecture top_level_arch of top_level is
     
     signal led_data: std_logic_vector(4 downto 0);
     
-    constant VERSION: integer := 45;
+    constant VERSION: integer := 46;
     
     component clock_core
     port (
         clk_in: in std_logic;
-        clk_100: out std_logic;
-        clk_50: out std_logic
+        clk_100: out std_logic
     );
     end component;
-    
+
     -- display
     component segment
     port (
@@ -235,9 +235,8 @@ led <= led_data(1 downto 0) & sdram_empty & sequence_running & sequence_prepared
 
 clock_core_inst : clock_core
 port map (
-    clk_in => clk_osc,
-    clk_100 => clk,
-    clk_50 => open
+    clk_in => clk_ext,
+    clk_100 => clk
 );
 
 -------------------------------------------------------------------------------
@@ -357,8 +356,8 @@ begin
     end if;
 end process;
 
-sequence_start_source <= '1' when (comm_command_bits(1) = '1') or (btn(1) = '0') or (P1(1) = '1') else '0';
-sequence_stop_source <= '1' when (comm_command_bits(2) = '1') or (btn(2) = '0') or (P1(2) = '1') else '0';
+sequence_start_source <= '1' when (comm_command_bits(1) = '1') or (btn(1) = '0') or (P1_1 = '1') else '0';
+sequence_stop_source <= '1' when (comm_command_bits(2) = '1') or (btn(2) = '0') or (P1_2 = '1') else '0';
 
 process(state, sequence_prepared, sequence_running, sequence_start_source, sequence_stop_source)
 begin
