@@ -1,6 +1,6 @@
 ## main oscillator
-#NET "clk_osc"     LOC="P95" | IOSTANDARD="LVCMOS33" | TNM_NET="clk_osc";
-#TIMESPEC TS_clk_osc = PERIOD clk_osc 50 MHz;
+NET "clk_osc"     LOC="P95" | IOSTANDARD="LVCMOS33" | TNM_NET="clk_osc";
+TIMESPEC TS_clk_osc = PERIOD clk_osc 50 MHz;
 
 ## buttons
 NET "btn<0>"     LOC="P61"  | IOSTANDARD="LVCMOS33";

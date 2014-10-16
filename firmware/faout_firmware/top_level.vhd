@@ -7,6 +7,7 @@ use ieee.numeric_std.all;
 
 entity top_level is
     port (
+        clk_osc: in std_logic;
         clk_ext: in std_logic;
 
         btn: in std_logic_vector(2 downto 0);
@@ -50,16 +51,28 @@ end top_level;
 architecture top_level_arch of top_level is
 
     -- global signals clock/reset
+    signal clk_ext_100, clk_ext_reset, clk_ext_valid: std_logic;
+    signal clk_ext_selected: std_logic;
+    signal clk_osc_100: std_logic;
     signal clk, rst_global: std_logic;
     
     signal led_data: std_logic_vector(4 downto 0);
     
-    constant VERSION: integer := 46;
+    constant VERSION: integer := 47;
     
     component clock_core
     port (
         clk_in: in std_logic;
         clk_100: out std_logic
+    );
+    end component;
+
+    component clock_ext
+    port (
+        clk_ext_in: in std_logic;
+        clk_ext_100: out std_logic;
+        clk_ext_reset: in std_logic;
+        clk_ext_valid: out std_logic
     );
     end component;
 
@@ -216,8 +229,12 @@ architecture top_level_arch of top_level is
 
     -- registers for data/commands from usb communication
     signal comm_command_bits: std_logic_vector(15 downto 0) := (others => '0');
-    constant NUM_STATUS_BITS: integer := 10;
+    constant NUM_STATUS_BITS: integer := 12;
     signal comm_status_bits: std_logic_vector(NUM_STATUS_BITS-1 downto 0) := (others => '0');
+
+    -- configuration register
+    constant NUM_CONFIG_BITS: integer := 1;
+    signal configuration_reg: std_logic_vector(NUM_CONFIG_BITS-1 downto 0) := (others => '0');
 
     -- sequence state machine
     type fsm_state_t is (
@@ -233,11 +250,54 @@ rst_global <= '1' when (btn(0) = '0') or (comm_command_bits(0) = '1') else '0';
 
 led <= led_data(1 downto 0) & sdram_empty & sequence_running & sequence_prepared;
 
+-------------------------------------------------------------------------------
+-- generate 100MHz clock from onboard 50MHz osc and from external 10MHz ref
+
+clock_ext_inst : clock_ext
+port map (
+    clk_ext_in => clk_ext,
+    clk_ext_100 => clk_ext_100,
+    clk_ext_reset => clk_ext_reset,
+    clk_ext_valid => clk_ext_valid
+);
+
 clock_core_inst : clock_core
 port map (
-    clk_in => clk_ext,
-    clk_100 => clk
+    clk_in => clk_osc,
+    clk_100 => clk_osc_100
 );
+
+-- use configuration_reg(0) to select osc or ref for main clock (if valid)
+clk_ext_selected <= '1' when configuration_reg(0) = '1' and clk_ext_valid = '1' else '0';
+
+BUFGMUX_1_inst : BUFGMUX_1
+generic map (CLK_SEL_TYPE => "SYNC")
+port map (
+    O => clk,
+    I0 => clk_osc_100,
+    I1 => clk_ext_100,
+    S => clk_ext_selected
+);
+
+-- reset clock_ext DCM on comm_command_bits(3)
+-- reset must be held high for at least 3 external clock cycles -> use 127 internal cyc
+clk_ext_reset_hold: process(clk, comm_command_bits(3))
+    variable v_counter : natural range 0 to 127 := 127;
+begin
+    if rising_edge(clk) then
+        if comm_command_bits(3) = '1' then
+            v_counter := 0;
+            clk_ext_reset <= '1';
+        else
+            if v_counter = 127 then
+                clk_ext_reset <= '0';
+            else
+                v_counter := v_counter + 1;
+                clk_ext_reset <= '1';
+            end if;
+        end if;
+    end if;
+end process;
 
 -------------------------------------------------------------------------------
 
@@ -278,6 +338,8 @@ begin
                 when 4 =>
                     dac2_data <= comm_reg_data_wr;
                     dac2_start <= '1';
+                when 11 =>
+                    configuration_reg <= comm_reg_data_wr(NUM_CONFIG_BITS-1 downto 0);
                 when others =>
                     null;
             end case;
@@ -306,6 +368,8 @@ begin
                     comm_reg_data_rd(6 downto 0) <= sdram_wr_ptr(22 downto 16);
                 when 10 =>
                     comm_reg_data_rd <= std_logic_vector(to_unsigned(VERSION, 16));
+                when 11 =>
+                    comm_reg_data_rd(NUM_CONFIG_BITS-1 downto 0) <= configuration_reg;
                 when others =>
                     comm_reg_data_rd <= (others => '1');
             end case;
@@ -321,6 +385,7 @@ begin
         if rst_global = '1' then
             comm_status_bits <= (others => '0');
         else
+            -- bits 0-3: sequence status
             case state is
                 when s_reset => comm_status_bits(3 downto 0) <= "0000";
                 when s_idle => comm_status_bits(3 downto 0) <= "0001";
@@ -329,16 +394,22 @@ begin
                 when s_stopped => comm_status_bits(3 downto 0) <= "0100";
                 when others => comm_status_bits(3 downto 0) <= "0000";
             end case;
+            -- bits 4-5: sequence flags
             comm_status_bits(4) <= sequence_prepared;
             comm_status_bits(5) <= sequence_running;
+            -- bits 6-7: dram fifo flags
             comm_status_bits(6) <= sdram_empty;
             comm_status_bits(7) <= sdram_full;
+            -- bits 8-9: error flags
             if sequence_error = '1' then
                 comm_status_bits(8) <= '1';
             end if;
             if comm_error = '1' then
                 comm_status_bits(9) <= '1';
             end if;
+            -- bit 10-11: external clock valid/selected
+            comm_status_bits(10) <= clk_ext_valid;
+            comm_status_bits(11) <= clk_ext_selected;
         end if;
     end if;
 end process;
