@@ -13085,10 +13085,10 @@ Low profile connectors, straight&lt;p&gt;
 </part>
 <part name="U5" library="faout" deviceset="M25PE16" device="SO8N"/>
 <part name="C17" library="rcl" deviceset="CPOL-EU" device="E" value="100uF">
-<attribute name="OC_FARNELL" value="9693467"/>
+<attribute name="OC_FARNELL" value="317287"/>
 </part>
 <part name="C9" library="rcl" deviceset="CPOL-EU" device="E" value="100uF">
-<attribute name="OC_FARNELL" value="9693467"/>
+<attribute name="OC_FARNELL" value="317287"/>
 </part>
 <part name="U9" library="faout" deviceset="DAC8812" device=""/>
 <part name="SUPPLY28" library="supply2" deviceset="AGND" device=""/>
@@ -13109,18 +13109,26 @@ Low profile connectors, straight&lt;p&gt;
 <part name="SUPPLY43" library="supply2" deviceset="AGND" device=""/>
 <part name="USB1" library="molex_usb" deviceset="47346-0001" device=""/>
 <part name="R9" library="faout" deviceset="R_EU" device="0603"/>
-<part name="R18" library="faout" deviceset="R_EU" device="0603" value="10k"/>
+<part name="R18" library="faout" deviceset="R_EU" device="0603" value="10k">
+<attribute name="OC_FARNELL" value="1688472"/>
+</part>
 <part name="SUPPLY17" library="supply2" deviceset="AGND" device=""/>
 <part name="SUPPLY14" library="supply2" deviceset="AGND" device=""/>
 <part name="SUPPLY15" library="supply2" deviceset="AGND" device=""/>
 <part name="SUPPLY18" library="supply2" deviceset="AGND" device=""/>
 <part name="SUPPLY21" library="supply2" deviceset="AGND" device=""/>
 <part name="R20" library="faout" deviceset="R_EU" device="0603" value="5k"/>
-<part name="R19" library="faout" deviceset="R_EU" device="0603" value="10k"/>
+<part name="R19" library="faout" deviceset="R_EU" device="0603" value="10k">
+<attribute name="OC_FARNELL" value="1688472"/>
+</part>
 <part name="SUPPLY13" library="supply2" deviceset="AGND" device=""/>
 <part name="R21" library="faout" deviceset="R_EU" device="0603" value="5k"/>
-<part name="R22" library="faout" deviceset="R_EU" device="0603" value="10k"/>
-<part name="R23" library="faout" deviceset="R_EU" device="0603" value="10k"/>
+<part name="R22" library="faout" deviceset="R_EU" device="0603" value="10k">
+<attribute name="OC_FARNELL" value="1688472"/>
+</part>
+<part name="R23" library="faout" deviceset="R_EU" device="0603" value="10k">
+<attribute name="OC_FARNELL" value="1688472"/>
+</part>
 <part name="C71" library="faout" deviceset="C_EU" device="0603" value="20pF"/>
 <part name="C72" library="faout" deviceset="C_EU" device="0603" value="20pF"/>
 <part name="C65" library="faout" deviceset="C_EU" device="0603" value="1uF">
@@ -13152,18 +13160,26 @@ Low profile connectors, straight&lt;p&gt;
 <part name="U10" library="faout" deviceset="REF102AU" device=""/>
 <part name="U12" library="faout" deviceset="DAC8812" device=""/>
 <part name="U11" library="faout" deviceset="OPA4277UA" device=""/>
-<part name="R24" library="faout" deviceset="R_EU" device="0603" value="10k"/>
+<part name="R24" library="faout" deviceset="R_EU" device="0603" value="10k">
+<attribute name="OC_FARNELL" value="1688472"/>
+</part>
 <part name="SUPPLY29" library="supply2" deviceset="AGND" device=""/>
 <part name="SUPPLY26" library="supply2" deviceset="AGND" device=""/>
 <part name="SUPPLY27" library="supply2" deviceset="AGND" device=""/>
 <part name="SUPPLY30" library="supply2" deviceset="AGND" device=""/>
 <part name="SUPPLY33" library="supply2" deviceset="AGND" device=""/>
 <part name="R26" library="faout" deviceset="R_EU" device="0603" value="5k"/>
-<part name="R25" library="faout" deviceset="R_EU" device="0603" value="10k"/>
+<part name="R25" library="faout" deviceset="R_EU" device="0603" value="10k">
+<attribute name="OC_FARNELL" value="1688472"/>
+</part>
 <part name="SUPPLY25" library="supply2" deviceset="AGND" device=""/>
 <part name="R27" library="faout" deviceset="R_EU" device="0603" value="5k"/>
-<part name="R28" library="faout" deviceset="R_EU" device="0603" value="10k"/>
-<part name="R29" library="faout" deviceset="R_EU" device="0603" value="10k"/>
+<part name="R28" library="faout" deviceset="R_EU" device="0603" value="10k">
+<attribute name="OC_FARNELL" value="1688472"/>
+</part>
+<part name="R29" library="faout" deviceset="R_EU" device="0603" value="10k">
+<attribute name="OC_FARNELL" value="1688472"/>
+</part>
 <part name="C80" library="faout" deviceset="C_EU" device="0603" value="20pF"/>
 <part name="C81" library="faout" deviceset="C_EU" device="0603" value="20pF"/>
 <part name="C74" library="faout" deviceset="C_EU" device="0603" value="1uF">
@@ -13195,18 +13211,26 @@ Low profile connectors, straight&lt;p&gt;
 <part name="U13" library="faout" deviceset="REF102AU" device=""/>
 <part name="U15" library="faout" deviceset="DAC8812" device=""/>
 <part name="U14" library="faout" deviceset="OPA4277UA" device=""/>
-<part name="R30" library="faout" deviceset="R_EU" device="0603" value="10k"/>
+<part name="R30" library="faout" deviceset="R_EU" device="0603" value="10k">
+<attribute name="OC_FARNELL" value="1688472"/>
+</part>
 <part name="SUPPLY41" library="supply2" deviceset="AGND" device=""/>
 <part name="SUPPLY38" library="supply2" deviceset="AGND" device=""/>
 <part name="SUPPLY39" library="supply2" deviceset="AGND" device=""/>
 <part name="SUPPLY42" library="supply2" deviceset="AGND" device=""/>
 <part name="SUPPLY45" library="supply2" deviceset="AGND" device=""/>
 <part name="R32" library="faout" deviceset="R_EU" device="0603" value="5k"/>
-<part name="R31" library="faout" deviceset="R_EU" device="0603" value="10k"/>
+<part name="R31" library="faout" deviceset="R_EU" device="0603" value="10k">
+<attribute name="OC_FARNELL" value="1688472"/>
+</part>
 <part name="SUPPLY37" library="supply2" deviceset="AGND" device=""/>
 <part name="R33" library="faout" deviceset="R_EU" device="0603" value="5k"/>
-<part name="R34" library="faout" deviceset="R_EU" device="0603" value="10k"/>
-<part name="R35" library="faout" deviceset="R_EU" device="0603" value="10k"/>
+<part name="R34" library="faout" deviceset="R_EU" device="0603" value="10k">
+<attribute name="OC_FARNELL" value="1688472"/>
+</part>
+<part name="R35" library="faout" deviceset="R_EU" device="0603" value="10k">
+<attribute name="OC_FARNELL" value="1688472"/>
+</part>
 <part name="C89" library="faout" deviceset="C_EU" device="0603" value="20pF"/>
 <part name="C90" library="faout" deviceset="C_EU" device="0603" value="20pF"/>
 <part name="C83" library="faout" deviceset="C_EU" device="0603" value="1uF">
@@ -13673,18 +13697,26 @@ Low profile connectors, straight&lt;p&gt;
 <instance part="SUPPLY43" gate="G$1" x="426.72" y="-264.16"/>
 <instance part="USB1" gate="G$1" x="-7.62" y="-127" rot="MR0"/>
 <instance part="R9" gate="G$1" x="-5.08" y="-152.4"/>
-<instance part="R18" gate="G$1" x="350.52" y="-10.16" rot="R180"/>
+<instance part="R18" gate="G$1" x="350.52" y="-10.16" rot="R180">
+<attribute name="OC_FARNELL" x="350.52" y="-10.16" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="SUPPLY17" gate="G$1" x="373.38" y="-33.02" rot="R270"/>
 <instance part="SUPPLY14" gate="G$1" x="373.38" y="-27.94" rot="R270"/>
 <instance part="SUPPLY15" gate="G$1" x="414.02" y="-27.94" rot="R90"/>
 <instance part="SUPPLY18" gate="G$1" x="414.02" y="-33.02" rot="R90"/>
 <instance part="SUPPLY21" gate="G$1" x="299.72" y="-63.5"/>
 <instance part="R20" gate="G$1" x="355.6" y="-15.24" rot="R90"/>
-<instance part="R19" gate="G$1" x="360.68" y="-10.16" rot="R180"/>
+<instance part="R19" gate="G$1" x="360.68" y="-10.16" rot="R180">
+<attribute name="OC_FARNELL" x="360.68" y="-10.16" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="SUPPLY13" gate="G$1" x="299.72" y="-5.08"/>
 <instance part="R21" gate="G$1" x="355.6" y="-45.72" rot="R270"/>
-<instance part="R22" gate="G$1" x="350.52" y="-50.8" rot="R180"/>
-<instance part="R23" gate="G$1" x="360.68" y="-50.8" rot="R180"/>
+<instance part="R22" gate="G$1" x="350.52" y="-50.8" rot="R180">
+<attribute name="OC_FARNELL" x="350.52" y="-50.8" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
+<instance part="R23" gate="G$1" x="360.68" y="-50.8" rot="R180">
+<attribute name="OC_FARNELL" x="360.68" y="-50.8" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="C71" gate="G$1" x="350.52" y="-22.86"/>
 <instance part="C72" gate="G$1" x="350.52" y="-38.1" rot="R180"/>
 <instance part="C65" gate="G$1" x="294.64" y="25.4">
@@ -13716,18 +13748,26 @@ Low profile connectors, straight&lt;p&gt;
 <instance part="U10" gate="A" x="317.5" y="-96.52"/>
 <instance part="U12" gate="A" x="317.5" y="-152.4"/>
 <instance part="U11" gate="A" x="393.7" y="-137.16"/>
-<instance part="R24" gate="G$1" x="350.52" y="-119.38" rot="R180"/>
+<instance part="R24" gate="G$1" x="350.52" y="-119.38" rot="R180">
+<attribute name="OC_FARNELL" x="350.52" y="-119.38" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="SUPPLY29" gate="G$1" x="373.38" y="-142.24" rot="R270"/>
 <instance part="SUPPLY26" gate="G$1" x="373.38" y="-137.16" rot="R270"/>
 <instance part="SUPPLY27" gate="G$1" x="414.02" y="-137.16" rot="R90"/>
 <instance part="SUPPLY30" gate="G$1" x="414.02" y="-142.24" rot="R90"/>
 <instance part="SUPPLY33" gate="G$1" x="299.72" y="-172.72"/>
 <instance part="R26" gate="G$1" x="355.6" y="-124.46" rot="R90"/>
-<instance part="R25" gate="G$1" x="360.68" y="-119.38" rot="R180"/>
+<instance part="R25" gate="G$1" x="360.68" y="-119.38" rot="R180">
+<attribute name="OC_FARNELL" x="360.68" y="-119.38" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="SUPPLY25" gate="G$1" x="299.72" y="-114.3"/>
 <instance part="R27" gate="G$1" x="355.6" y="-154.94" rot="R270"/>
-<instance part="R28" gate="G$1" x="350.52" y="-160.02" rot="R180"/>
-<instance part="R29" gate="G$1" x="360.68" y="-160.02" rot="R180"/>
+<instance part="R28" gate="G$1" x="350.52" y="-160.02" rot="R180">
+<attribute name="OC_FARNELL" x="350.52" y="-160.02" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
+<instance part="R29" gate="G$1" x="360.68" y="-160.02" rot="R180">
+<attribute name="OC_FARNELL" x="360.68" y="-160.02" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="C80" gate="G$1" x="350.52" y="-132.08"/>
 <instance part="C81" gate="G$1" x="350.52" y="-147.32" rot="R180"/>
 <instance part="C74" gate="G$1" x="294.64" y="-83.82">
@@ -13759,18 +13799,26 @@ Low profile connectors, straight&lt;p&gt;
 <instance part="U13" gate="A" x="317.5" y="-208.28"/>
 <instance part="U15" gate="A" x="317.5" y="-264.16"/>
 <instance part="U14" gate="A" x="393.7" y="-248.92"/>
-<instance part="R30" gate="G$1" x="350.52" y="-231.14" rot="R180"/>
+<instance part="R30" gate="G$1" x="350.52" y="-231.14" rot="R180">
+<attribute name="OC_FARNELL" x="350.52" y="-231.14" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="SUPPLY41" gate="G$1" x="373.38" y="-254" rot="R270"/>
 <instance part="SUPPLY38" gate="G$1" x="373.38" y="-248.92" rot="R270"/>
 <instance part="SUPPLY39" gate="G$1" x="414.02" y="-248.92" rot="R90"/>
 <instance part="SUPPLY42" gate="G$1" x="414.02" y="-254" rot="R90"/>
 <instance part="SUPPLY45" gate="G$1" x="299.72" y="-284.48"/>
 <instance part="R32" gate="G$1" x="355.6" y="-236.22" rot="R90"/>
-<instance part="R31" gate="G$1" x="360.68" y="-231.14" rot="R180"/>
+<instance part="R31" gate="G$1" x="360.68" y="-231.14" rot="R180">
+<attribute name="OC_FARNELL" x="360.68" y="-231.14" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="SUPPLY37" gate="G$1" x="299.72" y="-226.06"/>
 <instance part="R33" gate="G$1" x="355.6" y="-266.7" rot="R270"/>
-<instance part="R34" gate="G$1" x="350.52" y="-271.78" rot="R180"/>
-<instance part="R35" gate="G$1" x="360.68" y="-271.78" rot="R180"/>
+<instance part="R34" gate="G$1" x="350.52" y="-271.78" rot="R180">
+<attribute name="OC_FARNELL" x="350.52" y="-271.78" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
+<instance part="R35" gate="G$1" x="360.68" y="-271.78" rot="R180">
+<attribute name="OC_FARNELL" x="360.68" y="-271.78" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="C89" gate="G$1" x="350.52" y="-243.84"/>
 <instance part="C90" gate="G$1" x="350.52" y="-259.08" rot="R180"/>
 <instance part="C83" gate="G$1" x="294.64" y="-195.58">

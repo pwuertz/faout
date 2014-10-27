@@ -3027,12 +3027,12 @@ Covered vias can be set in Masks (Limit).
 <attribute name="VALUE" x="62.5475" y="37.1475" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
 <element name="C17" library="rcl" package="PANASONIC_E" value="100uF" x="85.09" y="36.195" smashed="yes" rot="R90">
-<attribute name="OC_FARNELL" value="9693467" x="85.09" y="36.195" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_FARNELL" value="317287" x="85.09" y="36.195" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="84.0325" y="31.72" size="0.8128" layer="25" ratio="12" rot="R180"/>
 <attribute name="VALUE" x="87.315" y="34.395" size="1.016" layer="27" rot="R90"/>
 </element>
 <element name="C9" library="rcl" package="PANASONIC_E" value="100uF" x="85.09" y="47.625" smashed="yes" rot="R270">
-<attribute name="OC_FARNELL" value="9693467" x="85.09" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value="317287" x="85.09" y="47.625" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="89.1125" y="52.9925" size="0.8128" layer="25" ratio="12" rot="R180"/>
 <attribute name="VALUE" x="82.865" y="49.425" size="1.016" layer="27" rot="R270"/>
 </element>
@@ -3082,12 +3082,20 @@ Covered vias can be set in Masks (Limit).
 <attribute name="OC_FARNELL" value="1568026" x="60.0075" y="71.755" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R9" library="faout" package="R0603" value="" x="54.2925" y="73.025" rot="R270"/>
-<element name="R18" library="faout" package="R0603" value="10k" x="36.195" y="15.24"/>
+<element name="R18" library="faout" package="R0603" value="10k" x="36.195" y="15.24">
+<attribute name="OC_FARNELL" value="1688472" x="36.195" y="15.24" size="1.778" layer="27" display="off"/>
+</element>
 <element name="R20" library="faout" package="R0603" value="5k" x="36.195" y="13.335"/>
-<element name="R19" library="faout" package="R0603" value="10k" x="36.195" y="11.43" rot="R180"/>
+<element name="R19" library="faout" package="R0603" value="10k" x="36.195" y="11.43" rot="R180">
+<attribute name="OC_FARNELL" value="1688472" x="36.195" y="11.43" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
 <element name="R21" library="faout" package="R0603" value="5k" x="23.495" y="13.335" rot="R180"/>
-<element name="R22" library="faout" package="R0603" value="10k" x="23.495" y="15.24" rot="R180"/>
-<element name="R23" library="faout" package="R0603" value="10k" x="23.495" y="11.43"/>
+<element name="R22" library="faout" package="R0603" value="10k" x="23.495" y="15.24" rot="R180">
+<attribute name="OC_FARNELL" value="1688472" x="23.495" y="15.24" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="R23" library="faout" package="R0603" value="10k" x="23.495" y="11.43">
+<attribute name="OC_FARNELL" value="1688472" x="23.495" y="11.43" size="1.778" layer="27" display="off"/>
+</element>
 <element name="C71" library="faout" package="R0603" value="20pF" x="33.9725" y="17.145" rot="R180"/>
 <element name="C72" library="faout" package="R0603" value="20pF" x="26.67" y="17.145"/>
 <element name="C65" library="faout" package="R0603" value="1uF" x="23.1775" y="26.67" rot="R180">
@@ -3128,12 +3136,20 @@ Covered vias can be set in Masks (Limit).
 <attribute name="SUPPLIER" value="Texas Instruments" x="47.625" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1097479" x="47.625" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="R24" library="faout" package="R0603" value="10k" x="53.975" y="15.24"/>
+<element name="R24" library="faout" package="R0603" value="10k" x="53.975" y="15.24">
+<attribute name="OC_FARNELL" value="1688472" x="53.975" y="15.24" size="1.778" layer="27" display="off"/>
+</element>
 <element name="R26" library="faout" package="R0603" value="5k" x="53.975" y="13.335"/>
-<element name="R25" library="faout" package="R0603" value="10k" x="53.975" y="11.43" rot="R180"/>
+<element name="R25" library="faout" package="R0603" value="10k" x="53.975" y="11.43" rot="R180">
+<attribute name="OC_FARNELL" value="1688472" x="53.975" y="11.43" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
 <element name="R27" library="faout" package="R0603" value="5k" x="41.275" y="13.335" rot="R180"/>
-<element name="R28" library="faout" package="R0603" value="10k" x="41.275" y="15.24" rot="R180"/>
-<element name="R29" library="faout" package="R0603" value="10k" x="41.275" y="11.43"/>
+<element name="R28" library="faout" package="R0603" value="10k" x="41.275" y="15.24" rot="R180">
+<attribute name="OC_FARNELL" value="1688472" x="41.275" y="15.24" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="R29" library="faout" package="R0603" value="10k" x="41.275" y="11.43">
+<attribute name="OC_FARNELL" value="1688472" x="41.275" y="11.43" size="1.778" layer="27" display="off"/>
+</element>
 <element name="C80" library="faout" package="R0603" value="20pF" x="51.7525" y="17.145" rot="R180"/>
 <element name="C81" library="faout" package="R0603" value="20pF" x="44.45" y="17.145"/>
 <element name="C74" library="faout" package="R0603" value="1uF" x="40.9575" y="26.67" rot="R180">
@@ -3174,12 +3190,20 @@ Covered vias can be set in Masks (Limit).
 <attribute name="SUPPLIER" value="Texas Instruments" x="72.39" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1097479" x="72.39" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="R30" library="faout" package="R0603" value="10k" x="78.74" y="15.24"/>
+<element name="R30" library="faout" package="R0603" value="10k" x="78.74" y="15.24">
+<attribute name="OC_FARNELL" value="1688472" x="78.74" y="15.24" size="1.778" layer="27" display="off"/>
+</element>
 <element name="R32" library="faout" package="R0603" value="5k" x="78.74" y="13.335"/>
-<element name="R31" library="faout" package="R0603" value="10k" x="78.74" y="11.43" rot="R180"/>
+<element name="R31" library="faout" package="R0603" value="10k" x="78.74" y="11.43" rot="R180">
+<attribute name="OC_FARNELL" value="1688472" x="78.74" y="11.43" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
 <element name="R33" library="faout" package="R0603" value="5k" x="66.04" y="13.335" rot="R180"/>
-<element name="R34" library="faout" package="R0603" value="10k" x="66.04" y="15.24" rot="R180"/>
-<element name="R35" library="faout" package="R0603" value="10k" x="66.04" y="11.43"/>
+<element name="R34" library="faout" package="R0603" value="10k" x="66.04" y="15.24" rot="R180">
+<attribute name="OC_FARNELL" value="1688472" x="66.04" y="15.24" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="R35" library="faout" package="R0603" value="10k" x="66.04" y="11.43">
+<attribute name="OC_FARNELL" value="1688472" x="66.04" y="11.43" size="1.778" layer="27" display="off"/>
+</element>
 <element name="C89" library="faout" package="R0603" value="20pF" x="76.5175" y="17.145" rot="R180"/>
 <element name="C90" library="faout" package="R0603" value="20pF" x="69.215" y="17.145"/>
 <element name="C83" library="faout" package="R0603" value="1uF" x="65.7225" y="26.67" rot="R180">
