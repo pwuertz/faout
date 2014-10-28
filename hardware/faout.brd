@@ -5891,16 +5891,7 @@ Covered vias can be set in Masks (Limit).
 <wire x1="57.095" y1="74.415" x2="54.8325" y2="74.415" width="0.6096" layer="1"/>
 <wire x1="54.8325" y1="74.415" x2="54.2925" y2="73.875" width="0.6096" layer="1"/>
 </signal>
-<signal name="P1_2">
-<contactref element="U4" pad="87"/>
-<contactref element="SV2" pad="2"/>
-<wire x1="53.01" y1="42.065" x2="55.4075" y2="42.065" width="0.25" layer="1"/>
-<wire x1="55.4075" y1="42.065" x2="57.15" y2="40.3225" width="0.25" layer="1"/>
-<wire x1="57.15" y1="40.3225" x2="68.58" y2="40.3225" width="0.25" layer="1"/>
-<wire x1="68.58" y1="40.3225" x2="70.1675" y2="38.735" width="0.25" layer="1"/>
-<wire x1="70.1675" y1="38.735" x2="71.12" y2="38.735" width="0.25" layer="1"/>
-</signal>
-<signal name="P1_1">
+<signal name="P1_0">
 <contactref element="U4" pad="88"/>
 <contactref element="SV2" pad="1"/>
 <wire x1="53.01" y1="42.565" x2="55.86" y2="42.565" width="0.25" layer="1"/>
@@ -5910,7 +5901,7 @@ Covered vias can be set in Masks (Limit).
 <wire x1="70.1675" y1="40.005" x2="72.39" y2="40.005" width="0.25" layer="1"/>
 <wire x1="72.39" y1="40.005" x2="73.66" y2="38.735" width="0.25" layer="1"/>
 </signal>
-<signal name="P1_4">
+<signal name="P1_3">
 <contactref element="U4" pad="92"/>
 <contactref element="SV2" pad="4"/>
 <wire x1="53.01" y1="44.565" x2="55.13" y2="44.565" width="0.25" layer="1"/>
@@ -5918,7 +5909,7 @@ Covered vias can be set in Masks (Limit).
 <wire x1="58.1025" y1="41.5925" x2="70.8025" y2="41.5925" width="0.25" layer="1"/>
 <wire x1="70.8025" y1="41.5925" x2="71.12" y2="41.275" width="0.25" layer="1"/>
 </signal>
-<signal name="P1_3">
+<signal name="P1_2">
 <contactref element="U4" pad="93"/>
 <contactref element="SV2" pad="3"/>
 <wire x1="53.01" y1="45.065" x2="55.5825" y2="45.065" width="0.25" layer="1"/>
@@ -5928,7 +5919,7 @@ Covered vias can be set in Masks (Limit).
 <wire x1="69.5325" y1="42.545" x2="72.39" y2="42.545" width="0.25" layer="1"/>
 <wire x1="72.39" y1="42.545" x2="73.66" y2="41.275" width="0.25" layer="1"/>
 </signal>
-<signal name="P1_7">
+<signal name="P1_6">
 <contactref element="U4" pad="102"/>
 <contactref element="SV2" pad="7"/>
 <wire x1="53.01" y1="49.565" x2="65.37" y2="49.565" width="0.25" layer="1"/>
@@ -5936,14 +5927,14 @@ Covered vias can be set in Masks (Limit).
 <wire x1="67.31" y1="47.625" x2="72.39" y2="47.625" width="0.25" layer="1"/>
 <wire x1="72.39" y1="47.625" x2="73.66" y2="46.355" width="0.25" layer="1"/>
 </signal>
-<signal name="P1_8">
+<signal name="P1_7">
 <contactref element="U4" pad="101"/>
 <contactref element="SV2" pad="8"/>
 <wire x1="53.01" y1="49.065" x2="64.9175" y2="49.065" width="0.25" layer="1"/>
 <wire x1="64.9175" y1="49.065" x2="67.6275" y2="46.355" width="0.25" layer="1"/>
 <wire x1="67.6275" y1="46.355" x2="71.12" y2="46.355" width="0.25" layer="1"/>
 </signal>
-<signal name="P1_5">
+<signal name="P1_4">
 <contactref element="U4" pad="100"/>
 <contactref element="SV2" pad="5"/>
 <wire x1="53.01" y1="48.565" x2="64.465" y2="48.565" width="0.25" layer="1"/>
@@ -5951,12 +5942,21 @@ Covered vias can be set in Masks (Limit).
 <wire x1="67.945" y1="45.085" x2="72.39" y2="45.085" width="0.25" layer="1"/>
 <wire x1="72.39" y1="45.085" x2="73.66" y2="43.815" width="0.25" layer="1"/>
 </signal>
-<signal name="P1_6">
+<signal name="P1_5">
 <contactref element="U4" pad="99"/>
 <contactref element="SV2" pad="6"/>
 <wire x1="53.01" y1="48.065" x2="64.0125" y2="48.065" width="0.25" layer="1"/>
 <wire x1="64.0125" y1="48.065" x2="68.2625" y2="43.815" width="0.25" layer="1"/>
 <wire x1="68.2625" y1="43.815" x2="71.12" y2="43.815" width="0.25" layer="1"/>
+</signal>
+<signal name="P1_1">
+<contactref element="SV2" pad="2"/>
+<contactref element="U4" pad="87"/>
+<wire x1="53.01" y1="42.065" x2="55.4075" y2="42.065" width="0.25" layer="1"/>
+<wire x1="55.4075" y1="42.065" x2="57.15" y2="40.3225" width="0.25" layer="1"/>
+<wire x1="57.15" y1="40.3225" x2="68.58" y2="40.3225" width="0.25" layer="1"/>
+<wire x1="68.58" y1="40.3225" x2="70.1675" y2="38.735" width="0.25" layer="1"/>
+<wire x1="70.1675" y1="38.735" x2="71.12" y2="38.735" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <errors>

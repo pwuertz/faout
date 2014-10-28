@@ -14022,11 +14022,9 @@ Low profile connectors, straight&lt;p&gt;
 <label x="35.56" y="-238.76" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="248.92" y1="-116.84" x2="236.22" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="248.92" y1="-116.84" x2="233.68" y2="-116.84" width="0.1524" layer="91"/>
 <label x="236.22" y="-116.84" size="1.778" layer="95"/>
 <pinref part="U4" gate="B0" pin="IO_L3P_0"/>
-<junction x="236.22" y="-116.84"/>
-<wire x1="236.22" y1="-116.84" x2="233.68" y2="-116.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RAM_A1" class="0">
@@ -14144,11 +14142,9 @@ Low profile connectors, straight&lt;p&gt;
 <label x="35.56" y="-264.16" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="248.92" y1="-124.46" x2="236.22" y2="-124.46" width="0.1524" layer="91"/>
+<wire x1="248.92" y1="-124.46" x2="233.68" y2="-124.46" width="0.1524" layer="91"/>
 <label x="236.22" y="-124.46" size="1.778" layer="95"/>
 <pinref part="U4" gate="B0" pin="IO_L2N_0"/>
-<junction x="236.22" y="-124.46"/>
-<wire x1="236.22" y1="-124.46" x2="233.68" y2="-124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RAM_A11" class="0">
@@ -16778,19 +16774,7 @@ Low profile connectors, straight&lt;p&gt;
 <pinref part="R9" gate="G$1" pin="P$1"/>
 </segment>
 </net>
-<net name="P1_2" class="0">
-<segment>
-<pinref part="U4" gate="B1" pin="IO_L42N_GCLK6_TRDY1_1"/>
-<wire x1="233.68" y1="-195.58" x2="248.92" y2="-195.58" width="0.1524" layer="91"/>
-<label x="236.22" y="-195.58" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="-17.78" y1="-279.4" x2="-5.08" y2="-279.4" width="0.1524" layer="91"/>
-<label x="-15.24" y="-279.4" size="1.778" layer="95"/>
-<pinref part="SV2" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="P1_1" class="0">
+<net name="P1_0" class="0">
 <segment>
 <pinref part="U4" gate="B1" pin="IO_L42P_GCLK7_1"/>
 <wire x1="233.68" y1="-198.12" x2="248.92" y2="-198.12" width="0.1524" layer="91"/>
@@ -16802,7 +16786,7 @@ Low profile connectors, straight&lt;p&gt;
 <pinref part="SV2" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="P1_4" class="0">
+<net name="P1_3" class="0">
 <segment>
 <pinref part="U4" gate="B1" pin="IO_L41N_GCLK8_1"/>
 <wire x1="233.68" y1="-190.5" x2="248.92" y2="-190.5" width="0.1524" layer="91"/>
@@ -16814,7 +16798,7 @@ Low profile connectors, straight&lt;p&gt;
 <pinref part="SV2" gate="G$1" pin="4"/>
 </segment>
 </net>
-<net name="P1_3" class="0">
+<net name="P1_2" class="0">
 <segment>
 <pinref part="U4" gate="B1" pin="IO_L41P_GCLK9_IRDY1_1"/>
 <wire x1="233.68" y1="-193.04" x2="248.92" y2="-193.04" width="0.1524" layer="91"/>
@@ -16826,7 +16810,7 @@ Low profile connectors, straight&lt;p&gt;
 <pinref part="SV2" gate="G$1" pin="3"/>
 </segment>
 </net>
-<net name="P1_7" class="0">
+<net name="P1_6" class="0">
 <segment>
 <pinref part="U4" gate="B1" pin="IO_L32P_1"/>
 <wire x1="233.68" y1="-172.72" x2="248.92" y2="-172.72" width="0.1524" layer="91"/>
@@ -16838,7 +16822,7 @@ Low profile connectors, straight&lt;p&gt;
 <pinref part="SV2" gate="G$1" pin="7"/>
 </segment>
 </net>
-<net name="P1_8" class="0">
+<net name="P1_7" class="0">
 <segment>
 <pinref part="U4" gate="B1" pin="IO_L32N_1"/>
 <wire x1="233.68" y1="-170.18" x2="248.92" y2="-170.18" width="0.1524" layer="91"/>
@@ -16850,7 +16834,7 @@ Low profile connectors, straight&lt;p&gt;
 <pinref part="SV2" gate="G$1" pin="8"/>
 </segment>
 </net>
-<net name="P1_5" class="0">
+<net name="P1_4" class="0">
 <segment>
 <pinref part="U4" gate="B1" pin="IO_L33P_1"/>
 <wire x1="248.92" y1="-177.8" x2="233.68" y2="-177.8" width="0.1524" layer="91"/>
@@ -16862,7 +16846,7 @@ Low profile connectors, straight&lt;p&gt;
 <pinref part="SV2" gate="G$1" pin="5"/>
 </segment>
 </net>
-<net name="P1_6" class="0">
+<net name="P1_5" class="0">
 <segment>
 <pinref part="U4" gate="B1" pin="IO_L33N_1"/>
 <wire x1="233.68" y1="-175.26" x2="248.92" y2="-175.26" width="0.1524" layer="91"/>
@@ -16872,6 +16856,18 @@ Low profile connectors, straight&lt;p&gt;
 <wire x1="-17.78" y1="-274.32" x2="-5.08" y2="-274.32" width="0.1524" layer="91"/>
 <label x="-15.24" y="-274.32" size="1.778" layer="95"/>
 <pinref part="SV2" gate="G$1" pin="6"/>
+</segment>
+</net>
+<net name="P1_1" class="0">
+<segment>
+<wire x1="-17.78" y1="-279.4" x2="-5.08" y2="-279.4" width="0.1524" layer="91"/>
+<label x="-15.24" y="-279.4" size="1.778" layer="95"/>
+<pinref part="SV2" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="U4" gate="B1" pin="IO_L42N_GCLK6_TRDY1_1"/>
+<wire x1="233.68" y1="-195.58" x2="248.92" y2="-195.58" width="0.1524" layer="91"/>
+<label x="236.22" y="-195.58" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
