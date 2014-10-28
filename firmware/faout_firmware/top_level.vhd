@@ -8,14 +8,10 @@ use ieee.numeric_std.all;
 entity top_level is
     port (
         clk_osc: in std_logic;
-        clk_ext: in std_logic;
 
-        btn: in std_logic_vector(2 downto 0);
-        led: out std_logic_vector(4 downto 0);
-        disp_seg: out std_logic_vector(6 downto 0);
-        disp_en: out std_logic_vector(1 downto 0);
-        P1_1: in std_logic;
-        P1_2: in std_logic;
+        GPIO_clk: in std_logic;
+        GPIO_start: in std_logic;
+        GPIO_stop: in std_logic;
 
         -- usb interface
         usb_clk: in std_logic;
@@ -36,15 +32,25 @@ entity top_level is
         SDRAM_DQM: out std_logic_vector(1 downto 0);
         SDRAM_A: out std_logic_vector (11 downto 0);
         SDRAM_BA: out std_logic_vector(1 downto 0);
-        SDRAM_DQ: inout std_logic_vector (15 downto 0);
+        SDRAM_DQ: inout std_logic_vector(15 downto 0);
         
-        -- DAC 1 and 2
+        -- DACs
+        DACX_RS: out std_logic;
         DAC1_CLK: out std_logic;
         DAC1_CS: out std_logic;
         DAC1_SDI: out std_logic;
+        DAC1_LDAC: out std_logic;
         DAC2_CLK: out std_logic;
         DAC2_CS: out std_logic;
-        DAC2_SDI: out std_logic
+        DAC2_SDI: out std_logic;
+        DAC2_LDAC: out std_logic;
+        DAC3_CLK: out std_logic;
+        DAC3_CS: out std_logic;
+        DAC3_SDI: out std_logic;
+        DAC3_LDAC: out std_logic;
+
+        -- additional ground pins
+        GND_PINS: out std_logic_vector(13 downto 0)
     );
 end top_level;
 
@@ -58,7 +64,7 @@ architecture top_level_arch of top_level is
     
     signal led_data: std_logic_vector(4 downto 0);
     
-    constant VERSION: integer := 47;
+    constant VERSION: integer := 48;
     
     component clock_core
     port (
@@ -75,32 +81,28 @@ architecture top_level_arch of top_level is
         clk_ext_valid: out std_logic
     );
     end component;
-
-    -- display
-    component segment
-    port (
-        clk: in std_logic;
-        din: in std_logic_vector(7 downto 0);
-        seg_out: out std_logic_vector(6 downto 0);
-        seg_en: out std_logic_vector(1 downto 0)
-    );
-    end component;
-    signal display_data: std_logic_vector(7 downto 0) := (others => '0');
     
-    -- dac8811
-    component dac8811_d
+    -- dac8812
+    component dac8812_d
     port (
         clk: in std_logic;
         start: in std_logic;
-        data: in std_logic_vector(15 downto 0);
+        data1: in std_logic_vector(15 downto 0);
+        data2: in std_logic_vector(15 downto 0);
         s_clk: out std_logic;
         s_cs: out std_logic;
-        s_dout: out std_logic
+        s_dout: out std_logic;
+        ldac: out std_logic
     );
     end component;
-    signal dac1_data: std_logic_vector(15 downto 0) := (others => '0');
-    signal dac2_data: std_logic_vector(15 downto 0) := (others => '0');
-    signal dac1_start, dac2_start: std_logic;
+    constant DAC_ZERO_VALUE: std_logic_vector(15 downto 0) := std_logic_vector(to_unsigned(32768, 16));
+    signal ao1_data: std_logic_vector(15 downto 0) := DAC_ZERO_VALUE;
+    signal ao2_data: std_logic_vector(15 downto 0) := DAC_ZERO_VALUE;
+    signal ao3_data: std_logic_vector(15 downto 0) := DAC_ZERO_VALUE;
+    signal ao4_data: std_logic_vector(15 downto 0) := DAC_ZERO_VALUE;
+    signal ao5_data: std_logic_vector(15 downto 0) := DAC_ZERO_VALUE;
+    signal ao6_data: std_logic_vector(15 downto 0) := DAC_ZERO_VALUE;
+    signal dac1_start, dac2_start, dac3_start: std_logic;
 
     -- SDRAM controller
     component sdram_fifo
@@ -151,7 +153,7 @@ architecture top_level_arch of top_level is
     signal sdram_rd_ptr, sdram_wr_ptr: std_logic_vector(22 downto 0);
     
     -- analog out sequence module
-    constant NUM_PORTS: integer := 2;
+    constant NUM_PORTS: integer := 6;
     constant NUM_CYC:   integer := 100;
     component aoutsequence
     generic (
@@ -243,19 +245,20 @@ architecture top_level_arch of top_level is
     signal state: fsm_state_t := s_reset;
     signal next_state: fsm_state_t;
 
--------------------------------------------------------------------------------
 begin
 
-rst_global <= '1' when (btn(0) = '0') or (comm_command_bits(0) = '1') else '0';
+GND_PINS <= (others => '0');
 
-led <= led_data(1 downto 0) & sdram_empty & sequence_running & sequence_prepared;
+rst_global <= '1' when comm_command_bits(0) = '1' else '0';
+
+DACX_RS <= '0' when rst_global = '1' else '1';
 
 -------------------------------------------------------------------------------
 -- generate 100MHz clock from onboard 50MHz osc and from external 10MHz ref
 
 clock_ext_inst : clock_ext
 port map (
-    clk_ext_in => clk_ext,
+    clk_ext_in => GPIO_clk,
     clk_ext_100 => clk_ext_100,
     clk_ext_reset => clk_ext_reset,
     clk_ext_valid => clk_ext_valid
@@ -305,22 +308,41 @@ comm_proc: process(clk)
 begin
     if rising_edge(clk) then
         comm_reg_data_rd <= (others=>'0');
-        display_data <= display_data;
-        led_data <= led_data;
-        dac1_data <= dac1_data;
+        ao1_data <= ao1_data;
+        ao2_data <= ao2_data;
+        ao3_data <= ao3_data;
+        ao4_data <= ao4_data;
+        ao5_data <= ao5_data;
+        ao6_data <= ao6_data;
         dac1_start <= '0';
-        dac2_data <= dac2_data;
         dac2_start <= '0';
+        dac3_start <= '0';
         comm_command_bits <= (others=>'0');
         
-        -- include DAC data from interpolators
+        -- register analog out data from interpolators
         if sequence_y_valid(0) = '1' then
-            dac1_data <= sequence_y_out(15 downto 0);
+            ao1_data <= sequence_y_out(15 downto 0);
             dac1_start <= '1';
         end if;
         if sequence_y_valid(1) = '1' then
-            dac2_data <= sequence_y_out(31 downto 16);
+            ao2_data <= sequence_y_out(31 downto 16);
+            dac1_start <= '1';
+        end if;
+        if sequence_y_valid(2) = '1' then
+            ao3_data <= sequence_y_out(47 downto 32);
             dac2_start <= '1';
+        end if;
+        if sequence_y_valid(3) = '1' then
+            ao4_data <= sequence_y_out(63 downto 48);
+            dac2_start <= '1';
+        end if;
+        if sequence_y_valid(4) = '1' then
+            ao5_data <= sequence_y_out(79 downto 64);
+            dac3_start <= '1';
+        end if;
+        if sequence_y_valid(5) = '1' then
+            ao6_data <= sequence_y_out(95 downto 80);
+            dac3_start <= '1';
         end if;
 
         -- handle write action
@@ -328,18 +350,29 @@ begin
             case to_integer(unsigned(comm_reg_addr)) is
                 when 0 =>
                     comm_command_bits <= comm_reg_data_wr(15 downto 0);
-                when 1 =>
-                    display_data <= comm_reg_data_wr(7 downto 0);
                 when 2 =>
-                    led_data <= comm_reg_data_wr(4 downto 0);
-                when 3 =>
-                    dac1_data <= comm_reg_data_wr;
+                    configuration_reg <= comm_reg_data_wr(NUM_CONFIG_BITS-1 downto 0);
+
+                -- this may overrule data from sequencers
+                when 8 =>
+                    ao1_data <= comm_reg_data_wr;
                     dac1_start <= '1';
-                when 4 =>
-                    dac2_data <= comm_reg_data_wr;
+                when 9 =>
+                    ao2_data <= comm_reg_data_wr;
+                    dac1_start <= '1';
+                when 10 =>
+                    ao3_data <= comm_reg_data_wr;
                     dac2_start <= '1';
                 when 11 =>
-                    configuration_reg <= comm_reg_data_wr(NUM_CONFIG_BITS-1 downto 0);
+                    ao4_data <= comm_reg_data_wr;
+                    dac2_start <= '1';
+                when 12 =>
+                    ao5_data <= comm_reg_data_wr;
+                    dac3_start <= '1';
+                when 13 =>
+                    ao6_data <= comm_reg_data_wr;
+                    dac3_start <= '1';
+
                 when others =>
                     null;
             end case;
@@ -351,25 +384,32 @@ begin
                 when 0 =>
                     comm_reg_data_rd(NUM_STATUS_BITS-1 downto 0) <= comm_status_bits;
                 when 1 =>
-                    comm_reg_data_rd(7 downto 0) <= display_data;
-                when 2 =>
-                    comm_reg_data_rd(4 downto 0) <= led_data;
-                when 3 =>
-                    comm_reg_data_rd <= dac1_data;
-                when 4 =>
-                    comm_reg_data_rd <= dac2_data;
-                when 6 =>
-                    comm_reg_data_rd <= sdram_rd_ptr(15 downto 0);
-                when 7 =>
-                    comm_reg_data_rd(6 downto 0) <= sdram_rd_ptr(22 downto 16);
-                when 8 =>
-                    comm_reg_data_rd <= sdram_wr_ptr(15 downto 0);
-                when 9 =>
-                    comm_reg_data_rd(6 downto 0) <= sdram_wr_ptr(22 downto 16);
-                when 10 =>
                     comm_reg_data_rd <= std_logic_vector(to_unsigned(VERSION, 16));
-                when 11 =>
+                when 2 =>
                     comm_reg_data_rd(NUM_CONFIG_BITS-1 downto 0) <= configuration_reg;
+
+                when 8 =>
+                    comm_reg_data_rd <= ao1_data;
+                when 9 =>
+                    comm_reg_data_rd <= ao2_data;
+                when 10 =>
+                    comm_reg_data_rd <= ao3_data;
+                when 11 =>
+                    comm_reg_data_rd <= ao4_data;
+                when 12 =>
+                    comm_reg_data_rd <= ao5_data;
+                when 13 =>
+                    comm_reg_data_rd <= ao6_data;
+
+                when 16 =>
+                    comm_reg_data_rd <= sdram_rd_ptr(15 downto 0);
+                when 17 =>
+                    comm_reg_data_rd(6 downto 0) <= sdram_rd_ptr(22 downto 16);
+                when 18 =>
+                    comm_reg_data_rd <= sdram_wr_ptr(15 downto 0);
+                when 19 =>
+                    comm_reg_data_rd(6 downto 0) <= sdram_wr_ptr(22 downto 16);
+
                 when others =>
                     comm_reg_data_rd <= (others => '1');
             end case;
@@ -427,8 +467,8 @@ begin
     end if;
 end process;
 
-sequence_start_source <= '1' when (comm_command_bits(1) = '1') or (btn(1) = '0') or (P1_1 = '1') else '0';
-sequence_stop_source <= '1' when (comm_command_bits(2) = '1') or (btn(2) = '0') or (P1_2 = '1') else '0';
+sequence_start_source <= '1' when (comm_command_bits(1) = '1') or (GPIO_start = '1') else '0';
+sequence_stop_source <= '1' when (comm_command_bits(2) = '1') or (GPIO_stop = '1') else '0';
 
 process(state, sequence_prepared, sequence_running, sequence_start_source, sequence_stop_source)
 begin
@@ -530,14 +570,6 @@ port map (
     SDRAM_DQ   => SDRAM_DQ
 );
 
-display_inst: segment
-port map (
-    clk => clk,
-    din => display_data,
-    seg_out => disp_seg,
-    seg_en => disp_en
-);
-
 aoutsequence_inst: aoutsequence
 port map (
     clk => clk,
@@ -556,24 +588,40 @@ port map (
     y_valid => sequence_y_valid
 );
 
-dac1_inst: dac8811_d
+dac1_inst: dac8812_d
 port map (
     clk => clk,
     start => dac1_start,
-    data => dac1_data,
+    data1 => ao2_data,
+    data2 => ao1_data,
     s_clk => DAC1_CLK,
     s_cs => DAC1_CS,
-    s_dout => DAC1_SDI
+    s_dout => DAC1_SDI,
+    ldac => DAC1_LDAC
 );
     
-dac2_inst: dac8811_d
+dac2_inst: dac8812_d
 port map (
     clk => clk,
     start => dac2_start,
-    data => dac2_data,
+    data1 => ao4_data,
+    data2 => ao3_data,
     s_clk => DAC2_CLK,
     s_cs => DAC2_CS,
-    s_dout => DAC2_SDI
+    s_dout => DAC2_SDI,
+    ldac => DAC2_LDAC
+);
+
+dac3_inst: dac8812_d
+port map (
+    clk => clk,
+    start => dac3_start,
+    data1 => ao6_data,
+    data2 => ao5_data,
+    s_clk => DAC3_CLK,
+    s_cs => DAC3_CS,
+    s_dout => DAC3_SDI,
+    ldac => DAC3_LDAC
 );
 
 end top_level_arch;
