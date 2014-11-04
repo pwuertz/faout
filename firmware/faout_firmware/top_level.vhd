@@ -64,7 +64,7 @@ architecture top_level_arch of top_level is
     
     signal led_data: std_logic_vector(4 downto 0);
     
-    constant VERSION: integer := 48;
+    constant VERSION: integer := 49;
     
     component clock_core
     port (
@@ -592,8 +592,8 @@ dac1_inst: dac8812_d
 port map (
     clk => clk,
     start => dac1_start,
-    data1 => ao2_data,
-    data2 => ao1_data,
+    data1 => ao1_data,
+    data2 => ao2_data,
     s_clk => DAC1_CLK,
     s_cs => DAC1_CS,
     s_dout => DAC1_SDI,
@@ -604,8 +604,8 @@ dac2_inst: dac8812_d
 port map (
     clk => clk,
     start => dac2_start,
-    data1 => ao4_data,
-    data2 => ao3_data,
+    data1 => ao3_data,
+    data2 => ao4_data,
     s_clk => DAC2_CLK,
     s_cs => DAC2_CS,
     s_dout => DAC2_SDI,
@@ -616,8 +616,8 @@ dac3_inst: dac8812_d
 port map (
     clk => clk,
     start => dac3_start,
-    data1 => ao6_data,
-    data2 => ao5_data,
+    data1 => ao5_data,
+    data2 => ao6_data,
     s_clk => DAC3_CLK,
     s_cs => DAC3_CS,
     s_dout => DAC3_SDI,
