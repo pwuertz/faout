@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
--- Sample Distribution Module
+-- Sequence Data Deserialization
 --
 -- Demultiplex an incoming 16bit stream of samples to N 32bit ports connected
 -- modules can read from. It is assumed that all the connected modules choose
@@ -13,7 +13,7 @@ library ieee;
 use ieee.std_logic_1164.all; 
 use ieee.numeric_std.all;
 
-entity sample_distribute is
+entity seq_deserializer is
     generic (NUM_PORTS: integer := 2);
     port (
         clk: in std_logic;
@@ -28,9 +28,9 @@ entity sample_distribute is
         port_rd: in std_logic_vector(NUM_PORTS-1 downto 0);
         port_empty: out std_logic_vector(NUM_PORTS-1 downto 0)
     );
-end sample_distribute;
+end seq_deserializer;
 
-architecture sample_distribute_arch of sample_distribute is
+architecture seq_deserializer_arch of seq_deserializer is
 
     -- registers for holding interpolator input data
     type port_data_arr_t is array (0 to NUM_PORTS-1) of std_logic_vector(31 downto 0);
@@ -137,5 +137,5 @@ begin
     end case;
 end process;
 
-end sample_distribute_arch;
+end seq_deserializer_arch;
 

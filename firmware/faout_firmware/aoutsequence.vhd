@@ -57,7 +57,7 @@ architecture aoutsequence_arch of aoutsequence is
     signal fifo_empty: std_logic;
     signal fifo_prog_full: std_logic;
 
-    component sample_distribute
+    component seq_deserializer
     generic (NUM_PORTS: integer := 2);
     port (
         clk: in std_logic;
@@ -139,8 +139,8 @@ port map (
     prog_full => fifo_prog_full
 );
 
--- sample_distribute from sample buffer to interpolators
-sample_distribute_inst: sample_distribute
+-- deserialize data from sample buffer to interpolators
+seq_deserializer_inst: seq_deserializer
 generic map (NUM_PORTS => NUM_PORTS)
 port map (
     clk => clk,

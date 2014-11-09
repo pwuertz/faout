@@ -62,9 +62,7 @@ architecture top_level_arch of top_level is
     signal clk_osc_100: std_logic;
     signal clk, rst_global: std_logic;
     
-    signal led_data: std_logic_vector(4 downto 0);
-    
-    constant VERSION: integer := 49;
+    constant VERSION: integer := 50;
     
     component clock_core
     port (
