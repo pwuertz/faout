@@ -702,22 +702,37 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 <text x="-1.5875" y="2.54" size="0.6096" layer="25" font="vector" ratio="14" align="center-left">&gt;NAME</text>
 <text x="-1.5875" y="-2.54" size="0.4064" layer="27" font="vector" ratio="14" align="center-left">&gt;VALUE</text>
 </package>
-<package name="TO254P450X1020X1935-3P">
-<pad name="1" x="-5.08" y="-1.0922" drill="1.27" shape="square"/>
-<pad name="2" x="-2.54" y="-1.0922" drill="1.27"/>
-<pad name="3" x="0" y="-1.0922" drill="1.27"/>
-<wire x1="-7.747" y1="-2.8448" x2="-7.747" y2="1.7526" width="0.1524" layer="21"/>
-<wire x1="-7.747" y1="1.7526" x2="2.667" y2="1.7526" width="0.1524" layer="21"/>
-<wire x1="2.667" y1="1.7526" x2="2.667" y2="-1.7018" width="0.1524" layer="21"/>
-<wire x1="2.667" y1="-1.7018" x2="1.4986" y2="-2.8448" width="0.1524" layer="21"/>
-<wire x1="1.4986" y1="-2.8448" x2="-7.747" y2="-2.8448" width="0.1524" layer="21"/>
-<wire x1="-7.747" y1="-2.8448" x2="-7.747" y2="1.7526" width="0.1524" layer="51"/>
-<wire x1="-7.747" y1="1.7526" x2="2.667" y2="1.7526" width="0.1524" layer="51"/>
-<wire x1="2.667" y1="1.7526" x2="2.667" y2="-1.7018" width="0.1524" layer="51"/>
-<wire x1="2.667" y1="-1.7018" x2="1.4986" y2="-2.8448" width="0.1524" layer="51"/>
-<wire x1="1.4986" y1="-2.8448" x2="-7.747" y2="-2.8448" width="0.1524" layer="51"/>
-<text x="-7.155" y="0.935" size="0.6096" layer="25" font="vector" ratio="14" align="center-left">&gt;NAME</text>
-<text x="2.075" y="0.97" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left">&gt;VALUE</text>
+<package name="TO254P1524X460-3N">
+<smd name="1" x="-2.54" y="-8.89" dx="1.143" dy="3.9116" layer="1"/>
+<smd name="2" x="0" y="0.1524" dx="10.3886" dy="11.049" layer="1"/>
+<smd name="3" x="2.54" y="-8.89" dx="1.143" dy="3.9116" layer="1"/>
+<wire x1="-1.9812" y1="-5.3848" x2="-3.0988" y2="-5.3848" width="0.1524" layer="51"/>
+<wire x1="-3.0988" y1="-5.3848" x2="-3.0988" y2="-10.4648" width="0.1524" layer="51"/>
+<wire x1="-3.0988" y1="-10.4648" x2="-1.9812" y2="-10.4648" width="0.1524" layer="51"/>
+<wire x1="-1.9812" y1="-10.4648" x2="-1.9812" y2="-5.3848" width="0.1524" layer="51"/>
+<wire x1="3.0988" y1="-5.3848" x2="1.9812" y2="-5.3848" width="0.1524" layer="51"/>
+<wire x1="1.9812" y1="-5.3848" x2="1.9812" y2="-10.4648" width="0.1524" layer="51"/>
+<wire x1="1.9812" y1="-10.4648" x2="3.0988" y2="-10.4648" width="0.1524" layer="51"/>
+<wire x1="3.0988" y1="-10.4648" x2="3.0988" y2="-5.3848" width="0.1524" layer="51"/>
+<wire x1="-0.7112" y1="-5.3848" x2="-0.7112" y2="-7.112" width="0.1524" layer="51"/>
+<wire x1="-0.7112" y1="-7.112" x2="0.7112" y2="-7.112" width="0.1524" layer="51"/>
+<wire x1="0.7112" y1="-7.112" x2="0.7112" y2="-5.3848" width="0.1524" layer="51"/>
+<wire x1="-5.1816" y1="-5.3848" x2="5.1816" y2="-5.3848" width="0.1524" layer="51"/>
+<wire x1="5.1816" y1="-5.3848" x2="5.1816" y2="5.3848" width="0.1524" layer="51"/>
+<wire x1="5.1816" y1="5.3848" x2="-5.1816" y2="5.3848" width="0.1524" layer="51"/>
+<wire x1="-5.1816" y1="5.3848" x2="-5.1816" y2="-5.3848" width="0.1524" layer="51"/>
+<text x="-6.2992" y="-9.4996" size="1.27" layer="51" ratio="6" rot="SR0">*</text>
+<wire x1="-3.0988" y1="-5.9944" x2="-3.0988" y2="-6.5532" width="0.1524" layer="21"/>
+<wire x1="1.9812" y1="-5.9944" x2="1.9812" y2="-6.5532" width="0.1524" layer="21"/>
+<wire x1="-1.9812" y1="-5.9944" x2="-1.9812" y2="-6.5532" width="0.1524" layer="21"/>
+<wire x1="3.0988" y1="-5.9944" x2="3.0988" y2="-6.5532" width="0.1524" layer="21"/>
+<text x="-6.2992" y="-9.4996" size="1.27" layer="21" ratio="6" rot="SR0">*</text>
+<wire x1="5.4356" y1="-11.0744" x2="-5.4356" y2="-11.0744" width="0.1524" layer="39"/>
+<wire x1="-5.4356" y1="-11.0744" x2="-5.4356" y2="5.9436" width="0.1524" layer="39"/>
+<wire x1="-5.4356" y1="5.9436" x2="5.4356" y2="5.9436" width="0.1524" layer="39"/>
+<wire x1="5.4356" y1="5.9436" x2="5.4356" y2="-11.0744" width="0.1524" layer="39"/>
+<text x="-4.5974" y="6.2992" size="2.0828" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
+<text x="-5.969" y="-13.4874" size="2.0828" layer="27" ratio="10" rot="SR0">&gt;VALUE</text>
 </package>
 <package name="SOT95P280X145-6N">
 <smd name="1" x="-1.2192" y="0.9398" dx="1.27" dy="0.5588" layer="1"/>
@@ -2038,13 +2053,13 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 </device>
 </devices>
 </deviceset>
-<deviceset name="L7812ACV" prefix="Q">
-<description>Positive voltage regulator ICs</description>
+<deviceset name="L7812CD2T-TR" prefix="IC">
+<description>V REG, 2VDO, 1.5A, 12V, 5%, 3D2PAK</description>
 <gates>
 <gate name="A" symbol="L7812ACV" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="TO254P450X1020X1935-3P">
+<device name="" package="TO254P1524X460-3N">
 <connects>
 <connect gate="A" pin="GND" pad="2"/>
 <connect gate="A" pin="IN" pad="1"/>
@@ -2052,23 +2067,22 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 </connects>
 <technologies>
 <technology name="">
-<attribute name="MPN" value="L7812ACV" constant="no"/>
-<attribute name="OC_FARNELL" value="1087091" constant="no"/>
-<attribute name="OC_NEWARK" value="89K0786" constant="no"/>
-<attribute name="PACKAGE" value="TO-220" constant="no"/>
+<attribute name="MPN" value="L7812CD2T-TR" constant="no"/>
+<attribute name="OC_FARNELL" value="2253447" constant="no"/>
+<attribute name="OC_NEWARK" value="89K1392" constant="no"/>
+<attribute name="PACKAGE" value="D2PAK" constant="no"/>
 <attribute name="SUPPLIER" value="STMicroelectronics" constant="no"/>
 </technology>
 </technologies>
 </device>
 </devices>
 </deviceset>
-<deviceset name="L7912ACV" prefix="Q">
-<description>2 % negative voltage regulators</description>
+<deviceset name="L7912CD2T-TR">
 <gates>
 <gate name="A" symbol="L7912ACV" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="TO254P450X1020X1935-3P">
+<device name="" package="TO254P1524X460-3N">
 <connects>
 <connect gate="A" pin="GND" pad="1"/>
 <connect gate="A" pin="IN" pad="2"/>
@@ -2076,11 +2090,7 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 </connects>
 <technologies>
 <technology name="">
-<attribute name="MPN" value="L7912ACV" constant="no"/>
-<attribute name="OC_FARNELL" value="1095391" constant="no"/>
-<attribute name="OC_NEWARK" value="89K0792" constant="no"/>
-<attribute name="PACKAGE" value="TO-220" constant="no"/>
-<attribute name="SUPPLIER" value="STMicroelectronics" constant="no"/>
+<attribute name="OC_FARNELL" value="1564324" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -13798,8 +13808,8 @@ Source: RS Component / Phycomp</description>
 <part name="C11" library="faout" deviceset="C_EU" device="0603" value="4.7uF">
 <attribute name="OC_FARNELL" value="1833803"/>
 </part>
-<part name="Q1" library="faout" deviceset="L7812ACV" device=""/>
-<part name="Q2" library="faout" deviceset="L7912ACV" device=""/>
+<part name="Q1" library="faout" deviceset="L7812CD2T-TR" device=""/>
+<part name="Q2" library="faout" deviceset="L7912CD2T-TR" device=""/>
 <part name="A+12V_PWR1" library="faout" deviceset="A+12V" device=""/>
 <part name="A-12V_PWR1" library="faout" deviceset="A-12V" device=""/>
 <part name="C7" library="faout" deviceset="C_EU" device="0805" value="10uF">
