@@ -189,6 +189,7 @@ architecture top_level_arch of top_level is
     
     signal sequence_start_source: std_logic;
     signal sequence_stop_source: std_logic;
+    signal sequence_arm_source: std_logic;
 
     -- usb communitation module    
     component communication
@@ -233,7 +234,7 @@ architecture top_level_arch of top_level is
     signal comm_status_bits: std_logic_vector(NUM_STATUS_BITS-1 downto 0) := (others => '0');
 
     -- configuration register
-    constant NUM_CONFIG_BITS: integer := 1;
+    constant NUM_CONFIG_BITS: integer := 2;
     signal configuration_reg: std_logic_vector(NUM_CONFIG_BITS-1 downto 0) := (others => '0');
 
     -- sequence state machine
@@ -242,6 +243,7 @@ architecture top_level_arch of top_level is
     );
     signal state: fsm_state_t := s_reset;
     signal next_state: fsm_state_t;
+    signal arm_flag: std_logic;
 
 begin
 
@@ -467,6 +469,7 @@ end process;
 
 sequence_start_source <= '1' when (comm_command_bits(1) = '1') or (GPIO_start = '1') else '0';
 sequence_stop_source <= '1' when (comm_command_bits(2) = '1') or (GPIO_stop = '1') else '0';
+sequence_arm_source <= '1' when (comm_command_bits(4) = '1') or (configuration_reg(1) = '1') else '0';
 
 process(state, sequence_prepared, sequence_running, sequence_start_source, sequence_stop_source)
 begin
@@ -483,8 +486,8 @@ begin
             sequence_rst <= '1';
             next_state <= s_idle;
         when s_idle =>
-            -- during idle, wait until interpolators got data from FIFO
-            if sequence_prepared = '1' then
+            -- wait for the arm command and check if the sequence is prepared
+            if sequence_arm_source = '1' and sequence_prepared = '1' then
                 next_state <= s_waittrig;
             end if;
         when s_waittrig =>
