@@ -2883,10 +2883,12 @@ Covered vias can be set in Masks (Limit).
 <element name="R4" library="faout" package="R0603" value="ferrite" x="54.2925" y="67.31" smashed="yes" rot="MR90">
 <attribute name="NAME" x="54.2925" y="69.215" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
 <attribute name="VALUE" x="53.6575" y="69.215" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="OC_FARNELL" value="1463451" x="54.2925" y="67.31" size="1.778" layer="28" rot="MR90" display="off"/>
 </element>
 <element name="R5" library="faout" package="R0603" value="ferrite" x="67.6275" y="67.6275" smashed="yes" rot="MR270">
 <attribute name="NAME" x="67.6275" y="69.5325" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
 <attribute name="VALUE" x="68.2625" y="65.7225" size="0.4064" layer="28" font="vector" ratio="14" rot="MR270" align="center-left"/>
+<attribute name="OC_FARNELL" value="1463451" x="67.6275" y="67.6275" size="1.778" layer="28" rot="MR270" display="off"/>
 </element>
 <element name="C19" library="faout" package="R0603" value="4.7uF" x="65.7225" y="67.6275" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1833803" x="65.7225" y="67.6275" size="1.778" layer="28" rot="MR90" display="off"/>
@@ -3073,7 +3075,7 @@ Covered vias can be set in Masks (Limit).
 <attribute name="OC_NEWARK" value="89K1392" x="89.535" y="55.88" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="L7812CD2T-TR" x="89.535" y="55.88" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SUPPLIER" value="STMicroelectronics" x="89.535" y="55.88" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="OC_FARNELL" value="2253447" x="89.535" y="55.88" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value="2296017" x="89.535" y="55.88" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="Q2" library="faout" package="TO254P1524X460-3N" value="L7912CD2T-TR" x="89.535" y="34.29" rot="R270">
 <attribute name="OC_FARNELL" value="1564324" x="89.535" y="34.29" size="1.778" layer="27" rot="R270" display="off"/>
@@ -3309,8 +3311,12 @@ Covered vias can be set in Masks (Limit).
 <attribute name="OC_FARNELL" value="2356262" x="40.64" y="65.7225" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R7" library="faout" package="R0603" value="NC" x="50.165" y="67.6275" rot="R270"/>
-<element name="R1" library="faout" package="R1206" value="ferrite" x="50.4825" y="73.9775" rot="R180"/>
-<element name="R3" library="faout" package="R1206" value="ferrite" x="50.4825" y="70.8025" rot="R180"/>
+<element name="R1" library="faout" package="R1206" value="ferrite" x="50.4825" y="73.9775" rot="R180">
+<attribute name="OC_FARNELL" value="1612060" x="50.4825" y="73.9775" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="R3" library="faout" package="R1206" value="ferrite" x="50.4825" y="70.8025" rot="R180">
+<attribute name="OC_FARNELL" value="1612060" x="50.4825" y="70.8025" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
 <element name="SV2" library="con-ml" package="ML10" value="" x="71.12" y="43.815" rot="R90">
 <attribute name="OC_NEWARK" value="unknown" x="71.12" y="43.815" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="71.12" y="43.815" size="1.778" layer="27" rot="R90" display="off"/>

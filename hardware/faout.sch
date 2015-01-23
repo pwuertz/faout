@@ -13634,8 +13634,12 @@ Source: RS Component / Phycomp</description>
 </part>
 <part name="GND_PWR10" library="faout" deviceset="GND" device=""/>
 <part name="GND_PWR9" library="faout" deviceset="GND" device=""/>
-<part name="R4" library="faout" deviceset="R_EU" device="0603" value="ferrite"/>
-<part name="R5" library="faout" deviceset="R_EU" device="0603" value="ferrite"/>
+<part name="R4" library="faout" deviceset="R_EU" device="0603" value="ferrite">
+<attribute name="OC_FARNELL" value="1463451"/>
+</part>
+<part name="R5" library="faout" deviceset="R_EU" device="0603" value="ferrite">
+<attribute name="OC_FARNELL" value="1463451"/>
+</part>
 <part name="C19" library="faout" deviceset="C_EU" device="0603" value="4.7uF">
 <attribute name="OC_FARNELL" value="1833803"/>
 </part>
@@ -13808,7 +13812,9 @@ Source: RS Component / Phycomp</description>
 <part name="C11" library="faout" deviceset="C_EU" device="0603" value="4.7uF">
 <attribute name="OC_FARNELL" value="1833803"/>
 </part>
-<part name="Q1" library="faout" deviceset="L7812CD2T-TR" device=""/>
+<part name="Q1" library="faout" deviceset="L7812CD2T-TR" device="">
+<attribute name="OC_FARNELL" value="2296017"/>
+</part>
 <part name="Q2" library="faout" deviceset="L7912CD2T-TR" device=""/>
 <part name="A+12V_PWR1" library="faout" deviceset="A+12V" device=""/>
 <part name="A-12V_PWR1" library="faout" deviceset="A-12V" device=""/>
@@ -14004,8 +14010,12 @@ Source: RS Component / Phycomp</description>
 <part name="GND_PWR22" library="faout" deviceset="GND" device=""/>
 <part name="GND_PWR21" library="faout" deviceset="GND" device=""/>
 <part name="R7" library="faout" deviceset="R_EU" device="0603" value="NC"/>
-<part name="R1" library="faout" deviceset="R_EU" device="1206" value="ferrite"/>
-<part name="R3" library="faout" deviceset="R_EU" device="1206" value="ferrite"/>
+<part name="R1" library="faout" deviceset="R_EU" device="1206" value="ferrite">
+<attribute name="OC_FARNELL" value="1612060"/>
+</part>
+<part name="R3" library="faout" deviceset="R_EU" device="1206" value="ferrite">
+<attribute name="OC_FARNELL" value="1612060"/>
+</part>
 <part name="5V0_PWR1" library="Bogdan_Commons" deviceset="5V0" device=""/>
 <part name="GND_PWR2" library="Bogdan_Commons" deviceset="GND" device=""/>
 <part name="SV2" library="con-ml" deviceset="ML10" device=""/>
@@ -14237,8 +14247,12 @@ Source: RS Component / Phycomp</description>
 </instance>
 <instance part="GND_PWR10" gate="A" x="45.72" y="-60.96"/>
 <instance part="GND_PWR9" gate="A" x="40.64" y="-60.96"/>
-<instance part="R4" gate="G$1" x="20.32" y="-45.72"/>
-<instance part="R5" gate="G$1" x="20.32" y="-48.26"/>
+<instance part="R4" gate="G$1" x="20.32" y="-45.72">
+<attribute name="OC_FARNELL" x="20.32" y="-45.72" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R5" gate="G$1" x="20.32" y="-48.26">
+<attribute name="OC_FARNELL" x="20.32" y="-48.26" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="C19" gate="G$1" x="27.94" y="-53.34">
 <attribute name="OC_FARNELL" x="27.94" y="-53.34" size="1.778" layer="96" display="off"/>
 </instance>
@@ -14605,8 +14619,12 @@ Source: RS Component / Phycomp</description>
 <instance part="GND_PWR22" gate="A" x="10.16" y="-236.22" rot="R180"/>
 <instance part="GND_PWR21" gate="A" x="-5.08" y="-236.22" rot="R180"/>
 <instance part="R7" gate="G$1" x="53.34" y="-142.24" rot="R270"/>
-<instance part="R1" gate="G$1" x="116.84" y="63.5"/>
-<instance part="R3" gate="G$1" x="116.84" y="58.42"/>
+<instance part="R1" gate="G$1" x="116.84" y="63.5">
+<attribute name="OC_FARNELL" x="116.84" y="63.5" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R3" gate="G$1" x="116.84" y="58.42">
+<attribute name="OC_FARNELL" x="116.84" y="58.42" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="5V0_PWR1" gate="A" x="127" y="66.04"/>
 <instance part="GND_PWR2" gate="A" x="127" y="55.88"/>
 <instance part="SV2" gate="G$1" x="2.54" y="-274.32"/>
