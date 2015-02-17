@@ -62,7 +62,7 @@ architecture top_level_arch of top_level is
     signal clk_osc_100: std_logic;
     signal clk, rst_global: std_logic;
     
-    constant VERSION: integer := 50;
+    constant VERSION: integer := 52;
     
     component clock_core
     port (
@@ -471,7 +471,7 @@ sequence_start_source <= '1' when (comm_command_bits(1) = '1') or (GPIO_start = 
 sequence_stop_source <= '1' when (comm_command_bits(2) = '1') or (GPIO_stop = '1') else '0';
 sequence_arm_source <= '1' when (comm_command_bits(4) = '1') or (configuration_reg(1) = '1') else '0';
 
-process(state, sequence_prepared, sequence_running, sequence_start_source, sequence_stop_source)
+process(state, sequence_prepared, sequence_running, sequence_arm_source, sequence_start_source, sequence_stop_source)
 begin
     next_state <= state;
     sdram_clear <= '0';

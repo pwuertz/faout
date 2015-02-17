@@ -73,7 +73,7 @@ architecture aoutsequence_arch of aoutsequence is
         port_empty: out std_logic_vector(NUM_PORTS-1 downto 0)
     );
     end component;
-    signal distribute_error: std_logic;
+    signal deserialize_error: std_logic;
     signal port_data: std_logic_vector(NUM_PORTS*32-1 downto 0);
     signal port_rd: std_logic_vector(NUM_PORTS-1 downto 0);
     signal port_empty: std_logic_vector(NUM_PORTS-1 downto 0);
@@ -104,7 +104,19 @@ architecture aoutsequence_arch of aoutsequence is
 begin
 
 -- sequence is prepared when all interpolator input buffers are valid
-is_prepared <= '1' when port_empty = (NUM_PORTS-1 downto 0 => '0') else '0';
+-- and the buffer is filled
+process(port_empty, fifo_full, sdram_empty)
+begin
+    if port_empty = (NUM_PORTS-1 downto 0 => '0') then
+        if fifo_full = '0' and sdram_empty = '0' then
+            is_prepared <= '0';
+        else
+            is_prepared <= '1';
+        end if;
+    else
+        is_prepared <= '0';
+    end if;
+end process;
 -- don't signal prepared when running
 prepared <= '1' when is_prepared = '1' and is_running = '0' else '0';
 -- sequence is running when one or more interpolator are running
@@ -115,6 +127,15 @@ interp_rst <= stop or rst;
 -- start signal, only valid when prepared
 interp_start <= start and is_prepared;
 
+-- all interpolators must start/stop simultaneously, consider everything else as error
+process(interp_running, deserialize_error)
+begin
+    if interp_running = (NUM_PORTS-1 downto 0 => '0') or interp_running = (NUM_PORTS-1 downto 0 => '1') then
+        error <= deserialize_error;
+    else
+        error <= '1';
+    end if;
+end process;
 
 -- reset rewinds SDRAM read pointer
 sdram_rewind <= rst;
@@ -145,7 +166,7 @@ generic map (NUM_PORTS => NUM_PORTS)
 port map (
     clk => clk,
     rst => rst,
-    error => error,
+    error => deserialize_error,
     fifo_data => fifo_dout,
     fifo_empty => fifo_empty,
     fifo_rd => fifo_rd_en,
