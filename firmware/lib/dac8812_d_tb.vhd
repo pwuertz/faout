@@ -7,11 +7,10 @@ end dac8812_d_tb;
 
 architecture dac8812_d_tb_arch of dac8812_d_tb is
 
-    signal clk: std_logic;
-    
     component dac8812_d
     port (
         clk: in std_logic;
+        clk_en: in std_logic;
         start: in std_logic;
         data1: in std_logic_vector(15 downto 0);
         data2: in std_logic_vector(15 downto 0);
@@ -21,9 +20,15 @@ architecture dac8812_d_tb_arch of dac8812_d_tb is
         ldac: out std_logic
     );
     end component;
+
+    -- inputs
+    signal clk: std_logic := '0';
+    signal clk_en: std_logic := '1';
     signal data1: unsigned(15 downto 0) := (others => '0');
     signal data2: unsigned(15 downto 0) := (others => '0');
-    signal start: std_logic;
+    signal start: std_logic := '0';
+    
+    -- outputs
     signal s_clk, s_cs, s_dout, ldac: std_logic;
 
     constant clk_period : time := 10 ns;
@@ -32,6 +37,7 @@ begin
 dac8812_d_inst: dac8812_d
 port map (
     clk => clk,
+    clk_en => clk_en,
     start => start,
     data1 => std_logic_vector(data1),
     data2 => std_logic_vector(data2),

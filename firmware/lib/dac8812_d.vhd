@@ -8,6 +8,7 @@ use ieee.numeric_std.all;
 entity dac8812_d is
     port (
         clk: in std_logic;
+        clk_en: in std_logic;
         start: in std_logic;
         data1: in std_logic_vector(15 downto 0);
         data2: in std_logic_vector(15 downto 0);
@@ -64,7 +65,7 @@ begin
             iob_cs <= '1';
             iob_dout <= '0';
             iob_ldac <= '1';
-        else
+        elsif clk_en = '1' then
             state <= next_state;
             iob_clk <= next_iob_clk;
             iob_cs <= next_iob_cs;
