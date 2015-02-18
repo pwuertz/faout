@@ -3,13 +3,15 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all; 
 
 entity fraction is
-    port(
+    generic (NUM_BITS: integer := 16);
+    port (
         clk: in std_logic;
+        clk_en: in std_logic;
         start: in std_logic;
-        n: in std_logic_vector(15 downto 0);
-        i: in std_logic_vector(15 downto 0);
-        frac: out std_logic_vector(16 downto 0);
-        done: out std_logic
+        n: in unsigned(NUM_BITS-1 downto 0);
+        i: in unsigned(NUM_BITS-1 downto 0);
+        frac: out unsigned(NUM_BITS downto 0);
+        frac_valid: out std_logic
     );
 end fraction;
 
@@ -17,10 +19,10 @@ architecture fraction_arch of fraction is
     type fsm_state_t is (s_running, s_done);
     
     type state_t is record
-        counter: integer range 0 to 16;
-        divider: unsigned(15 downto 0);
-        remain: unsigned(16 downto 0);
-        result: unsigned(16 downto 0);
+        counter: integer range 0 to NUM_BITS;
+        divider: unsigned(NUM_BITS-1 downto 0);
+        remain: unsigned(NUM_BITS downto 0);
+        result: unsigned(NUM_BITS downto 0);
         fsm_state: fsm_state_t;
         done_flag: std_logic;
     end record;
@@ -42,10 +44,10 @@ begin
     if rising_edge(clk) then
         if start = '1' then
             state <= default_state;
-            state.remain <= unsigned('0' & i);
-            state.divider <= unsigned(n);
+            state.remain <= '0' & i;
+            state.divider <= n;
             state.fsm_state <= s_running;
-        else
+        elsif clk_en = '1' then
             state <= next_state;
         end if;
     end if;
@@ -82,7 +84,7 @@ begin
     end if;
 end process;
 
-done <= state.done_flag;
-frac <= std_logic_vector(state.result);
+frac_valid <= state.done_flag;
+frac <= state.result;
 
 end fraction_arch;
