@@ -17,6 +17,8 @@ ARCHITECTURE behavior OF sequencer_tb IS
             clk: in std_logic;
             clk_en: in std_logic;
             rst: in std_logic;
+            error: out std_logic;
+            running: out std_logic;
 
             -- FIFO read interface
             fifo_empty: in std_logic;
@@ -30,16 +32,18 @@ ARCHITECTURE behavior OF sequencer_tb IS
     END COMPONENT;
 
     --Inputs
-    signal clk : std_logic := '0';
-    signal clk_en : std_logic := '1';
-    signal rst : std_logic := '0';
-    signal fifo_empty : std_logic := '0';
-    signal fifo_data_rd : std_logic_vector(15 downto 0) := (others => '0');
+    signal clk: std_logic := '0';
+    signal clk_en: std_logic := '1';
+    signal rst: std_logic := '0';
+    signal fifo_empty: std_logic := '0';
+    signal fifo_data_rd: std_logic_vector(15 downto 0) := (others => '0');
 
     --Outputs
-    signal fifo_rd_en : std_logic;
-    signal regs_data : sequencer_regs_t;
-    signal regs_wr_en : std_logic_vector(N_SEQUENCE_REGS-1 downto 0);
+    signal fifo_rd_en: std_logic;
+    signal regs_data: sequencer_regs_t;
+    signal regs_wr_en: std_logic_vector(N_SEQUENCE_REGS-1 downto 0);
+    signal error: std_logic;
+    signal running: std_logic;
 
     -- Clock period definitions
     constant clk_period : time := 10 ns;
@@ -51,6 +55,8 @@ uut: sequencer PORT MAP (
     clk => clk,
     clk_en => clk_en,
     rst => rst,
+    error => error,
+    running => running,
     fifo_empty => fifo_empty,
     fifo_data_rd => fifo_data_rd,
     fifo_rd_en => fifo_rd_en,
@@ -74,7 +80,7 @@ data_process: process is
     constant DATA_STREAM: integer_vector := (                     
         2#1000000000000011#, 10, 11, 1,
         2#0000000000001100#, 12, 13,
-        2#1000000000000000#, 1
+        2#1000000000000000#, 0
       );
 begin
     fifo_empty <= '0';

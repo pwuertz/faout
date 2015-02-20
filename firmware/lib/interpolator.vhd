@@ -101,7 +101,7 @@ begin
     end if;
 end process;
 
-next_state_proc: process(state, frac_data, frac_valid, y_interp, start)
+next_state_proc: process(state, y_in, n_in, frac_data, frac_valid, y_interp, start)
 begin
     next_state <= state;
     next_state.i_n_frac_valid <= '0';

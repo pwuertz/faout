@@ -20,6 +20,8 @@ entity sequencer is
         clk: in std_logic;
         clk_en: in std_logic;
         rst: in std_logic;
+        error: out std_logic;
+        running: out std_logic;
 
         -- FIFO read interface
         fifo_empty: in std_logic;
@@ -46,6 +48,8 @@ architecture sequencer_arch of sequencer is
     signal regs_updated, next_regs_updated: std_logic_vector(N_SEQUENCE_REGS-1 downto 0);
 begin
 
+error <= '1' when state = s_error else '0';
+running <= '1' when state = s_working or state = s_reset else '0';
 regs_data <= regs;
 delay_reg <= unsigned(regs(N_SEQUENCE_REGS-1));
 fifo_rd_en <= fifo_rd_en_int and clk_en;
@@ -95,7 +99,9 @@ begin
     end if;
 end process;
 
-packet_process_comb: process(state, regs, regs_updated, cnt, delay_reg, fifo_data_rd)
+packet_process_comb: process(state, regs, regs_updated,
+                             cnt, delay_reg, delay_cnt,
+                             fifo_empty, fifo_data_rd)
 begin
     -- default outputs
     regs_wr_en <= (others => '0');
