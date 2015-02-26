@@ -59,7 +59,7 @@ end top_level;
 
 architecture top_level_arch of top_level is
 
-    constant VERSION: integer := 59;
+    constant VERSION: integer := 60;
     constant N_CHANNELS: integer := 6;
     
     -- global signals
@@ -120,6 +120,7 @@ architecture top_level_arch of top_level is
     signal seq_running: std_logic;
     signal seq_error: std_logic;
     --
+    signal sdram_to_fifo_en: std_logic;
     signal seq_fifo_empty: std_logic;
     signal seq_fifo_full: std_logic;
     signal seq_fifo_wr_en: std_logic;
@@ -468,15 +469,16 @@ begin
 end process;
 
 seq_fifo_wr_en <= sdram_rd_ack;
+sdram_rd_en <= sdram_to_fifo_en and not seq_fifo_full;
 
 process(seq_state, seq_start_cmd, seq_arm_cmd, seq_stop_cmd,
-        seq_hold_cmd, seq_running,
+        seq_hold_cmd, seq_running, seq_error,
         sdram_empty, sdram_rd_ptr, seq_fifo_empty, seq_fifo_full)
 begin
     next_seq_state <= seq_state;
     seq_rst <= '0';
     seq_clk_en <= '1';
-    sdram_rd_en <= '0';
+    sdram_to_fifo_en <= '0';
     sdram_rewind <= '0';
     
     case seq_state is
@@ -490,7 +492,7 @@ begin
             end if;
         when s_seq_preparing =>
             -- start buffering, keep sequencer disabled
-            sdram_rd_en <= '1';
+            sdram_to_fifo_en <= '1';
             seq_clk_en <= '0';
             -- if there is no more data to buffer -> wait for start
             if seq_fifo_full = '1' or sdram_empty = '1' then
@@ -498,7 +500,7 @@ begin
             end if;
         when s_seq_waittrig =>
             -- keep buffering, keep sequencer disabled
-            sdram_rd_en <= '1';
+            sdram_to_fifo_en <= '1';
             seq_clk_en <= '0';
             -- wait for start command
             if seq_start_cmd = '1' then
@@ -506,7 +508,7 @@ begin
             end if;
         when s_seq_running =>
             -- keep buffering, sequencer enabled
-            sdram_rd_en <= '1';
+            sdram_to_fifo_en <= '1';
             seq_clk_en <= '1';
             -- check if the sequence is still running
             if seq_hold_cmd = '1' then
@@ -515,10 +517,13 @@ begin
                 next_seq_state <= s_seq_stopped;
             end if;
         when s_seq_stopped =>
+            sdram_to_fifo_en <= '0';
             -- reset after stop and go to idle
-            sdram_rd_en <= '0';
-            sdram_rewind <= '1';
-            next_seq_state <= s_seq_idle;
+            -- halt on error
+            if seq_error = '0' then
+                sdram_rewind <= '1';
+                next_seq_state <= s_seq_idle;
+            end if;
         when others =>
             null;
     end case;
