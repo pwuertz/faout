@@ -1065,6 +1065,35 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 <text x="-1.5875" y="1.905" size="0.6096" layer="25" font="vector" ratio="14" align="center-left">&gt;NAME</text>
 <text x="-1.5875" y="-1.905" size="0.4064" layer="27" font="vector" ratio="14" align="center-left">&gt;VALUE</text>
 </package>
+<package name="MOLEX_105017-0001">
+<description>MICRO USB 105017-0001</description>
+<smd name="1" x="-1.3" y="0" dx="1.35" dy="0.4" layer="1" rot="R90"/>
+<smd name="2" x="-0.65" y="0" dx="1.35" dy="0.4" layer="1" rot="R90"/>
+<smd name="3" x="0" y="0" dx="1.35" dy="0.4" layer="1" rot="R90"/>
+<smd name="4" x="0.65" y="0" dx="1.35" dy="0.4" layer="1" rot="R90"/>
+<smd name="5" x="1.3" y="0" dx="1.35" dy="0.4" layer="1" rot="R90"/>
+<wire x1="-5" y1="-4.15" x2="5" y2="-4.15" width="0.1" layer="49"/>
+<wire x1="-4.75" y1="1.15" x2="-4.75" y2="-4.85" width="0.127" layer="51"/>
+<wire x1="-4.75" y1="-4.85" x2="4.75" y2="-4.85" width="0.127" layer="51"/>
+<wire x1="4.75" y1="-4.85" x2="4.75" y2="1.15" width="0.127" layer="51"/>
+<wire x1="4.75" y1="1.15" x2="-4.75" y2="1.15" width="0.127" layer="51"/>
+<wire x1="-3.5" y1="1.15" x2="-4.75" y2="1.15" width="0.127" layer="21"/>
+<wire x1="-4.75" y1="1.15" x2="-4.75" y2="-1.4" width="0.127" layer="21"/>
+<wire x1="3.5" y1="1.15" x2="4.75" y2="1.15" width="0.127" layer="21"/>
+<wire x1="4.75" y1="1.15" x2="4.75" y2="-1.4" width="0.127" layer="21"/>
+<wire x1="-4.75" y1="-3.9" x2="-4.75" y2="-4.85" width="0.127" layer="21"/>
+<wire x1="-4.75" y1="-4.85" x2="4.75" y2="-4.85" width="0.127" layer="21"/>
+<wire x1="4.75" y1="-4.85" x2="4.75" y2="-3.9" width="0.127" layer="21"/>
+<text x="5.3" y="-4.1" size="0.4064" layer="49" font="vector" ratio="12">PCB Edge</text>
+<text x="-3.3575" y="1.77" size="0.6096" layer="25" font="vector" ratio="14" align="center-left">&gt;NAME</text>
+<text x="-3.3575" y="-5.215" size="0.4064" layer="27" font="vector" ratio="14" align="center-left">&gt;VALUE</text>
+<pad name="M1" x="-2.5" y="0" drill="0.85" diameter="1.45"/>
+<pad name="M2" x="2.5" y="0" drill="0.85" diameter="1.45"/>
+<pad name="M3" x="-3.5" y="-2.7" drill="1.3" diameter="1.9"/>
+<pad name="M6" x="3.5" y="-2.7" drill="1.3" diameter="1.9"/>
+<smd name="M4" x="-1" y="-2.7" dx="1.9" dy="1.5" layer="1" rot="R90"/>
+<smd name="M5" x="1" y="-2.7" dx="1.9" dy="1.5" layer="1" rot="R90"/>
+</package>
 </packages>
 <symbols>
 <symbol name="6SLX9TQG144_0">
@@ -1569,6 +1598,28 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 <wire x1="12.7" y1="7.62" x2="-12.7" y2="7.62" width="0.1524" layer="94"/>
 <text x="-5.0292" y="9.4234" size="2.0828" layer="95" ratio="10" rot="SR0">&gt;NAME</text>
 <text x="-3.6068" y="-19.2278" size="2.0828" layer="96" ratio="10" rot="SR0">&gt;VALUE</text>
+</symbol>
+<symbol name="MICRO_USB">
+<description>MICRO USB</description>
+<pin name="V_BUS" x="-10.16" y="5.08" length="middle" direction="in"/>
+<pin name="D-" x="-10.16" y="2.54" length="middle" direction="in"/>
+<pin name="D+" x="-10.16" y="0" length="middle" direction="in"/>
+<pin name="ID" x="-10.16" y="-2.54" length="middle" direction="in"/>
+<pin name="GND" x="-10.16" y="-5.08" length="middle" direction="in"/>
+<wire x1="-5.08" y1="8.89" x2="-5.08" y2="-15.24" width="0.4064" layer="94"/>
+<wire x1="-5.08" y1="-15.24" x2="6.35" y2="-15.24" width="0.4064" layer="94"/>
+<wire x1="6.35" y1="-15.24" x2="6.35" y2="8.89" width="0.4064" layer="94"/>
+<wire x1="6.35" y1="8.89" x2="-5.08" y2="8.89" width="0.4064" layer="94"/>
+<text x="-5.08" y="11.43" size="2.032" layer="95" ratio="10">&gt;Name</text>
+<wire x1="-6.35" y1="10.16" x2="7.62" y2="10.16" width="0.254" layer="94" style="shortdash"/>
+<wire x1="7.62" y1="10.16" x2="7.62" y2="-16.51" width="0.254" layer="94" style="shortdash"/>
+<wire x1="7.62" y1="-16.51" x2="-6.35" y2="-16.51" width="0.254" layer="94" style="shortdash"/>
+<wire x1="-6.35" y1="10.16" x2="-6.35" y2="8.89" width="0.254" layer="94"/>
+<wire x1="-6.35" y1="-16.51" x2="-6.35" y2="-15.24" width="0.254" layer="94"/>
+<pin name="SHD@4" x="5.08" y="-21.59" length="middle" direction="in" rot="R90"/>
+<pin name="SHD@3" x="2.54" y="-21.59" length="middle" direction="in" rot="R90"/>
+<pin name="SHD@2" x="0" y="-21.59" length="middle" direction="in" rot="R90"/>
+<pin name="SHD@1" x="-2.54" y="-21.59" length="middle" direction="in" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -2275,6 +2326,32 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 <attribute name="OC_NEWARK" value="11N9285" constant="no"/>
 <attribute name="PACKAGE" value="SOT-23-5" constant="no"/>
 <attribute name="SUPPLIER" value="National Semiconductors" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MOLEX_USB_">
+<description>Micro USB Connector</description>
+<gates>
+<gate name="G$1" symbol="MICRO_USB" x="0" y="2.54"/>
+</gates>
+<devices>
+<device name="105017-0001" package="MOLEX_105017-0001">
+<connects>
+<connect gate="G$1" pin="D+" pad="3"/>
+<connect gate="G$1" pin="D-" pad="2"/>
+<connect gate="G$1" pin="GND" pad="5"/>
+<connect gate="G$1" pin="ID" pad="4"/>
+<connect gate="G$1" pin="SHD@1" pad="M1"/>
+<connect gate="G$1" pin="SHD@2" pad="M2"/>
+<connect gate="G$1" pin="SHD@3" pad="M3"/>
+<connect gate="G$1" pin="SHD@4" pad="M6"/>
+<connect gate="G$1" pin="V_BUS" pad="1"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="OC_FARNELL" value="2293836"/>
 </technology>
 </technologies>
 </device>
@@ -12484,98 +12561,6 @@ In this library the device names are the same as the pin names of the symbols, t
 </deviceset>
 </devicesets>
 </library>
-<library name="molex_usb">
-<packages>
-<package name="MOLEX_47346-0001">
-<description>MICRO USB R/A-473460001</description>
-<smd name="1" x="-1.3" y="0" dx="1.38" dy="0.45" layer="1" rot="R90"/>
-<smd name="2" x="-0.65" y="0" dx="1.38" dy="0.45" layer="1" rot="R90"/>
-<smd name="3" x="0" y="0" dx="1.38" dy="0.45" layer="1" rot="R90"/>
-<smd name="4" x="0.65" y="0" dx="1.38" dy="0.45" layer="1" rot="R90"/>
-<smd name="5" x="1.3" y="0" dx="1.38" dy="0.45" layer="1" rot="R90"/>
-<smd name="M1" x="-2.4625" y="-0.36" dx="1.475" dy="2.1" layer="1" rot="R180"/>
-<smd name="M2" x="2.4625" y="-0.36" dx="1.475" dy="2.1" layer="1" rot="R180"/>
-<smd name="M3" x="-2.9125" y="-2.66" dx="2.375" dy="1.9" layer="1"/>
-<smd name="M6" x="2.9125" y="-2.66" dx="2.375" dy="1.9" layer="1"/>
-<smd name="M4" x="-0.82" y="-2.66" dx="1.175" dy="1.9" layer="1"/>
-<smd name="M5" x="0.85" y="-2.66" dx="1.175" dy="1.9" layer="1"/>
-<wire x1="-4.5" y1="-4.11" x2="5" y2="-4.11" width="0.1" layer="49"/>
-<wire x1="-4.5" y1="-4.81" x2="5" y2="-4.81" width="0.1" layer="49"/>
-<wire x1="-3.75" y1="0.65" x2="-3.75" y2="-4.78" width="0.127" layer="51"/>
-<wire x1="-3.75" y1="-4.78" x2="3.75" y2="-4.78" width="0.127" layer="51"/>
-<wire x1="3.75" y1="-4.78" x2="3.75" y2="0.65" width="0.127" layer="51"/>
-<wire x1="3.75" y1="0.65" x2="-3.75" y2="0.65" width="0.127" layer="51"/>
-<wire x1="-3.5" y1="0.65" x2="-3.75" y2="0.65" width="0.127" layer="21"/>
-<wire x1="-3.75" y1="0.65" x2="-3.75" y2="-1.4" width="0.127" layer="21"/>
-<wire x1="3.5" y1="0.65" x2="3.75" y2="0.65" width="0.127" layer="21"/>
-<wire x1="3.75" y1="0.65" x2="3.75" y2="-1.4" width="0.127" layer="21"/>
-<wire x1="-3.75" y1="-3.9" x2="-3.75" y2="-4.78" width="0.127" layer="21"/>
-<wire x1="-3.75" y1="-4.78" x2="3.75" y2="-4.78" width="0.127" layer="21"/>
-<wire x1="3.75" y1="-4.78" x2="3.75" y2="-3.9" width="0.127" layer="21"/>
-<text x="5.3" y="-4.1" size="0.4064" layer="49" font="vector" ratio="12">PCB Front Edge</text>
-<text x="5.3" y="-4.8" size="0.4064" layer="49" font="vector" ratio="13">Conn. Front Interface</text>
-<text x="-2.8575" y="1.27" size="0.6096" layer="25" font="vector" ratio="14" align="center-left">&gt;NAME</text>
-<text x="-2.8575" y="-5.715" size="0.4064" layer="27" font="vector" ratio="14" align="center-left">&gt;VALUE</text>
-</package>
-</packages>
-<symbols>
-<symbol name="47346-0001">
-<description>MICRO USB R/A-473460001</description>
-<pin name="V_BUS" x="-10.16" y="5.08" length="middle" direction="in"/>
-<pin name="D-" x="-10.16" y="2.54" length="middle" direction="in"/>
-<pin name="D+" x="-10.16" y="0" length="middle" direction="in"/>
-<pin name="ID" x="-10.16" y="-2.54" length="middle" direction="in"/>
-<pin name="GND" x="-10.16" y="-5.08" length="middle" direction="in"/>
-<wire x1="-5.08" y1="8.89" x2="-5.08" y2="-15.24" width="0.4064" layer="94"/>
-<wire x1="-5.08" y1="-15.24" x2="6.35" y2="-15.24" width="0.4064" layer="94"/>
-<wire x1="6.35" y1="-15.24" x2="6.35" y2="8.89" width="0.4064" layer="94"/>
-<wire x1="6.35" y1="8.89" x2="-5.08" y2="8.89" width="0.4064" layer="94"/>
-<text x="-5.08" y="13.97" size="2.032" layer="95" ratio="10">&gt;Name</text>
-<text x="-5.08" y="11.43" size="2.0828" layer="96" ratio="10">&gt;Value</text>
-<wire x1="-6.35" y1="10.16" x2="7.62" y2="10.16" width="0.254" layer="94" style="shortdash"/>
-<wire x1="7.62" y1="10.16" x2="7.62" y2="-16.51" width="0.254" layer="94" style="shortdash"/>
-<wire x1="7.62" y1="-16.51" x2="-6.35" y2="-16.51" width="0.254" layer="94" style="shortdash"/>
-<wire x1="-6.35" y1="10.16" x2="-6.35" y2="8.89" width="0.254" layer="94"/>
-<wire x1="-6.35" y1="-16.51" x2="-6.35" y2="-15.24" width="0.254" layer="94"/>
-<pin name="SHD@4" x="5.08" y="-21.59" length="middle" direction="in" rot="R90"/>
-<pin name="SHD@3" x="2.54" y="-21.59" length="middle" direction="in" rot="R90"/>
-<pin name="SHD@2" x="0" y="-21.59" length="middle" direction="in" rot="R90"/>
-<pin name="SHD@1" x="-2.54" y="-21.59" length="middle" direction="in" rot="R90"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="47346-0001" prefix="USB" uservalue="yes">
-<description>CONN RCPT 5POS MICRO USB R/A  SMD</description>
-<gates>
-<gate name="G$1" symbol="47346-0001" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="MOLEX_47346-0001">
-<connects>
-<connect gate="G$1" pin="D+" pad="3"/>
-<connect gate="G$1" pin="D-" pad="2"/>
-<connect gate="G$1" pin="GND" pad="5"/>
-<connect gate="G$1" pin="ID" pad="4"/>
-<connect gate="G$1" pin="SHD@1" pad="M1"/>
-<connect gate="G$1" pin="SHD@2" pad="M2"/>
-<connect gate="G$1" pin="SHD@3" pad="M3"/>
-<connect gate="G$1" pin="SHD@4" pad="M6"/>
-<connect gate="G$1" pin="V_BUS" pad="1"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="MPN" value="47346-0001" constant="no"/>
-<attribute name="OC_FARNELL" value="1568026" constant="no"/>
-<attribute name="OC_NEWARK" value="47M0505" constant="no"/>
-<attribute name="PACKAGE" value="5 POS MICRO USB R/A" constant="no"/>
-<attribute name="SUPPLIER" value="MOLEX" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="con-ml">
 <description>&lt;b&gt;Harting  Connectors&lt;/b&gt;&lt;p&gt;
 Low profile connectors, straight&lt;p&gt;
@@ -13609,7 +13594,7 @@ Source: RS Component / Phycomp</description>
 <part name="GND_PWR11" library="faout" deviceset="GND" device=""/>
 <part name="GND_PWR12" library="faout" deviceset="GND" device=""/>
 <part name="1V8_PWR3" library="faout" deviceset="1V8" device=""/>
-<part name="C31" library="faout" deviceset="C_EU" device="0603" value="3.3uF">
+<part name="C31" library="faout" deviceset="C_EU" device="0603" value="4.7uF">
 <attribute name="OC_FARNELL" value="1833803"/>
 </part>
 <part name="GND_PWR14" library="faout" deviceset="GND" device=""/>
@@ -13762,7 +13747,7 @@ Source: RS Component / Phycomp</description>
 <part name="3V3_PWR23" library="faout" deviceset="3V3" device=""/>
 <part name="GND_PWR33" library="faout" deviceset="GND" device=""/>
 <part name="GND_PWR41" library="faout" deviceset="GND" device=""/>
-<part name="R14" library="faout" deviceset="R_EU" device="0603" value="4.7k"/>
+<part name="R14" library="faout" deviceset="R_EU" device="0603" value="10k"/>
 <part name="3V3_PWR27" library="faout" deviceset="3V3" device=""/>
 <part name="Q4" library="crystal" deviceset="ASF*" device="" technology="L"/>
 <part name="C64" library="faout" deviceset="C_EU" device="0603" value="10nF">
@@ -13867,7 +13852,6 @@ Source: RS Component / Phycomp</description>
 <part name="AO5" library="analog_out_lib" deviceset="BU-SMA" device=""/>
 <part name="AO6" library="analog_out_lib" deviceset="BU-SMA" device=""/>
 <part name="SUPPLY43" library="supply2" deviceset="AGND" device=""/>
-<part name="USB1" library="molex_usb" deviceset="47346-0001" device=""/>
 <part name="R9" library="faout" deviceset="R_EU" device="0603"/>
 <part name="SUPPLY17" library="supply2" deviceset="AGND" device=""/>
 <part name="SUPPLY14" library="supply2" deviceset="AGND" device=""/>
@@ -13983,8 +13967,8 @@ Source: RS Component / Phycomp</description>
 <part name="A+3V3_PWR3" library="faout" deviceset="A+3V3" device=""/>
 <part name="A+3V3_PWR6" library="faout" deviceset="A+3V3" device=""/>
 <part name="A+3V3_PWR9" library="faout" deviceset="A+3V3" device=""/>
-<part name="R16" library="faout" deviceset="R_EU" device="0603" value="13.181k"/>
-<part name="R17" library="faout" deviceset="R_EU" device="0603" value="5k"/>
+<part name="R16" library="faout" deviceset="R_EU" device="0603" value="13k"/>
+<part name="R17" library="faout" deviceset="R_EU" device="0603" value="5.1k"/>
 <part name="A+12V_PWR2" library="faout" deviceset="A+12V" device=""/>
 <part name="SUPPLY8" library="supply2" deviceset="AGND" device=""/>
 <part name="SUPPLY9" library="supply2" deviceset="AGND" device=""/>
@@ -14023,7 +14007,9 @@ Source: RS Component / Phycomp</description>
 <part name="GND_PWR23" library="faout" deviceset="GND" device=""/>
 <part name="GND_PWR1" library="Bogdan_Commons" deviceset="GND" device=""/>
 <part name="SUPPLY1" library="supply2" deviceset="AGND" device=""/>
-<part name="R2" library="faout" deviceset="R_EU" device="1206" value="ferrite"/>
+<part name="R2" library="faout" deviceset="R_EU" device="1206" value="ferrite">
+<attribute name="OC_FARNELL" value="1612060"/>
+</part>
 <part name="GND_PWR42" library="faout" deviceset="GND" device=""/>
 <part name="GND_PWR40" library="faout" deviceset="GND" device=""/>
 <part name="GND_PWR43" library="faout" deviceset="GND" device=""/>
@@ -14101,6 +14087,7 @@ Source: RS Component / Phycomp</description>
 <part name="C103" library="faout" deviceset="C_EU" device="0805" value="10uF">
 <attribute name="OC_FARNELL" value="1735530"/>
 </part>
+<part name="USB1" library="faout" deviceset="MOLEX_USB_" device="105017-0001"/>
 </parts>
 <sheets>
 <sheet>
@@ -14478,7 +14465,6 @@ Source: RS Component / Phycomp</description>
 <instance part="AO5" gate="G$1" x="429.26" y="-259.08" rot="MR0"/>
 <instance part="AO6" gate="G$1" x="429.26" y="-243.84" rot="MR0"/>
 <instance part="SUPPLY43" gate="G$1" x="426.72" y="-264.16"/>
-<instance part="USB1" gate="G$1" x="-7.62" y="-127" rot="MR0"/>
 <instance part="R9" gate="G$1" x="-5.08" y="-152.4"/>
 <instance part="SUPPLY17" gate="G$1" x="373.38" y="-33.02" rot="R270"/>
 <instance part="SUPPLY14" gate="G$1" x="373.38" y="-27.94" rot="R270"/>
@@ -14632,7 +14618,9 @@ Source: RS Component / Phycomp</description>
 <instance part="GND_PWR23" gate="A" x="10.16" y="-266.7" rot="R180"/>
 <instance part="GND_PWR1" gate="A" x="60.96" y="58.42"/>
 <instance part="SUPPLY1" gate="G$1" x="40.64" y="58.42"/>
-<instance part="R2" gate="G$1" x="50.8" y="60.96"/>
+<instance part="R2" gate="G$1" x="50.8" y="60.96">
+<attribute name="OC_FARNELL" x="50.8" y="60.96" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND_PWR42" gate="A" x="251.46" y="-182.88" rot="R90"/>
 <instance part="GND_PWR40" gate="A" x="251.46" y="-180.34" rot="R90"/>
 <instance part="GND_PWR43" gate="A" x="251.46" y="-185.42" rot="R90"/>
@@ -14716,6 +14704,7 @@ Source: RS Component / Phycomp</description>
 <instance part="C103" gate="G$1" x="396.24" y="-210.82" rot="R90">
 <attribute name="OC_FARNELL" x="396.24" y="-210.82" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
+<instance part="USB1" gate="G$1" x="-7.62" y="-127" rot="MR0"/>
 </instances>
 <busses>
 </busses>
@@ -17027,12 +17016,12 @@ Source: RS Component / Phycomp</description>
 </net>
 <net name="USB_GND" class="0">
 <segment>
-<pinref part="USB1" gate="G$1" pin="GND"/>
 <wire x1="2.54" y1="-132.08" x2="17.78" y2="-132.08" width="0.1524" layer="91"/>
 <label x="5.08" y="-132.08" size="1.778" layer="95"/>
 <wire x1="2.54" y1="-132.08" x2="2.54" y2="-152.4" width="0.1524" layer="91"/>
 <pinref part="R9" gate="G$1" pin="P$2"/>
 <wire x1="2.54" y1="-152.4" x2="0" y2="-152.4" width="0.1524" layer="91"/>
+<pinref part="USB1" gate="G$1" pin="GND"/>
 <junction x="2.54" y="-132.08"/>
 </segment>
 <segment>
@@ -17043,9 +17032,9 @@ Source: RS Component / Phycomp</description>
 </net>
 <net name="USB_V" class="0">
 <segment>
-<pinref part="USB1" gate="G$1" pin="V_BUS"/>
 <wire x1="2.54" y1="-121.92" x2="17.78" y2="-121.92" width="0.1524" layer="91"/>
 <label x="5.08" y="-121.92" size="1.778" layer="95"/>
+<pinref part="USB1" gate="G$1" pin="V_BUS"/>
 </segment>
 <segment>
 <wire x1="96.52" y1="63.5" x2="111.76" y2="63.5" width="0.1524" layer="91"/>
@@ -17619,10 +17608,10 @@ Source: RS Component / Phycomp</description>
 </net>
 <net name="N$15" class="0">
 <segment>
-<pinref part="USB1" gate="G$1" pin="SHD@4"/>
 <wire x1="-12.7" y1="-148.59" x2="-12.7" y2="-152.4" width="0.1524" layer="91"/>
 <wire x1="-12.7" y1="-152.4" x2="-10.16" y2="-152.4" width="0.1524" layer="91"/>
 <pinref part="R9" gate="G$1" pin="P$1"/>
+<pinref part="USB1" gate="G$1" pin="SHD@4"/>
 </segment>
 </net>
 <net name="P1_0" class="0">
