@@ -1342,6 +1342,7 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 <pin name="\CS" x="-15.24" y="22.86" length="short" direction="in"/>
 <text x="-12.7" y="31.75" size="1.778" layer="95">&gt;NAME</text>
 <text x="-12.7" y="-33.02" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="A12" x="-15.24" y="-27.94" length="short" direction="in"/>
 </symbol>
 <symbol name="MT48LC64/32/16M-PWR">
 <wire x1="-5.08" y1="22.86" x2="7.62" y2="22.86" width="0.254" layer="94"/>
@@ -1805,6 +1806,7 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 <connect gate="G$1" pin="A1" pad="24"/>
 <connect gate="G$1" pin="A10" pad="22"/>
 <connect gate="G$1" pin="A11" pad="35"/>
+<connect gate="G$1" pin="A12" pad="36"/>
 <connect gate="G$1" pin="A2" pad="25"/>
 <connect gate="G$1" pin="A3" pad="26"/>
 <connect gate="G$1" pin="A4" pad="29"/>
@@ -1855,6 +1857,69 @@ Source: http://download.micron.com/pdf/datasheets/dram/sdram/256MSDRAM.pdf</desc
 <technologies>
 <technology name="">
 <attribute name="OC_FARNELL" value="2253745" constant="no"/>
+</technology>
+</technologies>
+</device>
+<device name="16M16A2" package="TSOP54-400">
+<connects>
+<connect gate="G$1" pin="!CAS" pad="17"/>
+<connect gate="G$1" pin="!RAS" pad="18"/>
+<connect gate="G$1" pin="!WE" pad="16"/>
+<connect gate="G$1" pin="A0" pad="23"/>
+<connect gate="G$1" pin="A1" pad="24"/>
+<connect gate="G$1" pin="A10" pad="22"/>
+<connect gate="G$1" pin="A11" pad="35"/>
+<connect gate="G$1" pin="A12" pad="36"/>
+<connect gate="G$1" pin="A2" pad="25"/>
+<connect gate="G$1" pin="A3" pad="26"/>
+<connect gate="G$1" pin="A4" pad="29"/>
+<connect gate="G$1" pin="A5" pad="30"/>
+<connect gate="G$1" pin="A6" pad="31"/>
+<connect gate="G$1" pin="A7" pad="32"/>
+<connect gate="G$1" pin="A8" pad="33"/>
+<connect gate="G$1" pin="A9" pad="34"/>
+<connect gate="G$1" pin="BA0" pad="20"/>
+<connect gate="G$1" pin="BA1" pad="21"/>
+<connect gate="G$1" pin="CKE" pad="37"/>
+<connect gate="G$1" pin="CLK" pad="38"/>
+<connect gate="G$1" pin="DQ0" pad="2"/>
+<connect gate="G$1" pin="DQ1" pad="4"/>
+<connect gate="G$1" pin="DQ10" pad="45"/>
+<connect gate="G$1" pin="DQ11" pad="47"/>
+<connect gate="G$1" pin="DQ12" pad="48"/>
+<connect gate="G$1" pin="DQ13" pad="50"/>
+<connect gate="G$1" pin="DQ14" pad="51"/>
+<connect gate="G$1" pin="DQ15" pad="53"/>
+<connect gate="G$1" pin="DQ2" pad="5"/>
+<connect gate="G$1" pin="DQ3" pad="7"/>
+<connect gate="G$1" pin="DQ4" pad="8"/>
+<connect gate="G$1" pin="DQ5" pad="10"/>
+<connect gate="G$1" pin="DQ6" pad="11"/>
+<connect gate="G$1" pin="DQ7" pad="13"/>
+<connect gate="G$1" pin="DQ8" pad="42"/>
+<connect gate="G$1" pin="DQ9" pad="44"/>
+<connect gate="G$1" pin="DQMH" pad="39"/>
+<connect gate="G$1" pin="DQML" pad="15"/>
+<connect gate="G$1" pin="NC" pad="40"/>
+<connect gate="G$1" pin="\CS" pad="19"/>
+<connect gate="P" pin="VDD@1" pad="1"/>
+<connect gate="P" pin="VDD@2" pad="14"/>
+<connect gate="P" pin="VDD@3" pad="27"/>
+<connect gate="P" pin="VDDQ@1" pad="3"/>
+<connect gate="P" pin="VDDQ@2" pad="9"/>
+<connect gate="P" pin="VDDQ@3" pad="43"/>
+<connect gate="P" pin="VDDQ@4" pad="49"/>
+<connect gate="P" pin="VSS@1" pad="28"/>
+<connect gate="P" pin="VSS@2" pad="41"/>
+<connect gate="P" pin="VSS@3" pad="54"/>
+<connect gate="P" pin="VSSQ@1" pad="6"/>
+<connect gate="P" pin="VSSQ@2" pad="12"/>
+<connect gate="P" pin="VSSQ@3" pad="46"/>
+<connect gate="P" pin="VSSQ@4" pad="52"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="OC_FARNELL" value="2253738"/>
 </technology>
 </technologies>
 </device>
@@ -13545,7 +13610,7 @@ Source: RS Component / Phycomp</description>
 <part name="IC1" library="ftdichip-3" deviceset="FT2232H" device="L">
 <attribute name="OC_FARNELL" value="1697461"/>
 </part>
-<part name="IC2" library="faout" deviceset="MT48LC" device="8M16A2"/>
+<part name="IC2" library="faout" deviceset="MT48LC" device="16M16A2" value="MT48LC16M16A2"/>
 <part name="3V3_PWR20" library="faout" deviceset="3V3" device=""/>
 <part name="3V3_PWR22" library="faout" deviceset="3V3" device=""/>
 <part name="3V3_PWR21" library="faout" deviceset="3V3" device=""/>
@@ -14019,7 +14084,6 @@ Source: RS Component / Phycomp</description>
 <part name="SUPPLY20" library="supply2" deviceset="AGND" device=""/>
 <part name="A+3V3_PWR10" library="faout" deviceset="A+3V3" device=""/>
 <part name="SUPPLY44" library="supply2" deviceset="AGND" device=""/>
-<part name="GND_PWR51" library="faout" deviceset="GND" device=""/>
 <part name="C73" library="faout" deviceset="C_EU" device="0603" value="10nF">
 <attribute name="OC_FARNELL" value="1759102"/>
 </part>
@@ -14630,7 +14694,6 @@ Source: RS Component / Phycomp</description>
 <instance part="SUPPLY20" gate="G$1" x="322.58" y="-60.96"/>
 <instance part="A+3V3_PWR10" gate="G$1" x="322.58" y="-269.24"/>
 <instance part="SUPPLY44" gate="G$1" x="322.58" y="-281.94"/>
-<instance part="GND_PWR51" gate="A" x="203.2" y="-129.54" rot="R90"/>
 <instance part="C73" gate="G$1" x="320.04" y="-274.32">
 <attribute name="OC_FARNELL" x="320.04" y="-274.32" size="1.778" layer="96" display="off"/>
 </instance>
@@ -15959,12 +16022,6 @@ Source: RS Component / Phycomp</description>
 <pinref part="GND_PWR43" gate="A" pin="GND"/>
 <label x="238.76" y="-185.42" size="1.778" layer="95"/>
 <pinref part="U4" gate="B1" pin="IO_L40N_GCLK10_1"/>
-</segment>
-<segment>
-<pinref part="U4" gate="B3" pin="IO_L1N_VREF_3"/>
-<pinref part="GND_PWR51" gate="A" pin="GND"/>
-<wire x1="200.66" y1="-129.54" x2="182.88" y2="-129.54" width="0.1524" layer="91"/>
-<label x="185.42" y="-129.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -17786,6 +17843,18 @@ Source: RS Component / Phycomp</description>
 <junction x="358.14" y="-269.24"/>
 <junction x="355.6" y="-271.78"/>
 <junction x="355.6" y="-269.24"/>
+</segment>
+</net>
+<net name="RAM_A12" class="0">
+<segment>
+<pinref part="U4" gate="B3" pin="IO_L1N_VREF_3"/>
+<wire x1="182.88" y1="-129.54" x2="200.66" y2="-129.54" width="0.1524" layer="91"/>
+<label x="185.42" y="-129.54" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="35.56" y1="-269.24" x2="50.8" y2="-269.24" width="0.1524" layer="91"/>
+<label x="35.56" y="-269.24" size="1.778" layer="95"/>
+<pinref part="IC2" gate="G$1" pin="A12"/>
 </segment>
 </net>
 </nets>
