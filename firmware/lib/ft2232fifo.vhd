@@ -26,7 +26,6 @@ entity ft2232fifo is
         usb_d: inout std_logic_vector(7 downto 0);
         -- application/fifo interface
         rst: in std_logic;
-        fifo_clk: out std_logic;
         fifo_in_wr_en: out std_logic;
         fifo_in_full: in std_logic;
         fifo_in_data: out std_logic_vector(7 downto 0);
@@ -47,8 +46,6 @@ architecture ft2232fifo_arch of ft2232fifo is
                          s_switch_to_read);
     signal state, next_state: fsm_state_t;
 begin
-
-fifo_clk <= usb_clk;
 
 -- forwarded read/write enable signals
 usb_rd_n <= not usb_rd_en;
