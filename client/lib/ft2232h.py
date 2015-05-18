@@ -82,11 +82,12 @@ class FT2232H:
         return recv
 
     def __del__(self):
-        print "closing"
         self.close()
 
     def close(self):
         # close channel A
-        ftdi.ftdi_set_bitmode(self.ft_ctx, 0xfb, ftdi.BITMODE_RESET)
-        ftdi.ftdi_usb_close(self.ft_ctx)
-        ftdi.ftdi_deinit(self.ft_ctx)
+        if bool(self.ft_ctx.usb_dev):
+            print "Closing FTDI Interface"
+            ftdi.ftdi_set_bitmode(self.ft_ctx, 0xfb, ftdi.BITMODE_RESET)
+            ftdi.ftdi_usb_close(self.ft_ctx)
+            ftdi.ftdi_deinit(self.ft_ctx)

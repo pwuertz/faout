@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.6
-# Date: Thu Jul 24 12:56:53 2014
+# Date: Thu May  7 16:14:27 2015
 #
 ##############################################################
 #
@@ -41,7 +41,7 @@ SELECT Clocking_Wizard xilinx.com:ip:clk_wiz:3.6
 # BEGIN Parameters
 CSET calc_done=DONE
 CSET clk_in_sel_port=CLK_IN_SEL
-CSET clk_out1_port=clk_100
+CSET clk_out1_port=clk_osc_100
 CSET clk_out1_use_fine_ps_gui=false
 CSET clk_out2_port=clk_50
 CSET clk_out2_use_fine_ps_gui=false
@@ -76,7 +76,7 @@ CSET clkout2_drives=BUFG
 CSET clkout2_requested_duty_cycle=50.000
 CSET clkout2_requested_out_freq=50
 CSET clkout2_requested_phase=0.000
-CSET clkout2_used=true
+CSET clkout2_used=false
 CSET clkout3_drives=BUFG
 CSET clkout3_requested_duty_cycle=50.000
 CSET clkout3_requested_out_freq=100.000
@@ -103,7 +103,7 @@ CSET clkout7_requested_out_freq=100.000
 CSET clkout7_requested_phase=0.000
 CSET clkout7_used=false
 CSET clock_mgr_type=AUTO
-CSET component_name=clock_core
+CSET component_name=clock_osc
 CSET daddr_port=DADDR
 CSET dclk_port=DCLK
 CSET dcm_clk_feedback=2X
@@ -189,7 +189,7 @@ CSET mmcm_notes=None
 CSET mmcm_ref_jitter1=0.010
 CSET mmcm_ref_jitter2=0.010
 CSET mmcm_startup_wait=false
-CSET num_out_clks=2
+CSET num_out_clks=1
 CSET override_dcm=false
 CSET override_dcm_clkgen=false
 CSET override_mmcm=false
@@ -226,7 +226,7 @@ CSET power_down_port=POWER_DOWN
 CSET prim_in_freq=50
 CSET prim_in_jitter=0.010
 CSET prim_source=Single_ended_clock_capable_pin
-CSET primary_port=clk_in
+CSET primary_port=clk_osc_in
 CSET primitive=MMCM
 CSET primtype_sel=PLL_BASE
 CSET psclk_port=PSCLK
@@ -266,4 +266,4 @@ CSET use_status=false
 MISC pkg_timestamp=2012-05-10T12:44:55Z
 # END Extra information
 GENERATE
-# CRC: 2261cf10
+# CRC: e121fa18
