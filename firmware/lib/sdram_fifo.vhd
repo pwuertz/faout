@@ -90,6 +90,9 @@ architecture sdram_fifo_arch of sdram_fifo is
     signal data_rd_pending: std_logic_vector(sdram_read_latency-1 downto 0) := (others=>'0');
     signal next_data_rd_pending: std_logic_vector(sdram_read_latency-1 downto 0);
     signal data_rd_pending_empty: std_logic;
+    -- pending read inhibit
+    signal rd_en_int: std_logic;
+    signal rd_en_inhibit: std_logic;
 
     -- state machine
     type fsm_state is (
@@ -146,6 +149,23 @@ architecture sdram_fifo_arch of sdram_fifo is
     signal next_rewind_flag: std_logic;
 begin
 
+-- inhibit rd_en_int to discard any pending data in case a word was skipped
+rd_en_int <= '1' when rd_en = '1' and rd_en_inhibit = '0' else '0';
+rd_inhibit_proc: process(clk)
+begin
+    if rising_edge(clk) then
+        rd_en_inhibit <= '0';
+        -- start read inhibit if a word was skipped
+        if (data_rd_pending(sdram_read_latency-1) = '1') and (rd_en = '0') then
+            rd_en_inhibit <= '1';
+        end if;
+        -- hold read inhibit until the pipeline is empty
+        if (data_rd_pending_empty = '0') and (rd_en_inhibit = '1') then
+            rd_en_inhibit <= '1';
+        end if;
+    end if;
+end process;
+
 -- export wr/rd addresses
 rd_ptr <= std_logic_vector(rd_addr);
 wr_ptr <= std_logic_vector(wr_addr);
@@ -180,7 +200,7 @@ begin
 end generate;
 
 -- delayed read ack
-rd_ack <= '1' when data_rd_pending(sdram_read_latency-1) = '1' and rd_en = '1' else '0';
+rd_ack <= '1' when data_rd_pending(sdram_read_latency-1) = '1' and rd_en_int = '1' else '0';
 data_rd_pending_empty <= '1' when data_rd_pending = (sdram_read_latency-1 downto 0 => '0') else '0';
 
 -- not using dqm for now
@@ -199,7 +219,7 @@ wr_col_zero <= '1' when wr_addr(end_of_col downto start_of_col) = (sdram_column_
 -- emtpy, full and could read/write signals
 is_empty <= '1' when rd_addr = wr_addr or clear_flag = '1' or rewind_flag = '1' else '0';
 is_full <= '1' when wr_addr = (sdram_address_width-1 downto 0 => '1') or state = s_startup or clear_flag = '1' or rewind_flag = '1' else '0';
-could_read <= '1' when is_empty = '0' and rd_en = '1' else '0';
+could_read <= '1' when is_empty = '0' and rd_en_int = '1' else '0';
 could_write <= '1' when is_full = '0' and wr_en = '1' else '0';
 empty <= '1' when is_empty = '1' and data_rd_pending_empty = '1' else '0';
 full <= is_full;
@@ -249,7 +269,7 @@ end process;
 state_transition_proc: process(state, counter,
                                pending_refresh, forcing_refresh,
                                could_read, could_write,
-                               clear, clear_flag, rewind, rewind_flag, wr_en, rd_en,
+                               clear, clear_flag, rewind, rewind_flag, wr_en, rd_en_int,
                                rd_addr, rd_addr_row, rd_addr_bank, rd_addr_col, rd_col_zero,
                                wr_addr, wr_addr_row, wr_addr_bank, wr_addr_col, wr_col_zero,
                                data_wr, data_rd_pending, data_rd_pending_empty) 
@@ -276,7 +296,7 @@ begin
     -- default shift data_rd_pending register
     next_data_rd_pending <= data_rd_pending(sdram_read_latency-2 downto 0) & '0';
     -- backtrack read pointer when pending read is ignored
-    if data_rd_pending(sdram_read_latency-1) = '1' and rd_en = '0' then
+    if data_rd_pending(sdram_read_latency-1) = '1' and rd_en_int = '0' then
         next_rd_addr <= rd_addr - 1;
     end if;
 
