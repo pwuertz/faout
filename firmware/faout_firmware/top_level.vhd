@@ -59,7 +59,7 @@ end top_level;
 
 architecture top_level_arch of top_level is
 
-    constant VERSION: integer := 60;
+    constant VERSION: integer := 61;
     constant N_CHANNELS: integer := 6;
     
     -- global signals
