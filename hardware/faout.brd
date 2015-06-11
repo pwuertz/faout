@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.1.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.3175" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.3175" altunitdist="mm" altunit="mm"/>
+<grid distance="0.15" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.3175" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -18,8 +18,8 @@
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
@@ -40,9 +40,9 @@
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
 <layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
@@ -2685,9 +2685,6 @@ Covered vias can be set in Masks (Limit).
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
-<param name="AutoGrid" value="1"/>
-<param name="Efforts" value="0"/>
-<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
@@ -2779,27 +2776,36 @@ Covered vias can be set in Masks (Limit).
 </pass>
 </autorouter>
 <elements>
-<element name="U4" library="faout" package="TQ144" value="6SLX9TQG144" x="41.91" y="43.815">
+<element name="U4" library="faout" package="TQ144" value="6SLX9TQG144" x="41.91" y="43.815" smashed="yes">
 <attribute name="OC_FARNELL" value="1876228" x="41.91" y="43.815" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="40.1025" y="46.885" size="2" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="39.0525" y="42.545" size="0.4064" layer="27" font="vector" ratio="14" align="center-left"/>
 </element>
-<element name="AO1" library="analog_out_lib" package="BU-SMA-H" value="BU-SMA" x="15" y="4.5" rot="R270">
+<element name="AO1" library="analog_out_lib" package="BU-SMA-H" value="BU-SMA" x="15" y="4.5" smashed="yes" rot="R270">
 <attribute name="MPN" value="" x="15" y="43.87" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="15" y="43.87" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1248989" x="15" y="43.87" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="19.445" y="7.04" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="9.285" y="7.675" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="IC1" library="ftdichip-3" package="TQFP64-12X12" value="" x="59.69" y="60.96" smashed="yes" rot="R180">
-<attribute name="NAME" x="64.775" y="67.0525" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="NAME" x="58.46" y="66.9025" size="1" layer="25" font="vector" align="center-left"/>
 <attribute name="VALUE" x="53.465" y="56.075" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 <attribute name="OC_FARNELL" value="1697461" x="59.69" y="60.96" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="IC2" library="faout" package="TSOP54-400" value="MT48LC16M16A2" x="15.24" y="43.815" rot="R180">
+<element name="IC2" library="faout" package="TSOP54-400" value="MT48LC16M16A2" x="15.24" y="43.815" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="2253738" x="15.24" y="43.815" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="12.3225" y="46.505" size="2" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="24.4475" y="47.625" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
 <element name="C33" library="faout" package="R0603" value="18pF" x="74.6125" y="66.9925" smashed="yes" rot="R270">
-<attribute name="NAME" x="75.8825" y="67.945" size="0.6096" layer="25" font="vector" ratio="14" rot="R270" align="center-left"/>
+<attribute name="NAME" x="73.96" y="68.58" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
 <attribute name="VALUE" x="73.9775" y="65.0875" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 </element>
-<element name="C32" library="faout" package="R0603" value="18pF" x="66.9925" y="66.9925" rot="R270"/>
+<element name="C32" library="faout" package="R0603" value="18pF" x="66.9925" y="66.9925" smashed="yes" rot="R270">
+<attribute name="NAME" x="66.19" y="68.58" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="66.3575" y="65.0875" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
+</element>
 <element name="R10" library="faout" package="R0603" value="10k" x="73.025" y="60.0075" smashed="yes">
 <attribute name="NAME" x="74.93" y="60.0075" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
 <attribute name="VALUE" x="74.93" y="59.3725" size="0.4064" layer="27" font="vector" ratio="14" align="center-left"/>
@@ -2818,32 +2824,30 @@ Covered vias can be set in Masks (Limit).
 </element>
 <element name="C23" library="faout" package="R0603" value="100nF" x="61.595" y="63.5" smashed="yes" rot="MR180">
 <attribute name="OC_FARNELL" value="1740621" x="61.595" y="63.5" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="NAME" x="64.4525" y="63.5" size="0.6096" layer="26" font="vector" ratio="14" rot="MR180" align="center-left"/>
+<attribute name="NAME" x="63.4025" y="63.5" size="0.6096" layer="26" font="vector" ratio="14" rot="MR180" align="center-left"/>
 <attribute name="VALUE" x="63.5" y="64.135" size="0.4064" layer="28" font="vector" ratio="14" rot="MR180" align="center-left"/>
 </element>
-<element name="C24" library="faout" package="R0603" value="100nF" x="58.1025" y="57.785" smashed="yes" rot="MR0">
+<element name="C24" library="faout" package="R0603" value="100nF" x="58.1025" y="57.785" rot="MR0">
 <attribute name="OC_FARNELL" value="1740621" x="58.1025" y="57.785" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="NAME" x="56.1975" y="57.15" size="0.6096" layer="26" font="vector" ratio="14" rot="MR0" align="center-left"/>
-<attribute name="VALUE" x="56.1975" y="57.15" size="0.4064" layer="28" font="vector" ratio="14" rot="MR0" align="center-left"/>
 </element>
 <element name="C25" library="faout" package="R0603" value="100nF" x="58.1025" y="63.5" smashed="yes" rot="MR0">
 <attribute name="OC_FARNELL" value="1740621" x="58.1025" y="63.5" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="NAME" x="56.1975" y="63.1825" size="0.6096" layer="26" font="vector" ratio="14" rot="MR0" align="center-left"/>
+<attribute name="NAME" x="56.1975" y="63.4825" size="0.6096" layer="26" font="vector" ratio="14" rot="MR0" align="center-left"/>
 <attribute name="VALUE" x="56.1975" y="62.865" size="0.4064" layer="28" font="vector" ratio="14" rot="MR0" align="center-left"/>
 </element>
 <element name="C26" library="faout" package="R0603" value="100nF" x="61.595" y="59.69" smashed="yes" rot="MR0">
 <attribute name="OC_FARNELL" value="1740621" x="61.595" y="59.69" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="NAME" x="64.4525" y="59.69" size="0.6096" layer="26" font="vector" ratio="14" rot="MR180" align="center-left"/>
+<attribute name="NAME" x="63.4025" y="59.69" size="0.6096" layer="26" font="vector" ratio="14" rot="MR180" align="center-left"/>
 <attribute name="VALUE" x="59.69" y="59.055" size="0.4064" layer="28" font="vector" ratio="14" rot="MR0" align="center-left"/>
 </element>
 <element name="C27" library="faout" package="R0603" value="100nF" x="61.595" y="61.595" smashed="yes" rot="MR0">
 <attribute name="OC_FARNELL" value="1740621" x="61.595" y="61.595" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="NAME" x="64.4525" y="61.595" size="0.6096" layer="26" font="vector" ratio="14" rot="MR180" align="center-left"/>
+<attribute name="NAME" x="63.4025" y="61.595" size="0.6096" layer="26" font="vector" ratio="14" rot="MR180" align="center-left"/>
 <attribute name="VALUE" x="59.69" y="60.96" size="0.4064" layer="28" font="vector" ratio="14" rot="MR0" align="center-left"/>
 </element>
 <element name="C28" library="faout" package="R0603" value="100nF" x="58.1025" y="59.69" smashed="yes" rot="MR180">
 <attribute name="OC_FARNELL" value="1740621" x="58.1025" y="59.69" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="NAME" x="56.1975" y="59.3725" size="0.6096" layer="26" font="vector" ratio="14" rot="MR0" align="center-left"/>
+<attribute name="NAME" x="56.1975" y="59.6725" size="0.6096" layer="26" font="vector" ratio="14" rot="MR0" align="center-left"/>
 <attribute name="VALUE" x="60.0075" y="60.325" size="0.4064" layer="28" font="vector" ratio="14" rot="MR180" align="center-left"/>
 </element>
 <element name="C29" library="faout" package="R0603" value="100nF" x="58.1025" y="61.595" smashed="yes" rot="MR180">
@@ -2855,14 +2859,19 @@ Covered vias can be set in Masks (Limit).
 <attribute name="NAME" x="62.23" y="69.5325" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
 <attribute name="VALUE" x="61.595" y="69.5325" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
-<element name="R6" library="faout" package="R0603" value="10k" x="51.7525" y="67.6275" rot="R270"/>
+<element name="R6" library="faout" package="R0603" value="10k" x="51.7525" y="67.6275" smashed="yes" rot="R270">
+<attribute name="NAME" x="51.435" y="69.215" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="51.1175" y="65.7225" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
+</element>
 <element name="C31" library="faout" package="R0603" value="4.7uF" x="61.595" y="57.785" smashed="yes" rot="MR0">
 <attribute name="OC_FARNELL" value="1833803" x="61.595" y="57.785" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="NAME" x="64.4525" y="57.785" size="0.6096" layer="26" font="vector" ratio="14" rot="MR180" align="center-left"/>
+<attribute name="NAME" x="63.5525" y="57.785" size="0.6096" layer="26" font="vector" ratio="14" rot="MR180" align="center-left"/>
 <attribute name="VALUE" x="59.69" y="57.15" size="0.4064" layer="28" font="vector" ratio="14" rot="MR0" align="center-left"/>
 </element>
-<element name="C30" library="faout" package="R0603" value="100nF" x="67.945" y="56.515" rot="R270">
+<element name="C30" library="faout" package="R0603" value="100nF" x="67.945" y="56.515" smashed="yes" rot="R270">
 <attribute name="OC_FARNELL" value="1740621" x="67.945" y="56.515" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="66.9925" y="58.1025" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="67.31" y="54.61" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 </element>
 <element name="C21" library="faout" package="R0603" value="100nF" x="63.8175" y="67.6275" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1740621" x="63.8175" y="67.6275" size="1.778" layer="28" rot="MR90" display="off"/>
@@ -2903,14 +2912,20 @@ Covered vias can be set in Masks (Limit).
 <element name="C42" library="faout" package="R0603" value="4.7uF" x="32.385" y="41.91" rot="MR0">
 <attribute name="OC_FARNELL" value="1833803" x="32.385" y="41.91" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="C43" library="faout" package="R0603" value="470nF" x="41.91" y="34.29" rot="MR270">
+<element name="C43" library="faout" package="R0603" value="470nF" x="41.91" y="34.29" smashed="yes" rot="MR270">
 <attribute name="OC_FARNELL" value="1867949" x="41.91" y="34.29" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="NAME" x="41.94" y="35.415" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="42.545" y="32.385" size="0.4064" layer="28" font="vector" ratio="14" rot="MR270" align="center-left"/>
 </element>
-<element name="C44" library="faout" package="R0603" value="470nF" x="40.005" y="34.29" rot="MR270">
+<element name="C44" library="faout" package="R0603" value="470nF" x="40.005" y="34.29" smashed="yes" rot="MR270">
 <attribute name="OC_FARNELL" value="1867949" x="40.005" y="34.29" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="NAME" x="39.945" y="35.415" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="40.64" y="32.385" size="0.4064" layer="28" font="vector" ratio="14" rot="MR270" align="center-left"/>
 </element>
-<element name="C45" library="faout" package="R0603" value="4.7uF" x="43.815" y="34.29" rot="MR270">
+<element name="C45" library="faout" package="R0603" value="4.7uF" x="43.815" y="34.29" smashed="yes" rot="MR270">
 <attribute name="OC_FARNELL" value="1833803" x="43.815" y="34.29" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="NAME" x="43.785" y="35.565" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="44.45" y="32.385" size="0.4064" layer="28" font="vector" ratio="14" rot="MR270" align="center-left"/>
 </element>
 <element name="C46" library="faout" package="R0603" value="470nF" x="51.435" y="43.815" rot="MR180">
 <attribute name="OC_FARNELL" value="1867949" x="51.435" y="43.815" size="1.778" layer="28" rot="MR180" display="off"/>
@@ -2992,174 +3007,256 @@ Covered vias can be set in Masks (Limit).
 <element name="C39" library="faout" package="R0603" value="10nF" x="17.78" y="46.355" rot="MR0">
 <attribute name="OC_FARNELL" value="1759102" x="17.78" y="46.355" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="R14" library="faout" package="R0603" value="10k" x="31.115" y="33.3375" rot="MR90"/>
-<element name="Q4" library="crystal" package="ASF" value="ASFL" x="60.325" y="45.4025" rot="R180">
+<element name="R14" library="faout" package="R0603" value="10k" x="31.115" y="33.3375" smashed="yes" rot="MR90">
+<attribute name="NAME" x="31.115" y="34.7925" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="30.48" y="35.2425" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
+</element>
+<element name="Q4" library="crystal" package="ASF" value="ASFL" x="60.325" y="45.4025" smashed="yes" rot="R180">
 <attribute name="OC_NEWARK" value="99M0411" x="60.325" y="45.4025" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MPN" value="ASFLM1-50.000MHZ-C-T" x="60.325" y="45.4025" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MF" value="" x="60.325" y="45.4025" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_FARNELL" value="1838931" x="60.325" y="45.4025" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="61.2775" y="48.5775" size="1" layer="25" rot="R180"/>
+<attribute name="VALUE" x="62.865" y="49.2125" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="C64" library="faout" package="R0603" value="10nF" x="63.8175" y="44.45" rot="R270">
+<element name="C64" library="faout" package="R0603" value="10nF" x="63.8175" y="44.45" smashed="yes" rot="R270">
 <attribute name="OC_FARNELL" value="1759102" x="63.8175" y="44.45" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="63.5" y="46.0375" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="63.1825" y="42.545" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 </element>
-<element name="Q3" library="faout" package="TXC_QUARTZ_7A" value="12MHz" x="70.8025" y="66.9925">
+<element name="Q3" library="faout" package="TXC_QUARTZ_7A" value="12MHz" x="70.8025" y="66.9925" smashed="yes">
 <attribute name="OC_FARNELL" value="1841940" x="70.8025" y="66.9925" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="70.015" y="69.515" size="1" layer="25" font="vector" align="center-left"/>
+<attribute name="VALUE" x="73.8075" y="66.6575" size="0.4064" layer="27" font="vector" ratio="14" align="center-left"/>
 </element>
-<element name="U7" library="faout" package="SOIC127P600X175-8N" value="REF102AU" x="24.13" y="22.225" rot="R270">
+<element name="U7" library="faout" package="SOIC127P600X175-8N" value="REF102AU" x="24.13" y="22.225" smashed="yes" rot="R270">
 <attribute name="PACKAGE" value="SOIC-8" x="24.13" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="04M4600" x="24.13" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="REF102AU" x="24.13" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SUPPLIER" value="Texas Instruments" x="24.13" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1212344" x="24.13" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="23.4375" y="21.005" size="1" layer="25" font="vector" align="center-left"/>
+<attribute name="VALUE" x="20.955" y="23.8125" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 </element>
-<element name="U2" library="faout" package="SOT95P284X122-5N" value="LM3671MF-1.2" x="8.89" y="64.135">
+<element name="U2" library="faout" package="SOT95P284X122-5N" value="LM3671MF-1.2" x="8.89" y="64.135" smashed="yes">
 <attribute name="PACKAGE" value="5-SOT-23" x="8.89" y="64.135" size="1.778" layer="27" display="off"/>
 <attribute name="OC_NEWARK" value="41K4937" x="8.89" y="64.135" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="LM3671MF-1.2" x="8.89" y="64.135" size="1.778" layer="27" display="off"/>
 <attribute name="SUPPLIER" value="NationalSemiconductor" x="8.89" y="64.135" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="1685653" x="8.89" y="64.135" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="8.5725" y="66.3575" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="7.3025" y="61.595" size="0.4064" layer="27" font="vector" ratio="14" align="center-left"/>
 </element>
-<element name="U1" library="faout" package="SOT95P284X122-5N" value="LM3671MF-3.3" x="24.765" y="64.135">
+<element name="U1" library="faout" package="SOT95P284X122-5N" value="LM3671MF-3.3" x="24.765" y="64.135" smashed="yes">
 <attribute name="PACKAGE" value="5-SOT-23" x="24.765" y="64.135" size="1.778" layer="27" display="off"/>
 <attribute name="OC_NEWARK" value="79K7838" x="24.765" y="64.135" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="LM3671MF-3.3" x="24.765" y="64.135" size="1.778" layer="27" display="off"/>
 <attribute name="SUPPLIER" value="NationalSemiconductor" x="24.765" y="64.135" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="1685767" x="24.765" y="64.135" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="24.4475" y="66.3575" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="23.1775" y="61.595" size="0.4064" layer="27" font="vector" ratio="14" align="center-left"/>
 </element>
-<element name="C1" library="faout" package="R0603" value="4.7uF" x="21.59" y="64.135" rot="R270">
+<element name="C1" library="faout" package="R0603" value="4.7uF" x="21.59" y="64.135" smashed="yes" rot="R270">
 <attribute name="OC_FARNELL" value="1833803" x="21.59" y="64.135" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="21.59" y="65.7225" size="0.6096" layer="25" font="vector" ratio="14" rot="R90" align="center-left"/>
+<attribute name="VALUE" x="20.955" y="62.23" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 </element>
 <element name="C10" library="faout" package="R0603" value="4.7uF" x="6.0325" y="64.135" smashed="yes" rot="R270">
 <attribute name="OC_FARNELL" value="1833803" x="6.0325" y="64.135" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="6.0325" y="66.04" size="0.6096" layer="25" font="vector" ratio="14" rot="R90" align="center-left"/>
 <attribute name="VALUE" x="5.3975" y="62.23" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 </element>
-<element name="C4" library="faout" package="R0603" value="4.7uF" x="32.0675" y="67.31">
+<element name="C4" library="faout" package="R0603" value="4.7uF" x="32.0675" y="67.31" smashed="yes">
 <attribute name="OC_FARNELL" value="1833803" x="32.0675" y="67.31" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="31.75" y="68.58" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="33.9725" y="66.675" size="0.4064" layer="27" font="vector" ratio="14" align="center-left"/>
 </element>
-<element name="C3" library="faout" package="R0603" value="4.7uF" x="27.6225" y="67.31" rot="R180">
+<element name="C3" library="faout" package="R0603" value="4.7uF" x="27.6225" y="67.31" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="1833803" x="27.6225" y="67.31" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="27.94" y="68.58" size="0.6096" layer="25" font="vector" ratio="14" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="25.7175" y="67.945" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
-<element name="C13" library="faout" package="R0603" value="4.7uF" x="16.1925" y="67.31">
+<element name="C13" library="faout" package="R0603" value="4.7uF" x="16.1925" y="67.31" smashed="yes">
 <attribute name="OC_FARNELL" value="1833803" x="16.1925" y="67.31" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="15.5575" y="68.58" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="18.0975" y="66.675" size="0.4064" layer="27" font="vector" ratio="14" align="center-left"/>
 </element>
-<element name="C12" library="faout" package="R0603" value="4.7uF" x="11.7475" y="67.31" rot="R180">
+<element name="C12" library="faout" package="R0603" value="4.7uF" x="11.7475" y="67.31" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="1833803" x="11.7475" y="67.31" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="12.7" y="68.58" size="0.6096" layer="25" font="vector" ratio="14" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="9.8425" y="67.945" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
 <element name="L1" library="rcl" package="L5038P" value="2.2uH" x="30.1625" y="64.135" smashed="yes">
 <attribute name="OC_FARNELL" value="2145272" x="30.1625" y="64.135" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="29.5275" y="62.5475" size="0.6096" layer="25" ratio="14"/>
+<attribute name="NAME" x="29.21" y="66.3575" size="0.6096" layer="25" ratio="14"/>
 <attribute name="VALUE" x="28.2575" y="60.325" size="1.27" layer="27"/>
 </element>
 <element name="L2" library="rcl" package="L5038P" value="2.2uH" x="14.2875" y="64.135" smashed="yes">
 <attribute name="OC_FARNELL" value="2145272" x="14.2875" y="64.135" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="13.6525" y="62.5475" size="0.6096" layer="25" ratio="14"/>
+<attribute name="NAME" x="13.335" y="66.3575" size="0.6096" layer="25" ratio="14"/>
 <attribute name="VALUE" x="12.3825" y="60.325" size="1.27" layer="27"/>
 </element>
-<element name="C2" library="faout" package="R0603" value="4.7uF" x="20.32" y="64.135" rot="R270">
+<element name="C2" library="faout" package="R0603" value="4.7uF" x="20.32" y="64.135" smashed="yes" rot="R270">
 <attribute name="OC_FARNELL" value="1833803" x="20.32" y="64.135" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="20.32" y="65.7225" size="0.6096" layer="25" font="vector" ratio="14" rot="R90" align="center-left"/>
+<attribute name="VALUE" x="19.685" y="62.23" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 </element>
 <element name="C11" library="faout" package="R0603" value="4.7uF" x="4.7625" y="64.135" smashed="yes" rot="R270">
 <attribute name="OC_FARNELL" value="1833803" x="4.7625" y="64.135" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="4.7625" y="66.04" size="0.6096" layer="25" font="vector" ratio="14" rot="R90" align="center-left"/>
 <attribute name="VALUE" x="4.1275" y="62.23" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 </element>
-<element name="Q1" library="faout" package="TO254P1524X460-3N" value="L7812CD2T-TR" x="89.535" y="55.88" rot="R270">
+<element name="Q1" library="faout" package="TO254P1524X460-3N" value="L7812CD2T-TR" x="89.535" y="55.88" smashed="yes" rot="R270">
 <attribute name="PACKAGE" value="D2PAK" x="89.535" y="55.88" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="89K1392" x="89.535" y="55.88" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="L7812CD2T-TR" x="89.535" y="55.88" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SUPPLIER" value="STMicroelectronics" x="89.535" y="55.88" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="2296017" x="89.535" y="55.88" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="87.7951" y="58.3692" size="2" layer="25" ratio="10" rot="SR0"/>
+<attribute name="VALUE" x="76.0476" y="61.849" size="2.0828" layer="27" ratio="10" rot="SR270"/>
 </element>
-<element name="Q2" library="faout" package="TO254P1524X460-3N" value="L7912CD2T-TR" x="89.535" y="34.29" rot="R270">
+<element name="Q2" library="faout" package="TO254P1524X460-3N" value="L7912CD2T-TR" x="89.535" y="34.29" smashed="yes" rot="R270">
 <attribute name="OC_FARNELL" value="1564324" x="89.535" y="34.29" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="87.7951" y="36.4617" size="2" layer="25" ratio="10" rot="SR0"/>
+<attribute name="VALUE" x="76.0476" y="40.259" size="2.0828" layer="27" ratio="10" rot="SR270"/>
 </element>
-<element name="C7" library="faout" package="R0805" value="10uF" x="80.3275" y="47.3075" rot="R180">
+<element name="C7" library="faout" package="R0805" value="10uF" x="80.3275" y="47.3075" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="1867958" x="80.3275" y="47.3075" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="78.4225" y="47.3075" size="0.6096" layer="25" font="vector" ratio="14" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="78.4225" y="47.9425" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
-<element name="C8" library="faout" package="R0805" value="10uF" x="80.3275" y="49.2125" rot="R180">
+<element name="C8" library="faout" package="R0805" value="10uF" x="80.3275" y="49.2125" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="1867958" x="80.3275" y="49.2125" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="78.4225" y="49.2125" size="0.6096" layer="25" font="vector" ratio="14" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="78.4225" y="49.8475" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
-<element name="C15" library="faout" package="R0805" value="10uF" x="92.075" y="15.875" rot="R90">
+<element name="C15" library="faout" package="R0805" value="10uF" x="92.075" y="15.875" smashed="yes" rot="R90">
 <attribute name="OC_FARNELL" value="1867958" x="92.075" y="15.875" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="91.29" y="17.7975" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="92.71" y="17.78" size="0.4064" layer="27" font="vector" ratio="14" rot="R90" align="center-left"/>
 </element>
-<element name="C16" library="faout" package="R0805" value="10uF" x="90.17" y="15.875" rot="R90">
+<element name="C16" library="faout" package="R0805" value="10uF" x="90.17" y="15.875" smashed="yes" rot="R90">
 <attribute name="OC_FARNELL" value="1867958" x="90.17" y="15.875" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="89.0675" y="17.7975" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="90.805" y="17.78" size="0.4064" layer="27" font="vector" ratio="14" rot="R90" align="center-left"/>
 </element>
-<element name="C5" library="faout" package="R0805" value="10uF" x="80.3275" y="55.88">
+<element name="C5" library="faout" package="R0805" value="10uF" x="80.3275" y="55.88" smashed="yes">
 <attribute name="OC_FARNELL" value="1867958" x="80.3275" y="55.88" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="80.01" y="57.15" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="82.2325" y="55.245" size="0.4064" layer="27" font="vector" ratio="14" align="center-left"/>
 </element>
-<element name="C18" library="faout" package="R0805" value="10uF" x="80.3275" y="34.29" rot="R180">
+<element name="C18" library="faout" package="R0805" value="10uF" x="80.3275" y="34.29" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="1867958" x="80.3275" y="34.29" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="78.4225" y="34.29" size="0.6096" layer="25" font="vector" ratio="14" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="78.4225" y="34.925" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
-<element name="U3" library="faout" package="SOT95P280X145-6N" value="93LC46BT-I/OT" x="69.5325" y="62.865" rot="R270">
+<element name="U3" library="faout" package="SOT95P280X145-6N" value="93LC46BT-I/OT" x="69.5325" y="62.865" smashed="yes" rot="R270">
 <attribute name="PACKAGE" value="SOT-6" x="69.5325" y="62.865" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="75M3689" x="69.5325" y="62.865" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="93LC46BT-I/OT" x="69.5325" y="62.865" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SUPPLIER" value="Microchip" x="69.5325" y="62.865" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1556164" x="69.5325" y="62.865" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="66.9925" y="63.5" size="0.6096" layer="25" font="vector" ratio="14" rot="R270" align="center-left"/>
+<attribute name="VALUE" x="67.6275" y="63.8175" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 </element>
-<element name="C6" library="faout" package="R0603" value="100nF" x="80.3275" y="45.4025" rot="R180">
+<element name="C6" library="faout" package="R0603" value="100nF" x="80.3275" y="45.4025" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="1740621" x="80.3275" y="45.4025" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="78.4225" y="45.4025" size="0.6096" layer="25" font="vector" ratio="14" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="78.4225" y="46.0375" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
-<element name="C14" library="faout" package="R0603" value="100nF" x="93.98" y="15.875" rot="R90">
+<element name="C14" library="faout" package="R0603" value="100nF" x="93.98" y="15.875" smashed="yes" rot="R90">
 <attribute name="OC_FARNELL" value="1740621" x="93.98" y="15.875" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="93.645" y="17.7975" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="94.615" y="17.78" size="0.4064" layer="27" font="vector" ratio="14" rot="R90" align="center-left"/>
 </element>
-<element name="U5" library="faout" package="SOIC127P600X175-8N" value="M25PE16SO8N" x="59.055" y="33.3375" rot="R180">
+<element name="U5" library="faout" package="SOIC127P600X175-8N" value="M25PE16SO8N" x="59.055" y="33.3375" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="1734973" x="59.055" y="33.3375" size="1.016" layer="27" ratio="12" rot="R180" display="off"/>
+<attribute name="NAME" x="59.3725" y="36.83" size="1" layer="25" font="vector" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="60.6425" y="36.5125" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
-<element name="C17" library="rcl" package="PANASONIC_E" value="220uF" x="89.535" y="23.495">
+<element name="C17" library="rcl" package="PANASONIC_E" value="220uF" x="89.535" y="23.495" smashed="yes">
 <attribute name="OC_FARNELL" value="9695680" x="89.535" y="23.495" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="88.6875" y="24.795" size="1.016" layer="25"/>
+<attribute name="VALUE" x="87.735" y="21.27" size="1.016" layer="27"/>
 </element>
-<element name="C9" library="rcl" package="PANASONIC_E" value="220uF" x="89.535" y="45.085" rot="R180">
+<element name="C9" library="rcl" package="PANASONIC_E" value="220uF" x="89.535" y="45.085" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="9695680" x="89.535" y="45.085" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="88.4775" y="45.69" size="1" layer="25" rot="R180"/>
+<attribute name="VALUE" x="91.335" y="47.31" size="1.016" layer="27" rot="R180"/>
 </element>
-<element name="U9" library="faout" package="SOP65P640X120-16N" value="DAC8812" x="31.75" y="22.225" rot="R90">
+<element name="U9" library="faout" package="SOP65P640X120-16N" value="DAC8812" x="31.75" y="22.225" smashed="yes" rot="R90">
 <attribute name="PACKAGE" value="TSSOP-16" x="31.75" y="22.225" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="DAC8812" x="31.75" y="22.225" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SUPPLIER" value="Texas Instruments" x="31.75" y="22.225" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="1390687" x="31.75" y="22.225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="32.7625" y="20.775" size="1" layer="25" font="vector" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="34.925" y="20.6375" size="0.4064" layer="27" font="vector" ratio="14" rot="R90" align="center-left"/>
 </element>
-<element name="U8" library="faout" package="SOIC127P600X175-14N" value="OPA4277UA" x="29.845" y="12.3825" rot="R270">
+<element name="U8" library="faout" package="SOIC127P600X175-14N" value="OPA4277UA" x="29.845" y="12.3825" smashed="yes" rot="R270">
 <attribute name="PACKAGE" value="SOIC-14" x="29.845" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="24C8771" x="29.845" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="OPA4277UA" x="29.845" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SUPPLIER" value="Texas Instruments" x="29.845" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1097479" x="29.845" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="28.93" y="11.075" size="1" layer="25" font="vector" align="center-left"/>
+<attribute name="VALUE" x="24.765" y="13.97" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 </element>
-<element name="AO2" library="analog_out_lib" package="BU-SMA-H" value="BU-SMA" x="29" y="4.5" rot="R270">
+<element name="AO2" library="analog_out_lib" package="BU-SMA-H" value="BU-SMA" x="29" y="4.5" smashed="yes" rot="R270">
 <attribute name="MPN" value="" x="29" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="29" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1248989" x="29" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="33.445" y="7.04" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="23.285" y="7.675" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="AO3" library="analog_out_lib" package="BU-SMA-H" value="BU-SMA" x="43" y="4.5" rot="R270">
+<element name="AO3" library="analog_out_lib" package="BU-SMA-H" value="BU-SMA" x="43" y="4.5" smashed="yes" rot="R270">
 <attribute name="MPN" value="" x="43" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="43" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1248989" x="43" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="47.445" y="7.04" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="37.285" y="7.675" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="AO4" library="analog_out_lib" package="BU-SMA-H" value="BU-SMA" x="57" y="4.5" rot="R270">
+<element name="AO4" library="analog_out_lib" package="BU-SMA-H" value="BU-SMA" x="57" y="4.5" smashed="yes" rot="R270">
 <attribute name="MPN" value="" x="57" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="57" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1248989" x="57" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="61.445" y="7.04" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="51.285" y="7.675" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="AO5" library="analog_out_lib" package="BU-SMA-H" value="BU-SMA" x="71" y="4.5" rot="R270">
+<element name="AO5" library="analog_out_lib" package="BU-SMA-H" value="BU-SMA" x="71" y="4.5" smashed="yes" rot="R270">
 <attribute name="MPN" value="" x="71" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="71" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1248989" x="71" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="75.445" y="7.04" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="65.285" y="7.675" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="AO6" library="analog_out_lib" package="BU-SMA-H" value="BU-SMA" x="85" y="4.5" rot="R270">
+<element name="AO6" library="analog_out_lib" package="BU-SMA-H" value="BU-SMA" x="85" y="4.5" smashed="yes" rot="R270">
 <attribute name="MPN" value="" x="85" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="85" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1248989" x="85" y="4.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="89.445" y="7.04" size="1.27" layer="25" rot="R270"/>
+<attribute name="VALUE" x="79.285" y="7.675" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="R9" library="faout" package="R0603" value="" x="54.2925" y="73.025" rot="R270"/>
-<element name="C71" library="faout" package="R0603" value="20pF" x="33.9725" y="17.145" rot="R180"/>
-<element name="C72" library="faout" package="R0603" value="20pF" x="26.67" y="17.145"/>
-<element name="C65" library="faout" package="R0603" value="1uF" x="23.1775" y="26.67" rot="R180">
+<element name="R9" library="faout" package="R0603" value="" x="54.2925" y="73.025" smashed="yes" rot="R270">
+<attribute name="NAME" x="53.6575" y="74.6125" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="53.6575" y="71.12" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
+</element>
+<element name="C71" library="faout" package="R0603" value="20pF" x="33.9725" y="17.145" smashed="yes" rot="R180">
+<attribute name="NAME" x="34.9175" y="18.195" size="0.6096" layer="25" font="vector" ratio="14" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="32.0675" y="17.78" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
+</element>
+<element name="C72" library="faout" package="R0603" value="20pF" x="26.67" y="17.145" smashed="yes">
+<attribute name="NAME" x="25.725" y="18.195" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="28.575" y="16.51" size="0.4064" layer="27" font="vector" ratio="14" align="center-left"/>
+</element>
+<element name="C65" library="faout" package="R0603" value="1uF" x="23.1775" y="26.67" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="1759409" x="23.1775" y="26.3525" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="23.9725" y="27.72" size="0.6096" layer="25" font="vector" ratio="14" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="21.2725" y="27.305" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
-<element name="C66" library="faout" package="R0603" value="1uF" x="26.035" y="20.6375" rot="MR90">
+<element name="C66" library="faout" package="R0603" value="1uF" x="26.035" y="20.6375" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1759409" x="26.035" y="20.6375" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="26.035" y="22.0925" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="25.4" y="22.5425" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
 <element name="C69" library="faout" package="R0603" value="100nF" x="28.575" y="14.2875" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1740621" x="28.8925" y="14.2875" size="1.778" layer="28" rot="MR90" display="off"/>
@@ -3173,41 +3270,57 @@ Covered vias can be set in Masks (Limit).
 </element>
 <element name="C67" library="faout" package="R0603" value="1uF" x="31.115" y="14.2875" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1759409" x="31.115" y="14.2875" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="NAME" x="32.385" y="14.9225" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
+<attribute name="NAME" x="30.135" y="15.0725" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
 <attribute name="VALUE" x="30.48" y="16.1925" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
 <element name="C68" library="faout" package="R0603" value="1uF" x="31.115" y="10.4775" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1759409" x="31.115" y="10.4775" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="NAME" x="32.385" y="11.43" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
+<attribute name="NAME" x="29.985" y="11.28" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
 <attribute name="VALUE" x="30.48" y="12.3825" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
-<element name="U10" library="faout" package="SOIC127P600X175-8N" value="REF102AU" x="41.91" y="22.225" rot="R270">
+<element name="U10" library="faout" package="SOIC127P600X175-8N" value="REF102AU" x="41.91" y="22.225" smashed="yes" rot="R270">
 <attribute name="PACKAGE" value="SOIC-8" x="41.91" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="04M4600" x="41.91" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="REF102AU" x="41.91" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SUPPLIER" value="Texas Instruments" x="41.91" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1212344" x="41.91" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="40.8375" y="21.085" size="1" layer="25" font="vector" align="center-left"/>
+<attribute name="VALUE" x="38.735" y="23.8125" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 </element>
-<element name="U12" library="faout" package="SOP65P640X120-16N" value="DAC8812" x="49.53" y="22.225" rot="R90">
+<element name="U12" library="faout" package="SOP65P640X120-16N" value="DAC8812" x="49.53" y="22.225" smashed="yes" rot="R90">
 <attribute name="PACKAGE" value="TSSOP-16" x="49.53" y="22.225" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="DAC8812" x="49.53" y="22.225" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SUPPLIER" value="Texas Instruments" x="49.53" y="22.225" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="1390687" x="49.53" y="22.225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="50.7625" y="20.705" size="1" layer="25" font="vector" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="52.705" y="20.6375" size="0.4064" layer="27" font="vector" ratio="14" rot="R90" align="center-left"/>
 </element>
-<element name="U11" library="faout" package="SOIC127P600X175-14N" value="OPA4277UA" x="47.625" y="12.3825" rot="R270">
+<element name="U11" library="faout" package="SOIC127P600X175-14N" value="OPA4277UA" x="47.625" y="12.3825" smashed="yes" rot="R270">
 <attribute name="PACKAGE" value="SOIC-14" x="47.625" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="24C8771" x="47.625" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="OPA4277UA" x="47.625" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SUPPLIER" value="Texas Instruments" x="47.625" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1097479" x="47.625" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="47.08" y="11.005" size="1" layer="25" font="vector" align="center-left"/>
+<attribute name="VALUE" x="42.545" y="13.97" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 </element>
-<element name="C80" library="faout" package="R0603" value="20pF" x="51.7525" y="17.145" rot="R180"/>
-<element name="C81" library="faout" package="R0603" value="20pF" x="44.45" y="17.145"/>
-<element name="C74" library="faout" package="R0603" value="1uF" x="40.9575" y="26.67" rot="R180">
+<element name="C80" library="faout" package="R0603" value="20pF" x="51.7525" y="17.145" smashed="yes" rot="R180">
+<attribute name="NAME" x="52.5475" y="18.195" size="0.6096" layer="25" font="vector" ratio="14" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="49.8475" y="17.78" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
+</element>
+<element name="C81" library="faout" package="R0603" value="20pF" x="44.45" y="17.145" smashed="yes">
+<attribute name="NAME" x="43.805" y="18.195" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="46.355" y="16.51" size="0.4064" layer="27" font="vector" ratio="14" align="center-left"/>
+</element>
+<element name="C74" library="faout" package="R0603" value="1uF" x="40.9575" y="26.67" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="1759409" x="40.9575" y="26.3525" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="41.7525" y="27.87" size="0.6096" layer="25" font="vector" ratio="14" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="39.0525" y="27.305" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
-<element name="C75" library="faout" package="R0603" value="1uF" x="43.815" y="20.6375" rot="MR90">
+<element name="C75" library="faout" package="R0603" value="1uF" x="43.815" y="20.6375" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1759409" x="43.815" y="20.6375" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="43.815" y="21.7925" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="43.18" y="22.5425" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
 <element name="C78" library="faout" package="R0603" value="100nF" x="46.355" y="14.2875" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1740621" x="46.6725" y="14.2875" size="1.778" layer="28" rot="MR90" display="off"/>
@@ -3221,43 +3334,57 @@ Covered vias can be set in Masks (Limit).
 </element>
 <element name="C76" library="faout" package="R0603" value="1uF" x="48.895" y="14.2875" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1759409" x="48.895" y="14.2875" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="NAME" x="50.165" y="15.24" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
+<attribute name="NAME" x="47.765" y="15.09" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
 <attribute name="VALUE" x="48.26" y="16.1925" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
 <element name="C77" library="faout" package="R0603" value="1uF" x="48.895" y="10.4775" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1759409" x="48.895" y="10.4775" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="NAME" x="50.165" y="11.43" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
+<attribute name="NAME" x="47.915" y="11.28" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
 <attribute name="VALUE" x="48.26" y="12.3825" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
-<element name="U13" library="faout" package="SOIC127P600X175-8N" value="REF102AU" x="70.485" y="22.225" rot="R270">
+<element name="U13" library="faout" package="SOIC127P600X175-8N" value="REF102AU" x="70.485" y="22.225" smashed="yes" rot="R270">
 <attribute name="PACKAGE" value="SOIC-8" x="70.485" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="04M4600" x="70.485" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="REF102AU" x="70.485" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SUPPLIER" value="Texas Instruments" x="70.485" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1212344" x="70.485" y="22.225" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="69.2325" y="20.955" size="1" layer="25" font="vector" align="center-left"/>
+<attribute name="VALUE" x="67.31" y="23.8125" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 </element>
-<element name="U15" library="faout" package="SOP65P640X120-16N" value="DAC8812" x="78.105" y="22.225" rot="R90">
+<element name="U15" library="faout" package="SOP65P640X120-16N" value="DAC8812" x="78.105" y="22.225" smashed="yes" rot="R90">
 <attribute name="PACKAGE" value="TSSOP-16" x="78.105" y="22.225" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="DAC8812" x="78.105" y="22.225" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="SUPPLIER" value="Texas Instruments" x="78.105" y="22.225" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="1390687" x="78.105" y="22.225" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="79.0575" y="20.6375" size="1" layer="25" font="vector" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="81.28" y="20.6375" size="0.4064" layer="27" font="vector" ratio="14" rot="R90" align="center-left"/>
 </element>
-<element name="U14" library="faout" package="SOIC127P600X175-14N" value="OPA4277UA" x="76.2" y="12.3825" rot="R270">
+<element name="U14" library="faout" package="SOIC127P600X175-14N" value="OPA4277UA" x="76.2" y="12.3825" smashed="yes" rot="R270">
 <attribute name="PACKAGE" value="SOIC-14" x="76.2" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_NEWARK" value="24C8771" x="76.2" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="OPA4277UA" x="76.2" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SUPPLIER" value="Texas Instruments" x="76.2" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1097479" x="76.2" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="75.115" y="11.1125" size="1" layer="25" font="vector" align="center-left"/>
+<attribute name="VALUE" x="71.12" y="13.97" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
 </element>
-<element name="C89" library="faout" package="R0603" value="20pF" x="80.3275" y="17.145" rot="R180"/>
-<element name="C90" library="faout" package="R0603" value="20pF" x="73.025" y="17.145"/>
+<element name="C89" library="faout" package="R0603" value="20pF" x="80.3275" y="17.145" smashed="yes" rot="R180">
+<attribute name="NAME" x="79.6925" y="18.0975" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="78.4225" y="17.78" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
+</element>
+<element name="C90" library="faout" package="R0603" value="20pF" x="73.025" y="17.145" smashed="yes">
+<attribute name="NAME" x="72.39" y="18.0975" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="74.93" y="16.51" size="0.4064" layer="27" font="vector" ratio="14" align="center-left"/>
+</element>
 <element name="C83" library="faout" package="R0603" value="1uF" x="69.5325" y="26.67" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="1759409" x="69.5325" y="26.3525" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="71.4375" y="26.67" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="NAME" x="68.8875" y="27.72" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
 <attribute name="VALUE" x="67.6275" y="27.305" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
-<element name="C84" library="faout" package="R0603" value="1uF" x="72.39" y="20.6375" rot="MR90">
+<element name="C84" library="faout" package="R0603" value="1uF" x="72.39" y="20.6375" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1759409" x="72.39" y="20.6375" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="72.39" y="21.9425" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="71.755" y="22.5425" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
 <element name="C87" library="faout" package="R0603" value="100nF" x="74.93" y="14.2875" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1740621" x="75.2475" y="14.2875" size="1.778" layer="28" rot="MR90" display="off"/>
@@ -3271,138 +3398,200 @@ Covered vias can be set in Masks (Limit).
 </element>
 <element name="C85" library="faout" package="R0603" value="1uF" x="77.47" y="14.2875" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1759409" x="77.47" y="14.2875" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="NAME" x="78.74" y="15.24" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
+<attribute name="NAME" x="76.49" y="15.24" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
 <attribute name="VALUE" x="76.835" y="16.1925" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
 <element name="C86" library="faout" package="R0603" value="1uF" x="77.47" y="10.4775" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1759409" x="77.47" y="10.4775" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="NAME" x="78.74" y="11.43" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
+<attribute name="NAME" x="76.49" y="11.43" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
 <attribute name="VALUE" x="76.835" y="12.3825" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
 <element name="R16" library="faout" package="R0603" value="13k" x="63.8175" y="12.065" smashed="yes" rot="R180">
-<attribute name="NAME" x="65.405" y="12.065" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="NAME" x="63.1825" y="11.1125" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
 <attribute name="VALUE" x="61.9125" y="12.7" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
 <element name="R17" library="faout" package="R0603" value="5.1k" x="60.0075" y="12.065" smashed="yes" rot="R180">
-<attribute name="NAME" x="58.42" y="12.065" size="0.6096" layer="25" font="vector" ratio="14" rot="R180" align="center-left"/>
+<attribute name="NAME" x="60.97" y="10.865" size="0.6096" layer="25" font="vector" ratio="14" rot="R180" align="center-left"/>
 <attribute name="VALUE" x="58.1025" y="12.7" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
-<element name="R15" library="faout" package="R0603" value="10k" x="53.975" y="23.1775" rot="R270"/>
-<element name="P1" library="faout" package="TE_CONN_MTE_HEADER3_R" value="TE_CONN_MTE_HEADER3R" x="84.455" y="63.8175">
+<element name="R15" library="faout" package="R0603" value="10k" x="53.975" y="23.1775" smashed="yes" rot="R270">
+<attribute name="NAME" x="53.2775" y="24.575" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="53.34" y="21.2725" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
+</element>
+<element name="P1" library="faout" package="TE_CONN_MTE_HEADER3_R" value="TE_CONN_MTE_HEADER3R" x="84.455" y="63.8175" smashed="yes">
 <attribute name="OC_FARNELL" value="2429542" x="84.455" y="63.8175" size="1.778" layer="27" display="off"/>
 </element>
-<element name="SV1" library="con-ml" package="ML6L" value="" x="40.64" y="65.7225">
+<element name="SV1" library="con-ml" package="ML6L" value="" x="40.64" y="65.7225" smashed="yes">
 <attribute name="OC_NEWARK" value="unknown" x="40.64" y="65.7225" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="40.64" y="65.7225" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="40.64" y="65.7225" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="2356262" x="40.64" y="65.7225" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="38.5446" y="77.4525" size="2" layer="25" ratio="10"/>
+<attribute name="VALUE" x="41.2496" y="77.1525" size="1.778" layer="27" ratio="10"/>
 </element>
-<element name="R7" library="faout" package="R0603" value="NC" x="50.165" y="67.6275" rot="R270"/>
-<element name="R1" library="faout" package="R1206" value="ferrite" x="50.8" y="73.9775" rot="R180">
+<element name="R7" library="faout" package="R0603" value="NC" x="50.165" y="67.6275" smashed="yes" rot="R270">
+<attribute name="NAME" x="49.53" y="69.215" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="49.53" y="65.7225" size="0.4064" layer="27" font="vector" ratio="14" rot="R270" align="center-left"/>
+</element>
+<element name="R1" library="faout" package="R1206" value="ferrite" x="50.8" y="73.9775" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="1612060" x="50.8" y="73.9775" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="51.435" y="75.2475" size="0.6096" layer="25" font="vector" ratio="14" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="47.625" y="74.6125" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
-<element name="R3" library="faout" package="R1206" value="ferrite" x="50.8" y="70.8025" rot="R180">
+<element name="R3" library="faout" package="R1206" value="ferrite" x="50.8" y="70.8025" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="1612060" x="50.8" y="70.8025" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="51.435" y="72.39" size="0.6096" layer="25" font="vector" ratio="14" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="47.625" y="71.4375" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
-<element name="SV2" library="con-ml" package="ML10" value="" x="71.12" y="43.815" rot="R90">
+<element name="SV2" library="con-ml" package="ML10" value="" x="71.12" y="43.815" smashed="yes" rot="R90">
 <attribute name="OC_NEWARK" value="unknown" x="71.12" y="43.815" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="" x="71.12" y="43.815" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="" x="71.12" y="43.815" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="71.12" y="43.815" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="70.8025" y="54.61" size="1.778" layer="25" ratio="10"/>
+<attribute name="VALUE" x="66.04" y="43.815" size="1.778" layer="27" ratio="10" rot="R90"/>
 </element>
-<element name="R2" library="faout" package="R1206" value="ferrite" x="76.5175" y="55.88" rot="MR0">
+<element name="R2" library="faout" package="R1206" value="ferrite" x="76.5175" y="55.88" smashed="yes" rot="MR0">
 <attribute name="OC_FARNELL" value="1612060" x="76.5175" y="55.88" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="NAME" x="76.9425" y="57.53" size="0.6096" layer="26" font="vector" ratio="14" rot="MR0" align="center-left"/>
+<attribute name="VALUE" x="73.3425" y="55.245" size="0.4064" layer="28" font="vector" ratio="14" rot="MR0" align="center-left"/>
 </element>
-<element name="C73" library="faout" package="R0603" value="10nF" x="76.2" y="25.7175" rot="MR270">
+<element name="C73" library="faout" package="R0603" value="10nF" x="76.2" y="25.7175" smashed="yes" rot="MR270">
 <attribute name="OC_FARNELL" value="1759102" x="76.2" y="25.7175" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="NAME" x="76.2" y="28.7625" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
+<attribute name="VALUE" x="76.835" y="23.8125" size="0.4064" layer="28" font="vector" ratio="14" rot="MR270" align="center-left"/>
 </element>
-<element name="C82" library="faout" package="R0603" value="10nF" x="50.165" y="25.7175" rot="MR270">
+<element name="C82" library="faout" package="R0603" value="10nF" x="50.165" y="25.7175" smashed="yes" rot="MR270">
 <attribute name="OC_FARNELL" value="1759102" x="50.165" y="25.7175" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="NAME" x="50.165" y="28.4625" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
+<attribute name="VALUE" x="50.8" y="23.8125" size="0.4064" layer="28" font="vector" ratio="14" rot="MR270" align="center-left"/>
 </element>
-<element name="C91" library="faout" package="R0603" value="10nF" x="31.4325" y="25.7175" rot="MR90">
+<element name="C91" library="faout" package="R0603" value="10nF" x="31.4325" y="25.7175" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1759102" x="31.4325" y="25.7175" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="31.4325" y="26.8725" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="30.7975" y="27.6225" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
-<element name="C92" library="faout" package="R0603" value="1uF" x="29.845" y="25.7175" rot="MR90">
+<element name="C92" library="faout" package="R0603" value="1uF" x="29.845" y="25.7175" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1759409" x="29.845" y="25.7175" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="29.845" y="27.0225" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="29.21" y="27.6225" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
-<element name="C93" library="faout" package="R0603" value="1uF" x="51.7525" y="25.7175" rot="MR270">
+<element name="C93" library="faout" package="R0603" value="1uF" x="51.7525" y="25.7175" smashed="yes" rot="MR270">
 <attribute name="OC_FARNELL" value="1759409" x="51.7525" y="25.7175" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="NAME" x="51.7525" y="28.4625" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
+<attribute name="VALUE" x="52.3875" y="23.8125" size="0.4064" layer="28" font="vector" ratio="14" rot="MR270" align="center-left"/>
 </element>
-<element name="C94" library="faout" package="R0603" value="1uF" x="74.6125" y="25.7175" rot="MR270">
+<element name="C94" library="faout" package="R0603" value="1uF" x="74.6125" y="25.7175" smashed="yes" rot="MR270">
 <attribute name="OC_FARNELL" value="1759409" x="74.6125" y="25.7175" size="1.778" layer="28" rot="MR270" display="off"/>
+<attribute name="NAME" x="74.6125" y="28.7625" size="0.6096" layer="26" font="vector" ratio="14" rot="MR270" align="center-left"/>
+<attribute name="VALUE" x="75.2475" y="23.8125" size="0.4064" layer="28" font="vector" ratio="14" rot="MR270" align="center-left"/>
 </element>
-<element name="C95" library="rcl" package="PANASONIC_E" value="220uF" x="61.2775" y="21.2725" rot="R180">
+<element name="C95" library="rcl" package="PANASONIC_E" value="220uF" x="61.2775" y="21.2725" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="9695680" x="61.2775" y="21.2725" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="63.0775" y="19.9725" size="1" layer="25" rot="R180"/>
+<attribute name="VALUE" x="63.0775" y="23.4975" size="1.016" layer="27" rot="R180"/>
 </element>
-<element name="U16" library="faout" package="SOT95P300X120-5N" value="LM7321MF" x="60.0075" y="14.605">
+<element name="U16" library="faout" package="SOT95P300X120-5N" value="LM7321MF" x="60.0075" y="14.605" smashed="yes">
 <attribute name="PACKAGE" value="SOT-23-5" x="60.0075" y="14.605" size="1.778" layer="27" display="off"/>
 <attribute name="OC_NEWARK" value="11N9285" x="60.0075" y="14.605" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="LM7321MF" x="60.0075" y="14.605" size="1.778" layer="27" display="off"/>
 <attribute name="SUPPLIER" value="National Semiconductors" x="60.0075" y="14.605" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="1663013" x="60.0075" y="14.605" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="59.3725" y="16.66" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="58.42" y="12.7" size="0.4064" layer="27" font="vector" ratio="14" align="center-left"/>
 </element>
-<element name="C96" library="faout" package="R0603" value="10nF" x="63.8175" y="15.5575">
+<element name="C96" library="faout" package="R0603" value="10nF" x="63.8175" y="15.5575" smashed="yes">
 <attribute name="OC_FARNELL" value="1759102" x="63.8175" y="15.875" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="63.1825" y="16.51" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="65.7225" y="14.9225" size="0.4064" layer="27" font="vector" ratio="14" align="center-left"/>
 </element>
-<element name="C97" library="faout" package="R0603" value="1uF" x="63.8175" y="13.6525">
+<element name="C97" library="faout" package="R0603" value="1uF" x="63.8175" y="13.6525" smashed="yes">
 <attribute name="OC_FARNELL" value="1759409" x="63.8175" y="14.2875" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="63.1825" y="14.605" size="0.6096" layer="25" font="vector" ratio="14" align="center-left"/>
+<attribute name="VALUE" x="65.7225" y="13.0175" size="0.4064" layer="27" font="vector" ratio="14" align="center-left"/>
 </element>
-<element name="RN1" library="resistor-dil" package="EXBV8V" value="10k" x="36.83" y="12.3825" rot="R270">
+<element name="RN1" library="resistor-dil" package="EXBV8V" value="10k" x="36.83" y="12.3825" smashed="yes" rot="R270">
 <attribute name="OC_NEWARK" value="unknown" x="36.83" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="36.83" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="36.83" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1560925" x="36.83" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="35.68" y="14.4" size="1" layer="25"/>
+<attribute name="VALUE" x="34.29" y="13.97" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="RN2" library="resistor-dil" package="EXBV8V" value="10k" x="22.86" y="12.3825" rot="R270">
+<element name="RN2" library="resistor-dil" package="EXBV8V" value="10k" x="22.86" y="12.3825" smashed="yes" rot="R270">
 <attribute name="OC_NEWARK" value="unknown" x="22.86" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="22.86" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="22.86" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1560925" x="22.86" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="21.73" y="14.38" size="1" layer="25"/>
+<attribute name="VALUE" x="20.32" y="13.97" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="RN3" library="resistor-dil" package="EXBV8V" value="10k" x="54.61" y="12.3825" rot="R270">
+<element name="RN3" library="resistor-dil" package="EXBV8V" value="10k" x="54.61" y="12.3825" smashed="yes" rot="R270">
 <attribute name="OC_NEWARK" value="unknown" x="54.61" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="54.61" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="54.61" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1560925" x="54.61" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="53.53" y="14.33" size="1" layer="25"/>
+<attribute name="VALUE" x="52.07" y="13.97" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="RN4" library="resistor-dil" package="EXBV8V" value="10k" x="40.64" y="12.3825" rot="R270">
+<element name="RN4" library="resistor-dil" package="EXBV8V" value="10k" x="40.64" y="12.3825" smashed="yes" rot="R270">
 <attribute name="OC_NEWARK" value="unknown" x="40.64" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="40.64" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="40.64" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1560925" x="40.64" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="39.58" y="14.46" size="1" layer="25"/>
+<attribute name="VALUE" x="38.1" y="13.97" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="RN5" library="resistor-dil" package="EXBV8V" value="10k" x="83.185" y="12.3825" rot="R270">
+<element name="RN5" library="resistor-dil" package="EXBV8V" value="10k" x="83.185" y="12.3825" smashed="yes" rot="R270">
 <attribute name="OC_NEWARK" value="unknown" x="83.185" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="83.185" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="83.185" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1560925" x="83.185" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="82.03" y="14.4375" size="1" layer="25"/>
+<attribute name="VALUE" x="80.645" y="13.97" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="RN6" library="resistor-dil" package="EXBV8V" value="10k" x="69.215" y="12.3825" rot="R270">
+<element name="RN6" library="resistor-dil" package="EXBV8V" value="10k" x="69.215" y="12.3825" smashed="yes" rot="R270">
 <attribute name="OC_NEWARK" value="unknown" x="69.215" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MPN" value="" x="69.215" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MF" value="" x="69.215" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="1560925" x="69.215" y="12.3825" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="68.0775" y="14.5875" size="1" layer="25"/>
+<attribute name="VALUE" x="66.675" y="13.97" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="C98" library="faout" package="R0805" value="10uF" x="50.8" y="14.2875" rot="MR90">
+<element name="C98" library="faout" package="R0805" value="10uF" x="50.8" y="14.2875" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1735530" x="50.8" y="14.2875" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="52" y="13.6425" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="50.165" y="16.1925" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
-<element name="C99" library="faout" package="R0805" value="10uF" x="50.8" y="10.4775" rot="MR90">
+<element name="C99" library="faout" package="R0805" value="10uF" x="50.8" y="10.4775" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1735530" x="50.8" y="10.4775" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="52.15" y="9.6825" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="50.165" y="12.3825" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
-<element name="C100" library="faout" package="R0805" value="10uF" x="33.02" y="14.2875" rot="MR90">
+<element name="C100" library="faout" package="R0805" value="10uF" x="33.02" y="14.2875" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1735530" x="33.02" y="14.2875" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="34.37" y="13.1925" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="32.385" y="16.1925" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
-<element name="C101" library="faout" package="R0805" value="10uF" x="33.02" y="10.4775" rot="MR90">
+<element name="C101" library="faout" package="R0805" value="10uF" x="33.02" y="10.4775" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1735530" x="33.02" y="10.4775" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="34.37" y="9.3825" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="32.385" y="12.3825" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
-<element name="C102" library="faout" package="R0805" value="10uF" x="79.375" y="14.2875" rot="MR90">
+<element name="C102" library="faout" package="R0805" value="10uF" x="79.375" y="14.2875" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1735530" x="79.375" y="14.2875" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="80.875" y="13.1925" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="78.74" y="16.1925" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
-<element name="C103" library="faout" package="R0805" value="10uF" x="79.375" y="10.4775" rot="MR90">
+<element name="C103" library="faout" package="R0805" value="10uF" x="79.375" y="10.4775" smashed="yes" rot="MR90">
 <attribute name="OC_FARNELL" value="1735530" x="79.375" y="10.4775" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="80.875" y="9.3825" size="0.6096" layer="26" font="vector" ratio="14" rot="MR90" align="center-left"/>
+<attribute name="VALUE" x="78.74" y="12.3825" size="0.4064" layer="28" font="vector" ratio="14" rot="MR90" align="center-left"/>
 </element>
-<element name="USB1" library="faout" package="MOLEX_105017-0001" value="MOLEX_USB_105017-0001" x="60.0075" y="71.755" rot="R180">
+<element name="USB1" library="faout" package="MOLEX_105017-0001" value="MOLEX_USB_105017-0001" x="60.0075" y="71.755" smashed="yes" rot="R180">
 <attribute name="OC_FARNELL" value="2293836" x="60.0075" y="71.755" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="57.3575" y="78.2325" size="2" layer="25" font="vector" ratio="10" align="center-left"/>
+<attribute name="VALUE" x="63.365" y="76.97" size="0.4064" layer="27" font="vector" ratio="14" rot="R180" align="center-left"/>
 </element>
 </elements>
 <signals>
