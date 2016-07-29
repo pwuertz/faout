@@ -3,6 +3,10 @@
 --
 -- This is an utility module for simulation. It accepts integers from a FIFO
 -- interface and writes them to a text file.
+--
+-- Author: Peter Würtz, TU Kaiserslautern (2016)
+-- Distributed under the terms of the GNU General Public License Version 3.
+-- The full license is in the file COPYING.txt, distributed with this software.
 -------------------------------------------------------------------------------
 
 library ieee;
