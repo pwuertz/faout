@@ -7,6 +7,10 @@
 -- following NUM_PORTS*2 + 2 cycles. This is the amount of time required for
 -- the sample distributor to check all port buffers and refill them from the
 -- FIFO. During that time, a read operation may result in undefined behaviour.
+--
+-- Author: Peter Würtz, TU Kaiserslautern (2016)
+-- Distributed under the terms of the GNU General Public License Version 3.
+-- The full license is in the file COPYING.txt, distributed with this software.
 -------------------------------------------------------------------------------
 
 library ieee;
